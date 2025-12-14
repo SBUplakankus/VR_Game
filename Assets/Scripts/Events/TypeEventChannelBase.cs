@@ -1,24 +1,23 @@
 using System;
 using UnityEngine;
 
-namespace Events.Base
+namespace Events
 {
-    [CreateAssetMenu(fileName = "StringEventChannel", menuName = "Scriptable Objects/Event Channels/String")]
-    public class StringEventChannel : ScriptableObject
+    public abstract class TypeEventChannelBase<T> : ScriptableObject
     {
-        private event Action<string> Handlers;
+        private event Action<T> Handlers;
         
         /// <summary>
         /// Call the events handlers
         /// </summary>
-        public void Raise(string value)
+        public void Raise(T value)
         { 
             var handlers = Handlers;
             if (handlers == null) return;
 
             foreach (var @delegate in handlers.GetInvocationList())
             {
-                var handler = (Action<string>)@delegate;
+                var handler = (Action<T>)@delegate;
                 try
                 {
                     handler(value);
@@ -34,13 +33,13 @@ namespace Events.Base
         /// Subscribe an Action to be called with the event
         /// </summary>
         /// <param name="handler">Action to be called</param>
-        public void Subscribe(Action<string> handler) => Handlers += handler;
+        public void Subscribe(Action<T> handler) => Handlers += handler;
         
         /// <summary>
         /// Unsubscribe an Action to be called from the event
         /// </summary>
         /// <param name="handler">Action to be removed</param>
-        public void Unsubscribe(Action<string> handler) => Handlers -= handler;
+        public void Unsubscribe(Action<T> handler) => Handlers -= handler;
         
         /// <summary>
         /// Clear the Event on Disable

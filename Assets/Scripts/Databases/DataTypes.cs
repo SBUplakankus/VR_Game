@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Databases.Base
+namespace Databases
 {
     [CreateAssetMenu(menuName = "Scriptable Objects/Data/AudioClip Data")]
     public class AudioClipData : ScriptableObject

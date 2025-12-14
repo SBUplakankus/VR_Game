@@ -1,7 +1,6 @@
 using System;
 using Constants;
-using Databases.Base;
-using Events.Base;
+using Databases;
 using UnityEngine;
 
 namespace Audio
@@ -13,17 +12,29 @@ namespace Audio
         [SerializeField] private AudioSource masterSource;
         
         [Header("Audio Database")]
-        [SerializeField] private AudioClipDatabase audioDatabase;
+        private AudioClipDatabase _audioDatabase;
 
         private void OnEnable()
         {
+            _audioDatabase = GameDatabases.AudioClipDatabase;
             PlayMusic();
         }
 
         private void PlayMusic()
         {
-            musicSource.clip = audioDatabase.TryGet(GameConstants.MainMusicKey).clip;
+            musicSource.clip = _audioDatabase.TryGet(GameConstants.MainMusicKey).clip;
             musicSource.Play();
+        }
+
+        private AudioClip TryGet(string key)
+        {
+            if (_audioDatabase == null)
+            {
+                Debug.LogError($"Audio Database is NULL");
+                return null;
+            }
+            
+            return _audioDatabase.TryGet(key).clip;
         }
     }
 }

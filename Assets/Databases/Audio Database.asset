@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b4b54ea40b2c9e4aa87fc33d357c61a, type: 3}
-  m_Name: AudioClipDB
+  m_Script: {fileID: 11500000, guid: 6d1930d3a4a590a4ab70f347cf443b4f, type: 3}
+  m_Name: Audio Database
   m_EditorClassIdentifier: Assembly-CSharp::Databases.Base.AudioClipDatabase
   entries:
   - {fileID: 11400000, guid: 03b89107c17e17d43a4587ec02920e8a, type: 2}

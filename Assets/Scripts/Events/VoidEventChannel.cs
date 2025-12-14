@@ -1,27 +1,27 @@
 using System;
 using UnityEngine;
 
-namespace Events.Base
+namespace Events
 {
-    [CreateAssetMenu(fileName = "FloatEventChannel", menuName = "Scriptable Objects/Event Channels/Float")]
-    public class FloatEventChannel : ScriptableObject
+    [CreateAssetMenu(fileName = "VoidEventChannel", menuName = "Scriptable Objects/Event Channels/Void")]
+    public class VoidEventChannel : ScriptableObject
     {
-        private event Action<float> Handlers;
+        private event Action Handlers;
         
         /// <summary>
         /// Call the events handlers
         /// </summary>
-        public void Raise(float value)
+        public void Raise()
         { 
             var handlers = Handlers;
             if (handlers == null) return;
 
             foreach (var @delegate in handlers.GetInvocationList())
             {
-                var handler = (Action<float>)@delegate;
+                var handler = (Action)@delegate;
                 try
                 {
-                    handler(value);
+                    handler();
                 }
                 catch (Exception ex)
                 {
@@ -34,13 +34,13 @@ namespace Events.Base
         /// Subscribe an Action to be called with the event
         /// </summary>
         /// <param name="handler">Action to be called</param>
-        public void Subscribe(Action<float> handler) => Handlers += handler;
+        public void Subscribe(Action handler) => Handlers += handler;
         
         /// <summary>
         /// Unsubscribe an Action to be called from the event
         /// </summary>
         /// <param name="handler">Action to be removed</param>
-        public void Unsubscribe(Action<float> handler) => Handlers -= handler;
+        public void Unsubscribe(Action handler) => Handlers -= handler;
         
         /// <summary>
         /// Clear the Event on Disable

@@ -1,15 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Databases.Base
+namespace Databases
 {
     /// <summary>
     /// Base Class for storing game data through scriptable objects
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">Data stored in Database</typeparam>
     public abstract class DatabaseBase<T> : ScriptableObject
     {
-        [SerializeField] protected List<T> entries = new();
+        [SerializeField] private List<T> entries = new();
         
         private Dictionary<string, T> _lookup;
         
@@ -27,7 +27,7 @@ namespace Databases.Base
         {
             if (entries == null || entries.Count == 0)
             {
-                Debug.LogWarning($"Database {name} is empty");
+                // Debug.LogWarning($"Database {name} is empty");
                 return;
             }
             
