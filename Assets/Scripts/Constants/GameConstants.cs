@@ -8,5 +8,11 @@ namespace Constants
         public const string PopKey = "pop";
 
         #endregion
+        
+        #region UI Toolkit Keys
+        
+        public const string ContinueButtonName = "ContinueButton";
+        
+        #endregion
     }
 }

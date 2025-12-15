@@ -1,5 +1,7 @@
 # 📘 Project Documentation
 
+**A lot of this is AI Generated at the moment for placeholder info**
+
 This folder contains high-level technical documentation for the Unity VR project.  
 The goal of these documents is to explain **how systems are structured**, **why architectural decisions were made**, and **how different systems communicate**.
 
@@ -33,7 +35,8 @@ All custom systems documented here are designed to:
 | [Event Channel System](Docs/Event_Channels.md) | ScriptableObject-based event system for decoupled communication       |
 | [Data & Database System](Docs/Databases.md)    | ScriptableObject databases for items, configuration, and runtime data |
 | [VR Systems](Docs/VR_Systems.md)               | How XR interactions hook into gameplay systems                        |
-| [Constants](Docs/VR_Systems.md)                | How Global Constant variables are used for type safety                |
+| [Constants](Docs/Constants.md)                 | How Global Constant variables are used for type safety                |
+| [Tutorials](Docs/Tutorials.md)                 | Tutorials used to learn VR in Unity                                   |
 | [References](Docs/References.md)               | Links to content used in project                                      |
 
 ---
