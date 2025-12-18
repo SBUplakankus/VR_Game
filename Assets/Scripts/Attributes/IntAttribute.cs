@@ -19,6 +19,11 @@ namespace Attributes
             get => value;
             set => this.value = value;
         }
+        
+        public void ModifyValue(int amount) => value += amount;
+        public void SetValue(int amount) => value = amount;
+        public void ResetValue() => value = 0;
+        
         public int Add(int amount) => value + amount;
         public int Subtract(int amount) => value - amount;
         public float GetPercentage(int maxValue) => (float)value / maxValue;

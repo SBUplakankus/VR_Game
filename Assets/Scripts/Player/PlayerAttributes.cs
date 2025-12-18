@@ -3,7 +3,6 @@ using Constants;
 using Esper.ESave;
 using Events;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Player
 {

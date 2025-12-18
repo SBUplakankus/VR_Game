@@ -1,5 +1,9 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using Constants;
 using Events;
+using UI.Factories;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,68 +11,89 @@ namespace UI.Panels
 {
     public class IntroPanel : MonoBehaviour
     {
+        #region Fields
+        
         [SerializeField] private UIDocument uiDocument;
         [SerializeField] private StyleSheet styleSheet;
 
         [SerializeField] private FloatEventChannel scaleChanged;
         [SerializeField] private VoidEventChannel spinClicked;
+        
+        private Button _spinButton;
+        private Slider _scaleSlider;
+        
+        #endregion
+        
+        #region Class Functions
 
-        private void Start()
+        private void OnSliderValueChanged(ChangeEvent<float> evt)
         {
-            StartCoroutine(Generate());
+            scaleChanged.Raise(evt.newValue);
         }
 
-        private void OnValidate()
+        private void OnSpinClicked()
         {
-            if(Application.isPlaying) return;
-            StartCoroutine(Generate());
+            spinClicked.Raise();
         }
 
-        private IEnumerator Generate()
+        private void Generate()
         {
-            yield return null;
+            UnsubscribeEvents();
+            
             var root = uiDocument.rootVisualElement;
             root.Clear();
             
-            root.styleSheets.Add(styleSheet);
+            if (!root.styleSheets.Contains(styleSheet))
+                root.styleSheets.Add(styleSheet);
             
-            var container = CreateContainer("container");
+            var container = UIToolkitFactory.CreateContainer(GameConstants.ContainerStyle);
             
-            var viewBox = CreateContainer("view-box", "bordered-box");
+            var viewBox = UIToolkitFactory.CreateContainer(GameConstants.ViewBoxStyle, GameConstants.BorderedBoxStyle);
             container.Add(viewBox);
             
-            var controlBox = CreateContainer("control-box", "bordered-box");
+            var controlBox = UIToolkitFactory.CreateContainer(GameConstants.ControlBoxStyle, GameConstants.BorderedBoxStyle);
             container.Add(controlBox);
 
-            var spinBtn = Create<Button>();
-            spinBtn.text = "Spin";
-            spinBtn.clicked += () => spinClicked.Raise();
-            controlBox.Add(spinBtn);
+            _spinButton = UIToolkitFactory.CreateButton(GameConstants.SpinKey, OnSpinClicked);
+            controlBox.Add(_spinButton);
 
-            var scaleSlider = Create<Slider>();
-            scaleSlider.lowValue = 0.5f;
-            scaleSlider.highValue = 2f;
-            scaleSlider.value = 1f;
-            scaleSlider.RegisterCallback<ChangeEvent<float>>(v=> scaleChanged.Raise(v.newValue));
-            controlBox.Add(scaleSlider);
+            _scaleSlider = UIToolkitFactory.CreateSlider(0.5f, 2f, 1f);
+            _scaleSlider.RegisterValueChangedCallback(OnSliderValueChanged);
+            controlBox.Add(_scaleSlider);
             
             root.Add(container);
+        }
+
+        private void UnsubscribeEvents()
+        {
+            if (_spinButton != null)
+                _spinButton.clicked -= OnSpinClicked;
+
+            _scaleSlider?.UnregisterValueChangedCallback(OnSliderValueChanged);
+        }
+        
+        #endregion
+        
+        #region Unity Functions
+        
+        private void OnEnable()
+        {
+            Generate();
+        }
+        
+        private void OnValidate()
+        {
+            if (Application.isPlaying) return;
+            if (uiDocument == null) return;
+            if (uiDocument.rootVisualElement == null) return;
             
+            Generate();
         }
-
-        private VisualElement CreateContainer(params string[] classNames)
+        private void OnDisable()
         {
-            return Create<VisualElement>(classNames);
+            UnsubscribeEvents();
         }
-
-        private static T Create<T>(params string[] classNames) where T : VisualElement, new()
-        {
-            var element = new T();
-            foreach (var className in classNames)
-            {
-                element.AddToClassList(className);
-            }
-            return element;
-        }
+        
+        #endregion
     }
 }
