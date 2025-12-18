@@ -11,6 +11,7 @@ namespace Attributes
     {
         #region Fields
         
+        [SerializeField] private string attributeName;
         [SerializeField] private int value;
         
         public event EventHandler<BindablePropertyChangedEventArgs> propertyChanged;
@@ -30,6 +31,8 @@ namespace Attributes
                 Notify();
             }
         }
+        
+        public string AttributeName => attributeName;
         
         #endregion
         

@@ -26,8 +26,19 @@ namespace Constants
         #endregion
         
         #region Localisation Keys
-        
-        public const string SpinKey = "Spin";
+
+        public const string LocalTable = "MainGame";
+        public const string PlayKey = "play";
+        public const string PauseKey = "pause";
+        public const string ResumeKey = "resume";
+        public const string QuitKey = "quit";
+        public const string SpinKey = "spin";
+        public const string GoldKey = "gold";
+        public const string ExperienceKey = "experience";
+        public const string LevelKey = "lvel";
+        public const string AddKey = "add";
+        public const string SaveKey = "save";
+        public const string GameKey = "game";
             
         #endregion
         

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Unity.Properties;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UIElements;
 
 namespace Factories
@@ -41,35 +42,38 @@ namespace Factories
         #endregion
         
         #region Control Factories
-        
+
         /// <summary>
         /// Creates a Button with text and optional click handler.
         /// </summary>
-        /// <param name="text">Button display text.</param>
+        /// <param name="localizedString">Key for localisation</param>
         /// <param name="onClick">Callback invoked on button click.</param>
         /// <param name="classNames">CSS class names for styling.</param>
         /// <returns>Configured Button element.</returns>
-        public static Button CreateButton(string text, Action onClick = null, params string[] classNames)
+        public static Button CreateButton(LocalizedString localizedString = null, Action onClick = null, params string[] classNames)
         {
             var button = CreateElement<Button>(classNames);
-            button.text = text;
+            
+            if(localizedString != null)
+                button.SetBinding("text", localizedString);
             
             if (onClick != null)
                 button.clicked += onClick;
                 
             return button;
         }
-        
+
         /// <summary>
         /// Creates a Label with specified text.
         /// </summary>
-        /// <param name="text">Label display text.</param>
+        /// <param name="localizedString">Label display key</param>
         /// <param name="classNames">CSS class names for styling.</param>
         /// <returns>Configured Label element.</returns>
-        public static Label CreateLabel(string text, params string[] classNames)
+        public static Label CreateLabel(LocalizedString localizedString, params string[] classNames)
         {
             var label = CreateElement<Label>(classNames);
-            label.text = text;
+            label.SetBinding("text", localizedString);
+            
             return label;
         }
         

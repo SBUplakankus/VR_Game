@@ -2,6 +2,7 @@ using System;
 using Constants;
 using Factories;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UIElements;
 
 namespace UI.Panels
@@ -50,7 +51,8 @@ namespace UI.Panels
             
             var container = UIToolkitFactory.CreateContainer(GameConstants.ContainerStyle);
             
-            _button = UIToolkitFactory.CreateButton(buttonTextKey, OnButtonClicked, ButtonTypeKey());
+            var buttonText = new LocalizedString(GameConstants.LocalTable,  buttonTextKey);
+            _button = UIToolkitFactory.CreateButton(buttonText, OnButtonClicked, ButtonTypeKey());
             container.Add(_button);
             
             root.Add(container);

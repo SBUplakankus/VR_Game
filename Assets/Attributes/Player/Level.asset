@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 020586f761b2ea642a64a293a83d4c7a, type: 3}
-  m_Name: Player Gold
+  m_Name: Level
   m_EditorClassIdentifier: Assembly-CSharp::IntAttribute
-  value: 50
+  attributeName: level
+  value: 1

@@ -34,19 +34,33 @@ namespace Player
         #endregion
         
         #region Class Functions
+
+        private void SetDefaultValues()
+        {
+            playerGold.SetValue(50);
+            playerExperience.SetValue(0);
+            playerLevel.SetValue(1);
+        }
         
         private void SaveAttributes()
         {
             _saveFile.AddOrUpdateData(GameConstants.PlayerGoldKey, playerGold.Value);
+            Debug.Log($"Saved {GameConstants.PlayerGoldKey}: {_saveFile.GetData(GameConstants.PlayerGoldKey, playerGold.Value)}");
+
+            
             _saveFile.AddOrUpdateData(GameConstants.PlayerExperienceKey, playerExperience.Value);
+            Debug.Log($"Saved {GameConstants.PlayerExperienceKey}: {_saveFile.GetData(GameConstants.PlayerExperienceKey, playerExperience.Value)}");
+
+            
             _saveFile.AddOrUpdateData(GameConstants.PlayerLevelKey, playerLevel.Value);
+            Debug.Log($"Saved {GameConstants.PlayerLevelKey}: {_saveFile.GetData(GameConstants.PlayerLevelKey,  playerLevel.Value)}");
         }
 
         private void LoadAttributes()
         {
             playerGold.Value = _saveFile.GetData(GameConstants.PlayerGoldKey, playerGold.Value);
-            playerExperience.Value = _saveFile.GetData(GameConstants.PlayerExperienceKey, playerGold.Value);
-            playerLevel.Value = _saveFile.GetData(GameConstants.PlayerLevelKey, playerGold.Value);  
+            playerExperience.Value = _saveFile.GetData(GameConstants.PlayerExperienceKey, playerExperience.Value);
+            playerLevel.Value = _saveFile.GetData(GameConstants.PlayerLevelKey,  playerLevel.Value);  
         }
         
         #endregion
@@ -88,6 +102,7 @@ namespace Player
             }
     
             _saveFile = setup.GetSaveFile();
+            SetDefaultValues();
             LoadAttributes();
         }
 

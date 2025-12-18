@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: MainGame Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: MainGame
+  m_TableCollectionNameGuidString: d7a64a165e652384ca42b4e7e7d081ae
+  m_Entries:
+  - m_Id: 44251197440
+    m_Key: play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1042646544384
+    m_Key: pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1042646544385
+    m_Key: resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1042650738688
+    m_Key: quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1042650738689
+    m_Key: spin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1042650738690
+    m_Key: gold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1042650738691
+    m_Key: experience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1042650738692
+    m_Key: level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1042650738693
+    m_Key: add
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1042650738694
+    m_Key: save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1042650738695
+    m_Key: game
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 1500182888082309420
+  references:
+    version: 2
+    RefIds:
+    - rid: 1500182888082309420
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1766090529112

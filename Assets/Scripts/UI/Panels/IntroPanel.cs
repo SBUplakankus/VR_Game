@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using Constants;
 using Events;
 using Factories;
+using Pooling;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UIElements;
 
 namespace UI.Panels
@@ -54,7 +56,8 @@ namespace UI.Panels
             var controlBox = UIToolkitFactory.CreateContainer(GameConstants.ControlBoxStyle, GameConstants.BorderedBoxStyle);
             container.Add(controlBox);
 
-            _spinButton = UIToolkitFactory.CreateButton(GameConstants.SpinKey, OnSpinClicked);
+            var spinText = new LocalizedString(GameConstants.LocalTable, GameConstants.SpinKey);
+            _spinButton = UIToolkitFactory.CreateButton(spinText, OnSpinClicked);
             controlBox.Add(_spinButton);
 
             _scaleSlider = UIToolkitFactory.CreateSlider(0.5f, 2f, 1f);

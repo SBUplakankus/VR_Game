@@ -3,6 +3,7 @@ using Constants;
 using Events;
 using Factories;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.UIElements;
 
 namespace UI.Panels
@@ -31,8 +32,9 @@ namespace UI.Panels
                 root.styleSheets.Add(styleSheet);
             
             var container = UIToolkitFactory.CreateContainer(GameConstants.ContainerStyle, GameConstants.PanelBodyStyle);
-
-            var header = UIToolkitFactory.CreateLabel(attribute.name, GameConstants.HeaderStyle);
+            
+            var headerText = new LocalizedString(GameConstants.LocalTable, attribute.AttributeName);
+            var header = UIToolkitFactory.CreateLabel(headerText, GameConstants.HeaderStyle);
             container.Add(header);
             
             var stat =  UIToolkitFactory.CreateBoundLabel(attribute, nameof(attribute.Value), GameConstants.StatStyle);
