@@ -8,6 +8,9 @@ namespace Systems
     {
         [Header("Player Events")] 
         [SerializeField] private IntEventChannel onPlayerDamaged;
+        [SerializeField] private IntEventChannel onGoldChanged;
+        [SerializeField] private IntEventChannel onExperienceChanged;
+        [SerializeField] private IntEventChannel onLevelChanged;
         
         [Header("Audio Events")]
         [SerializeField] private StringEventChannel onMusicRequested;
@@ -21,6 +24,10 @@ namespace Systems
         private void Awake()
         {
             GameEvents.OnPlayerDamaged =  onPlayerDamaged;
+            GameEvents.OnGoldChanged =  onGoldChanged;
+            GameEvents.OnExperienceGained =  onExperienceChanged;
+            GameEvents.OnLevelChanged =  onLevelChanged;
+            
             GameEvents.OnMusicRequested = onMusicRequested;
             GameEvents.OnSfxRequested = onSfxRequested;
             

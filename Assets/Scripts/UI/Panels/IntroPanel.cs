@@ -46,7 +46,7 @@ namespace UI.Panels
             if (!root.styleSheets.Contains(styleSheet))
                 root.styleSheets.Add(styleSheet);
             
-            var container = UIToolkitFactory.CreateContainer(GameConstants.ContainerStyle);
+            var container = UIToolkitFactory.CreateContainer(GameConstants.ContainerStyle, GameConstants.PanelBodyStyle);
             
             var viewBox = UIToolkitFactory.CreateContainer(GameConstants.ViewBoxStyle, GameConstants.BorderedBoxStyle);
             container.Add(viewBox);

@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Diagnostics.Tracing;
 using Constants;
-using Events;
 using UI.Factories;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -33,8 +30,8 @@ namespace UI.Panels
         {
             return buttonType switch
             {
-                ButtonType.PanelSelection => GameConstants.PanelSelectionButtonStyle,
-                ButtonType.MenuSelection => GameConstants.MenuSelectionButtonStyle,
+                ButtonType.PanelSelection => GameConstants.PanelButtonStyle,
+                ButtonType.MenuSelection => GameConstants.MenuButtonStyle,
                 ButtonType.Toggle => GameConstants.ToggleButtonStyle,
                 _ => throw new ArgumentOutOfRangeException()
             };
@@ -50,14 +47,13 @@ namespace UI.Panels
 
             if (!root.styleSheets.Contains(styleSheet))
                 root.styleSheets.Add(styleSheet);
-
+            
             var container = UIToolkitFactory.CreateContainer(GameConstants.ContainerStyle);
             
             _button = UIToolkitFactory.CreateButton(buttonTextKey, OnButtonClicked, ButtonTypeKey());
             container.Add(_button);
             
             root.Add(container);
-            
         }
 
         private void UnsubscribeEvents()
@@ -96,34 +92,5 @@ namespace UI.Panels
         }
 
         #endregion
-    }
-
-    public class VoidButtonPanel : BaseButtonPanel
-    {
-        [Header("Event Channel")]
-        [SerializeField] private VoidEventChannel voidEvent;
-            
-        protected override void OnButtonClicked()
-        {
-            if (voidEvent == null)
-                Debug.LogError($"Button {ButtonTypeKey()} not found on {gameObject.name}");
-            else
-                voidEvent.Raise();
-        }
-    }
-
-    public class IntButtonPanel : BaseButtonPanel
-    {
-        [Header("Event Channel")]
-        [SerializeField] private IntEventChannel intEvent;
-        [SerializeField] private int eventValue;
-        
-        protected override void OnButtonClicked()
-        {
-            if(intEvent == null)
-                Debug.LogError($"Button {ButtonTypeKey()} not found on {gameObject.name}");
-            else
-                intEvent.Raise(eventValue);
-        }
     }
 }

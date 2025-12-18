@@ -5,6 +5,9 @@ namespace Events
         #region Player Events
         
         public static IntEventChannel OnPlayerDamaged;
+        public static IntEventChannel OnGoldChanged;
+        public static IntEventChannel OnExperienceGained;
+        public static IntEventChannel OnLevelChanged;
         
         #endregion
         

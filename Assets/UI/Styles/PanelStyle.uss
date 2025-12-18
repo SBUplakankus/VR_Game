@@ -1,18 +1,52 @@
 :root{
     --border-width: 2px;
+    
+    --button-bg-colour: cornflowerblue;
+    --button-bg-colour-hover: lightskyblue;
+    --button-border-colour: whitesmoke;
+    --button-text-colour: whitesmoke;
+    --button-text-colour-hover: whitesmoke;
+    --button-hover-scale: 1.05;
+    --button-hover-border-radius: 7px;
+    --tween-duration: 0.25s all;
 }
 
 Label{
     color: whitesmoke;
 }
 
+Button{
+    background-color: var(--button-bg-colour);
+    border-color: var(--button-border-colour);
+    transition: var(--tween-duration);
+    color: var(--button-text-colour);
+    -unity-font-style: bold;
+}
+
+Button:hover{
+    background-color: var(--button-bg-colour-hover);
+    border-radius: var(--button-hover-border-radius);
+    transition: var(--tween-duration);
+}
+
+.button-body{
+}
+
+.panel-button{
+    width: 90%;
+    height: 90%;
+}
+
 .container{
-    background-color: rgba(0,0,0,0.9);
-    border-radius: 20px;
     height: 100%;
     width: 100%;
     justify-content: center;
     align-items: center;
+}
+
+.panel-body{
+    background-color: rgba(0,0,0,0.9);
+    border-radius: 20px;
 }
 
 .bordered-box{
@@ -36,18 +70,6 @@ Label{
 .control-box Button{
     width: 70px;
     height: 70px;
-    background-color: cornflowerblue;
-    border-width: var(--border-width);
-    border-color: whitesmoke;
-    transition: 0.25s all;
-    color: whitesmoke;
-    -unity-font-style: bold;
-}
-
-.control-box Button:hover{
-    background-color: lightskyblue;
-    border-radius: 10px;
-    scale: 1.05;
 }
 
 .control-box Slider{
