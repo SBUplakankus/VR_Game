@@ -19,8 +19,7 @@ namespace Systems
         
         [Header("Databases")]
         [SerializeField] private AudioClipDatabase audioDatabase;
-        [SerializeField] private TMPFontDatabase fontDatabase;
-        [SerializeField] private SpriteDatabase spriteDatabase;
+        [SerializeField] private WeaponDatabase weaponDatabase;
         
         [Header("UI Toolkit")]
         [SerializeField] private StyleSheet styleSheet;
@@ -36,8 +35,7 @@ namespace Systems
             GameEvents.OnSfxRequested = onSfxRequested;
             
             GameDatabases.AudioClipDatabase =  audioDatabase;
-            GameDatabases.TMPFontDatabase =  fontDatabase;
-            GameDatabases.SpriteDatabase =  spriteDatabase;
+            GameDatabases.WeaponDatabase = weaponDatabase;
         }
     }
 }
