@@ -1,6 +1,6 @@
 using System;
 using Constants;
-using UI.Factories;
+using Factories;
 using UnityEngine;
 using UnityEngine.UIElements;
 

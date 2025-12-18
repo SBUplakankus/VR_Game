@@ -1,6 +1,7 @@
 using Databases;
 using Events;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Systems
 {
@@ -20,6 +21,9 @@ namespace Systems
         [SerializeField] private AudioClipDatabase audioDatabase;
         [SerializeField] private TMPFontDatabase fontDatabase;
         [SerializeField] private SpriteDatabase spriteDatabase;
+        
+        [Header("UI Toolkit")]
+        [SerializeField] private StyleSheet styleSheet;
 
         private void Awake()
         {

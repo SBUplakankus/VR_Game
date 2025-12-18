@@ -16,7 +16,10 @@ namespace Player
         [SerializeField] private IntAttribute playerLevel;
 
         [Header("Events")] 
-        [SerializeField] private VoidEventChannel saveGameEvent;
+        [SerializeField] private VoidEventChannel onGameSaved;
+        [SerializeField] private IntEventChannel onGoldChanged;
+        [SerializeField] private IntEventChannel onExperienceChanged;
+        [SerializeField] private IntEventChannel onLevelChanged;
         
         private SaveFile _saveFile;
         
@@ -41,11 +44,36 @@ namespace Player
 
         private void LoadAttributes()
         {
-            playerGold.Value = _saveFile.GetData(GameConstants.PlayerGoldKey, 0);
-            playerExperience.Value = _saveFile.GetData(GameConstants.PlayerExperienceKey, 0);
-            playerLevel.Value = _saveFile.GetData(GameConstants.PlayerLevelKey, 1);
+            playerGold.Value = _saveFile.GetData(GameConstants.PlayerGoldKey, playerGold.Value);
+            playerExperience.Value = _saveFile.GetData(GameConstants.PlayerExperienceKey, playerGold.Value);
+            playerLevel.Value = _saveFile.GetData(GameConstants.PlayerLevelKey, playerGold.Value);  
         }
         
+        #endregion
+
+        #region Event Handlers
+        
+        private void HandleGameSave() => SaveAttributes();
+        private void HandleGoldChange(int amount) => playerGold.ModifyValue(amount);
+        private void HandleExperienceChange(int amount) => playerExperience.ModifyValue(amount);
+        private void HandleLevelChange(int amount) => playerLevel.ModifyValue(amount);
+        
+        private void SubscribeToEvents()
+        {
+            onGameSaved.Subscribe(HandleGameSave);
+            onGoldChanged.Subscribe(HandleGoldChange);
+            onExperienceChanged.Subscribe(HandleExperienceChange);
+            onLevelChanged.Subscribe(HandleLevelChange);
+        }
+
+        private void UnsubscribeToEvents()
+        {
+            onGameSaved.Unsubscribe(HandleGameSave);
+            onGoldChanged.Unsubscribe(HandleGoldChange);
+            onExperienceChanged.Unsubscribe(HandleExperienceChange);
+            onLevelChanged.Unsubscribe(HandleLevelChange);
+        }
+
         #endregion
         
         #region Unity Functions
@@ -63,15 +91,9 @@ namespace Player
             LoadAttributes();
         }
 
-        private void OnEnable()
-        {
-            saveGameEvent.Subscribe(SaveAttributes);
-        }
+        private void OnEnable() => SubscribeToEvents();
 
-        private void OnDisable()
-        {
-            saveGameEvent.Unsubscribe(SaveAttributes);
-        }
+        private void OnDisable() => UnsubscribeToEvents();
         
         #endregion
         

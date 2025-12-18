@@ -1,38 +1,55 @@
+using System;
+using System.Runtime.CompilerServices;
+using Unity.Properties;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.UIElements;
 
 namespace Attributes
 {
     [CreateAssetMenu(fileName = "IntAttribute", menuName = "Scriptable Objects/Attributes/Int")]
-    public class IntAttribute : ScriptableObject
+    public class IntAttribute : ScriptableObject, INotifyBindablePropertyChanged
     {
         #region Fields
         
         [SerializeField] private int value;
+        
+        public event EventHandler<BindablePropertyChangedEventArgs> propertyChanged;
 
         #endregion
         
         #region Properties
-
+        
+        [CreateProperty]
         public int Value
         {
             get => value;
-            set => this.value = value;
+            set 
+            {
+                if (this.value == value) return;
+                this.value = value;
+                Notify();
+            }
         }
         
-        public void ModifyValue(int amount) => value += amount;
-        public void SetValue(int amount) => value = amount;
-        public void ResetValue() => value = 0;
+        #endregion
         
-        public int Add(int amount) => value + amount;
-        public int Subtract(int amount) => value - amount;
-        public float GetPercentage(int maxValue) => (float)value / maxValue;
+        #region Methods
+
+        public void Notify([CallerMemberName] string property = "")
+        {
+            propertyChanged?.Invoke(this, new BindablePropertyChangedEventArgs(property));
+        }
         
-        public bool IsAtLeast(int amount) => value >= amount;
-        public bool IsAtMost(int amount) => value <= amount;
-        public bool IsBetween(int min, int max) => value >= min && value <= max;
-        public bool IsExactly(int amount) => value == amount;
+        public void ModifyValue(int amount) => Value += amount;
+        public void SetValue(int amount) => Value = amount;
+        public void ResetValue() => Value = 0;
+        public float GetPercentage(int maxValue) => (float)Value / maxValue;
+        public bool IsAtLeast(int amount) => Value >= amount;
+        public bool IsAtMost(int amount) => Value <= amount;
+        public bool IsBetween(int min, int max) => Value >= min && Value <= max;
+        public bool IsExactly(int amount) => Value == amount;
         
         #endregion
+
     }
 }

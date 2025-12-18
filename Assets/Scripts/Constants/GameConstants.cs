@@ -20,6 +20,8 @@ namespace Constants
         public const string ContainerStyle = "container";
         public const string PanelBodyStyle = "panel-body";
         public const string ControlBoxStyle = "control-box";
+        public const string HeaderStyle = "header-label";
+        public const string StatStyle = "stat-label";
         
         #endregion
         

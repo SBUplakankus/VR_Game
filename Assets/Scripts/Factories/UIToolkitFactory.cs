@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace UI.Factories
+namespace Factories
 {
     /// <summary>
     /// Static factory class for creating and configuring UI Toolkit elements.
@@ -68,6 +70,48 @@ namespace UI.Factories
         {
             var label = CreateElement<Label>(classNames);
             label.text = text;
+            return label;
+        }
+        
+        /// <summary>
+        /// Creates a UI Toolkit <see cref="Label"/> that is bound to a property on a data source object.
+        /// The label's <c>text</c> property will automatically update at runtime when the source property changes.
+        /// </summary>
+        /// <param name="dataSource">The object that contains the property to bind (e.g., a ScriptableObject or POCO).</param>
+        /// <param name="dataSourcePath">The name of the property on the data source to bind to.</param>
+        /// <param name="classNames">Optional USS class names to add to the label for styling.</param>
+        /// <returns>A <see cref="Label"/> instance with runtime binding applied.</returns>
+        public static Label CreateBoundLabel(
+            object dataSource,
+            string dataSourcePath,
+            params string[] classNames)
+        {
+            var label = CreateElement<Label>(classNames);
+
+            // Set data source on the element
+            label.dataSource = dataSource;
+
+            // Register a binding for the text property
+            label.SetBinding(
+                nameof(Label.text),
+                new DataBinding
+                {
+                    dataSource = dataSource,
+                    dataSourcePath = PropertyPath.FromName(dataSourcePath),
+                    bindingMode = BindingMode.ToTarget
+                });
+            
+            var prop = dataSource.GetType().GetProperty(dataSourcePath, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (prop != null)
+            {
+                var value = prop.GetValue(dataSource);
+                label.text = value != null ? value.ToString() : string.Empty;
+            }
+            else
+            {
+                Debug.LogWarning($"Property '{dataSourcePath}' not found on {dataSource}");
+                label.text = string.Empty;
+            }
             return label;
         }
         

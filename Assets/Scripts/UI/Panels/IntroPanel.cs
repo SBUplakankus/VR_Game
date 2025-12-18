@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Constants;
 using Events;
-using UI.Factories;
+using Factories;
 using UnityEngine;
 using UnityEngine.UIElements;
 

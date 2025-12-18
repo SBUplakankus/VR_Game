@@ -11,6 +11,10 @@
     --tween-duration: 0.25s all;
 }
 
+VisualElement{
+    
+}
+
 Label{
     color: whitesmoke;
 }
@@ -33,20 +37,22 @@ Button:hover{
 }
 
 .panel-button{
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 95%;
 }
 
 .container{
     height: 100%;
     width: 100%;
-    justify-content: center;
-    align-items: center;
 }
 
 .panel-body{
     background-color: rgba(0,0,0,0.9);
+    border-color: var(--button-bg-colour);
+    border-width: 5px;
     border-radius: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .bordered-box{
@@ -84,4 +90,18 @@ Button:hover{
     border-color: whitesmoke;
     background-color: cornflowerblue;
     margin-top: -15px;
+}
+
+.header-label{
+    -unity-font-style: bold;
+    color: cornflowerblue;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 30px;
+}
+
+.stat-label{
+    -unity-font-style: bold;
+    color: whitesmoke;
+    font-size: 100px;
 }
