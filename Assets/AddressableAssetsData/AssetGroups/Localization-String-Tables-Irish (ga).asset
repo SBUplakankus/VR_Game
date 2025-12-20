@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Irish (ga)
+  m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
+  m_GroupName: Localization-String-Tables-Irish (ga)
+  m_GUID: 62fc3076f25a2a645a05f2befd0608aa
+  m_SerializeEntries:
+  - m_GUID: dedce3898df3e614b90155274b9fe71f
+    m_Address: MainGame_ga
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ga
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 34cba27c33236e241bf46487e96d75c0, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7141754f9aa6a6e4ea0555ec8f470d21, type: 2}
+    - {fileID: 11400000, guid: dbae8b5bbc4b18944b65247092f7d26e, type: 2}

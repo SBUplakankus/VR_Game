@@ -1,7 +1,58 @@
+using System;
+using System.Runtime.CompilerServices;
+using Unity.Properties;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-[CreateAssetMenu(fileName = "IntAttribute", menuName = "Scriptable Objects/Attributes/Int")]
-public class IntAttribute : ScriptableObject
+namespace Attributes
 {
-    public int Value;
+    [CreateAssetMenu(fileName = "IntAttribute", menuName = "Scriptable Objects/Attributes/Int")]
+    public class IntAttribute : ScriptableObject, INotifyBindablePropertyChanged
+    {
+        #region Fields
+        
+        [SerializeField] private string attributeName;
+        [SerializeField] private int value;
+        
+        public event EventHandler<BindablePropertyChangedEventArgs> propertyChanged;
+
+        #endregion
+        
+        #region Properties
+        
+        [CreateProperty]
+        public int Value
+        {
+            get => value;
+            set 
+            {
+                if (this.value == value) return;
+                this.value = value;
+                Notify();
+            }
+        }
+        
+        public string AttributeName => attributeName;
+        
+        #endregion
+        
+        #region Methods
+
+        public void Notify([CallerMemberName] string property = "")
+        {
+            propertyChanged?.Invoke(this, new BindablePropertyChangedEventArgs(property));
+        }
+        
+        public void ModifyValue(int amount) => Value += amount;
+        public void SetValue(int amount) => Value = amount;
+        public void ResetValue() => Value = 0;
+        public float GetPercentage(int maxValue) => (float)Value / maxValue;
+        public bool IsAtLeast(int amount) => Value >= amount;
+        public bool IsAtMost(int amount) => Value <= amount;
+        public bool IsBetween(int min, int max) => Value >= min && Value <= max;
+        public bool IsExactly(int amount) => Value == amount;
+        
+        #endregion
+
+    }
 }

@@ -1,6 +1,7 @@
 using Databases;
 using Events;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Systems
 {
@@ -8,6 +9,9 @@ namespace Systems
     {
         [Header("Player Events")] 
         [SerializeField] private IntEventChannel onPlayerDamaged;
+        [SerializeField] private IntEventChannel onGoldChanged;
+        [SerializeField] private IntEventChannel onExperienceChanged;
+        [SerializeField] private IntEventChannel onLevelChanged;
         
         [Header("Audio Events")]
         [SerializeField] private StringEventChannel onMusicRequested;
@@ -15,18 +19,23 @@ namespace Systems
         
         [Header("Databases")]
         [SerializeField] private AudioClipDatabase audioDatabase;
-        [SerializeField] private TMPFontDatabase fontDatabase;
-        [SerializeField] private SpriteDatabase spriteDatabase;
+        [SerializeField] private WeaponDatabase weaponDatabase;
+        
+        [Header("UI Toolkit")]
+        [SerializeField] private StyleSheet styleSheet;
 
         private void Awake()
         {
             GameEvents.OnPlayerDamaged =  onPlayerDamaged;
+            GameEvents.OnGoldChanged =  onGoldChanged;
+            GameEvents.OnExperienceGained =  onExperienceChanged;
+            GameEvents.OnLevelChanged =  onLevelChanged;
+            
             GameEvents.OnMusicRequested = onMusicRequested;
             GameEvents.OnSfxRequested = onSfxRequested;
             
             GameDatabases.AudioClipDatabase =  audioDatabase;
-            GameDatabases.TMPFontDatabase =  fontDatabase;
-            GameDatabases.SpriteDatabase =  spriteDatabase;
+            GameDatabases.WeaponDatabase = weaponDatabase;
         }
     }
 }
