@@ -622,30 +622,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bootstrapper
       objectReference: {fileID: 0}
-    - target: {fileID: 1725519543086852879, guid: a69adf73dc5d858449d31f17ea029ab1, type: 3}
-      propertyPath: styleSheet
-      value: 
-      objectReference: {fileID: 7433441132597879392, guid: 3f881dd781667644d803e8fa8d122329, type: 3}
-    - target: {fileID: 1725519543086852879, guid: a69adf73dc5d858449d31f17ea029ab1, type: 3}
-      propertyPath: audioDatabase
-      value: 
-      objectReference: {fileID: 11400000, guid: 6366c33aeac982c48b0c78d5022654c3, type: 2}
-    - target: {fileID: 1725519543086852879, guid: a69adf73dc5d858449d31f17ea029ab1, type: 3}
-      propertyPath: onGoldChanged
-      value: 
-      objectReference: {fileID: 11400000, guid: c096a8cdbaf19994bbbac26ffa513677, type: 2}
-    - target: {fileID: 1725519543086852879, guid: a69adf73dc5d858449d31f17ea029ab1, type: 3}
-      propertyPath: onLevelChanged
-      value: 
-      objectReference: {fileID: 11400000, guid: f0376871c2dfcd3499ed8d3a1bef391c, type: 2}
-    - target: {fileID: 1725519543086852879, guid: a69adf73dc5d858449d31f17ea029ab1, type: 3}
-      propertyPath: weaponDatabase
-      value: 
-      objectReference: {fileID: 11400000, guid: 7de573f593f07ed4a986bf34f3499d83, type: 2}
-    - target: {fileID: 1725519543086852879, guid: a69adf73dc5d858449d31f17ea029ab1, type: 3}
-      propertyPath: onExperienceChanged
-      value: 
-      objectReference: {fileID: 11400000, guid: 8e5e798d992a47847bdc1ef8fd85bd23, type: 2}
     - target: {fileID: 8608510862946139203, guid: a69adf73dc5d858449d31f17ea029ab1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5361805
@@ -1813,6 +1789,37 @@ MonoBehaviour:
     useUnscaledTime: 0
     _useFixedUpdate: 0
     _updateType: 0
+--- !u!1 &1544056199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1544056200}
+  m_Layer: 0
+  m_Name: Enemy Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1544056200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544056199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1806163773}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1548251155
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,6 +2041,7 @@ Transform:
   - {fileID: 704850287}
   - {fileID: 1826827083}
   - {fileID: 793457734}
+  - {fileID: 1544056200}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1815318735

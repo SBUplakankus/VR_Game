@@ -6,6 +6,6 @@ namespace Databases
     [CreateAssetMenu(menuName = "Scriptable Objects/Databases/Weapon Database")]
     public class WeaponDatabase : DatabaseBase<WeaponData>
     {
-        protected override string GetKey(WeaponData entry) => entry.weaponID;
+        protected override string GetKey(WeaponData entry) => entry.WeaponID;
     }
 }

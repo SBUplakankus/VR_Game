@@ -17,5 +17,11 @@ namespace Events
         public static StringEventChannel OnSfxRequested;
         
         #endregion
+        
+        #region Game Events
+
+        public static StringEventChannel OnEnemyDeath;
+
+        #endregion
     }
 }

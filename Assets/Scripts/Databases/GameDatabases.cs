@@ -6,5 +6,6 @@ namespace Databases
         public static WeaponDatabase WeaponDatabase;
         public static TMPFontDatabase TMPFontDatabase;
         public static SpriteDatabase SpriteDatabase;
+        public static EnemyDatabase EnemyDatabase;
     }
 }
