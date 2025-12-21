@@ -7,5 +7,15 @@ namespace Characters.Enemies
     public class EnemyMovement : MonoBehaviour
     {
         private NavMeshAgent _navMeshAgent;
+
+        public void InitMovement(float speed)
+        {
+            _navMeshAgent.speed = speed;
+        }
+        
+        private void Awake()
+        {
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+        }
     }
 }

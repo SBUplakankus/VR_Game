@@ -22,26 +22,17 @@ namespace Audio
 
         private void PlayMusic()
         {
-            musicSource.clip = _audioDatabase.TryGet(GameConstants.MainMusicKey).clip;
+            musicSource.clip = GetClip(GameConstants.MainMusicKey);
             musicSource.Play();
         }
 
         public void PlaySfx(string key)
         {
-            var sfx = _audioDatabase.TryGet(key).clip;
+            var sfx = GetClip(key);
             if (sfx == null) return;
             sfxSource.PlayOneShot(sfx);
         }
 
-        private AudioClip TryGet(string key)
-        {
-            if (_audioDatabase == null)
-            {
-                Debug.LogError($"Audio Database is NULL");
-                return null;
-            }
-            
-            return _audioDatabase.TryGet(key).clip;
-        }
+        private AudioClip GetClip(string key) =>  _audioDatabase.Get(key).clip;
     }
 }

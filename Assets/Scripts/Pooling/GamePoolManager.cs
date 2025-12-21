@@ -3,6 +3,7 @@ using Events.Data;
 using UnityEngine;
 using UnityEngine.Pool;
 using System.Collections.Generic;
+using Characters.Enemies;
 using PrimeTween;
 using Unity.Tutorials.Core.Editor;
 using UnityEngine.Localization;
@@ -27,6 +28,7 @@ namespace Pooling
         #region Pools
         private ObjectPool<DamageEventData> _damagePool;
         private ObjectPool<LocalizedString> _localizedStringPool;
+        private ObjectPool<EnemyController> _enemyPool;
         
         private readonly Dictionary<Type, object> _poolDictionary = new();
         #endregion
