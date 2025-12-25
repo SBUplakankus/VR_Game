@@ -18,7 +18,7 @@ namespace Weapons
 
             if (other.TryGetComponent<IDamageable>(out var target))
             {
-                weapon.ProcessHit(target, transform.position);
+                weapon.ProcessHit(target, transform.position, transform.rotation);
             }
         }
     }

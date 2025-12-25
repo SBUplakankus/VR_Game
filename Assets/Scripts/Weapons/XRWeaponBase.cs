@@ -1,5 +1,6 @@
 using System.Collections;
 using Characters.Base;
+using Pooling;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -67,11 +68,12 @@ namespace Weapons
             _lastAttackTime = Time.time;
         }
 
-        public void ProcessHit(IDamageable target, Vector3 hitPoint)
+        public void ProcessHit(IDamageable target, Vector3 hitPoint, Quaternion hitRotation)
         {
             if(!CanAttack) return;
             RegisterAttack();
             target.TakeDamage(data.TotalDamage);
+            GamePoolManager.Instance.GetParticlePrefab(data.HitVFX, hitPoint, hitRotation);
         }
 
         #endregion

@@ -29,6 +29,7 @@ namespace Systems
         [SerializeField] private AudioClipDatabase audioDatabase;
         [SerializeField] private WeaponDatabase weaponDatabase;
         [SerializeField] private EnemyDatabase enemyDatabase;
+        [SerializeField] private ParticleDatabase particleDatabase;
         [SerializeField] private SpriteDatabase spriteDatabase; // Added missing database
         [SerializeField] private TMPFontDatabase tmpFontDatabase; // Added missing database
         
@@ -83,6 +84,11 @@ namespace Systems
                 
             if (tmpFontDatabase != null)
                 GameDatabases.TMPFontDatabase = tmpFontDatabase;
+            
+            if (particleDatabase != null)
+                GameDatabases.ParticleDatabase = particleDatabase;
+            else
+                Debug.LogError($"{nameof(particleDatabase)} not assigned in {name}", this);
         }
         
         #endregion

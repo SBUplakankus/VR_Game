@@ -11,6 +11,7 @@ namespace Databases
         private static TMPFontDatabase _tmpFontDatabase;
         private static SpriteDatabase _spriteDatabase;
         private static EnemyDatabase _enemyDatabase;
+        private static ParticleDatabase _particleDatabase;
 
         #endregion
         
@@ -70,6 +71,17 @@ namespace Databases
             }
             internal set => _enemyDatabase = value;
         }
+
+        public static ParticleDatabase ParticleDatabase
+        {
+            get
+            {
+                if (_particleDatabase == null)
+                    Debug.LogError($"{nameof(ParticleDatabase)} not initialized!");
+                return _particleDatabase;
+            }
+            internal set => _particleDatabase = value;
+        }
         
         #endregion
         
@@ -85,6 +97,7 @@ namespace Databases
             _tmpFontDatabase = null;
             _spriteDatabase = null;
             _enemyDatabase = null;
+            _particleDatabase = null;
         }
         
         #endregion

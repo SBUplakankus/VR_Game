@@ -48,9 +48,14 @@ MonoBehaviour:
   onGoldChanged: {fileID: 11400000, guid: c096a8cdbaf19994bbbac26ffa513677, type: 2}
   onExperienceChanged: {fileID: 11400000, guid: 8e5e798d992a47847bdc1ef8fd85bd23, type: 2}
   onLevelChanged: {fileID: 11400000, guid: f0376871c2dfcd3499ed8d3a1bef391c, type: 2}
-  onEnemyDeath: {fileID: 11400000, guid: f91530657661a5647a2effaf54a55385, type: 2}
+  onEnemySpawned: {fileID: 11400000, guid: 3b9f05794439bac4d9b65b7e07080906, type: 2}
+  onEnemyDespawned: {fileID: 11400000, guid: 3068a22f195008f4b82ab23c02f2934c, type: 2}
   onMusicRequested: {fileID: 11400000, guid: cb24b462f1c28344ebc0fd41d2ef4e61, type: 2}
   onSfxRequested: {fileID: 11400000, guid: d7f1e00a5b4e3ea43b7cc04d554b08bc, type: 2}
   audioDatabase: {fileID: 11400000, guid: 6366c33aeac982c48b0c78d5022654c3, type: 2}
   weaponDatabase: {fileID: 11400000, guid: 7de573f593f07ed4a986bf34f3499d83, type: 2}
+  enemyDatabase: {fileID: 11400000, guid: 214a0531867fda44e8055b603b0795cf, type: 2}
+  particleDatabase: {fileID: 11400000, guid: 6c060493cd71be647b2e8ab34ce64e51, type: 2}
+  spriteDatabase: {fileID: 0}
+  tmpFontDatabase: {fileID: 0}
   styleSheet: {fileID: 7433441132597879392, guid: 3f881dd781667644d803e8fa8d122329, type: 3}

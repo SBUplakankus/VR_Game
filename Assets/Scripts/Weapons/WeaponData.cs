@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Databases;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -32,7 +33,7 @@ namespace Weapons
         [Header("Visual / Audio")]
         [SerializeField] private string swingSoundKey;
         [SerializeField] private string hitSoundKey;
-        [SerializeField] private string hitVFXKey;
+        [SerializeField] private ParticleData hitVFX;
 
         [Header("Modifiers")]
         [SerializeField] private List<WeaponModifier> activeModifiers = new();
@@ -64,7 +65,7 @@ namespace Weapons
         // Visual / Audio
         public string SwingSoundKey => swingSoundKey;
         public string HitSoundKey => hitSoundKey;
-        public string HitVFXKey => hitVFXKey;
+        public ParticleData HitVFX => hitVFX;
 
         // Modifiers
         public IReadOnlyList<WeaponModifier> ActiveModifiers => activeModifiers;

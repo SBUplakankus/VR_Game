@@ -3,6 +3,8 @@ using UnityEngine.Pool;
 using System.Collections.Generic;
 using Characters.Enemies;
 using Databases;
+using Systems;
+using Visual_Effects;
 using Weapons;
 
 namespace Pooling
@@ -26,12 +28,15 @@ namespace Pooling
         [SerializeField] private int poolSize = 50;
         [SerializeField] private int maxPoolSize = 100;
         
+        private VFXPriorityRouter _vfxRouter;
+        
         #endregion
         
         #region Pools
         
         private readonly Dictionary<EnemyData, ObjectPool<GameObject>> _enemyPoolDictionary = new();
         private readonly Dictionary<WeaponData, ObjectPool<GameObject>> _weaponPoolDictionary = new();
+        private readonly Dictionary<ParticleData, ObjectPool<GameObject>> _particlePoolDictionary = new();
         
         #endregion
         
@@ -73,9 +78,29 @@ namespace Pooling
             );
         }
 
+        private ObjectPool<GameObject> CreateParticlePool(ParticleData data)
+        {
+            return new ObjectPool<GameObject>(
+                createFunc: () =>
+                {
+                    var obj = Instantiate(data.Prefab);
+                    var particle = obj.GetComponent<ParticleController>();
+                    particle.Initialise(data);
+                    obj.SetActive(false);
+                    return obj;
+                },
+                actionOnGet: OnGet,
+                actionOnRelease: OnParticleRelease,
+                actionOnDestroy: Destroy,
+                collectionCheck: enableCollectionCheck && Application.isEditor,
+                defaultCapacity: poolSize,
+                maxSize: maxPoolSize
+            );
+        }
+
         private void CreateEnemyPools()
         {
-            foreach (var enemyData in GameDatabases.EnemyDatabase.Enemies)
+            foreach (var enemyData in GameDatabases.EnemyDatabase.Entries)
             {
                 if (_enemyPoolDictionary.ContainsKey(enemyData)) continue;
 
@@ -83,7 +108,7 @@ namespace Pooling
                 _enemyPoolDictionary[enemyData] = pool;
 
                 var temp = new List<GameObject>();
-                for (int i = 0; i < prewarmCount; i++)
+                for (var i = 0; i < prewarmCount; i++)
                     temp.Add(pool.Get());
 
                 foreach (var obj in temp)
@@ -93,7 +118,7 @@ namespace Pooling
 
         private void CreateWeaponPools()
         {
-            foreach (var weaponData in GameDatabases.WeaponDatabase.Weapons)
+            foreach (var weaponData in GameDatabases.WeaponDatabase.Entries)
             {
                 if(_weaponPoolDictionary.ContainsKey(weaponData)) continue;
 
@@ -101,9 +126,27 @@ namespace Pooling
                 _weaponPoolDictionary[weaponData] = pool;
                 
                 var temp = new List<GameObject>();
-                for (int i = 0; i < prewarmCount; i++)
+                for (var i = 0; i < prewarmCount; i++)
                     temp.Add(pool.Get());
 
+                foreach (var obj in temp)
+                    pool.Release(obj);
+            }
+        }
+
+        private void CreateParticlePools()
+        {
+            foreach (var particleData in GameDatabases.ParticleDatabase.Entries)
+            {
+                if(_particlePoolDictionary.ContainsKey(particleData)) continue;
+                
+                var pool = CreateParticlePool(particleData);
+                _particlePoolDictionary[particleData] = pool;
+                
+                var temp = new List<GameObject>();
+                for(var i = 0; i < prewarmCount; i++)
+                    temp.Add(pool.Get());
+                
                 foreach (var obj in temp)
                     pool.Release(obj);
             }
@@ -114,6 +157,7 @@ namespace Pooling
             _isPrewarming = true;
             CreateEnemyPools();
             CreateWeaponPools();
+            CreateParticlePools();
             _isPrewarming = false;
         }
         
@@ -136,6 +180,12 @@ namespace Pooling
             // if (!_isPrewarming)
                 // TODO: Weapon Controller
                 
+            obj.SetActive(false);
+        }
+
+        private void OnParticleRelease(GameObject obj)
+        {
+            // TODO: Particle Controller Reset
             obj.SetActive(false);
         }
         
@@ -167,6 +217,37 @@ namespace Pooling
                 Destroy(enemy.gameObject);
         }
 
+        public GameObject GetParticlePrefab(ParticleData data, Vector3 position, Quaternion rotation)
+        {
+            if (!_vfxRouter.CanSpawn(data.Priority))
+                return null;
+
+            if (!_particlePoolDictionary.TryGetValue(data, out var pool))
+                return null;
+
+            _vfxRouter.RegisterSpawn();
+            
+            var obj = pool.Get();
+            obj.transform.SetPositionAndRotation(position, rotation);
+
+            var controller = obj.GetComponent<ParticleController>();
+            controller.Play();
+            
+            obj.SetActive(true);
+            return obj;
+        }
+
+        public void ReturnParticlePrefab(ParticleController particle)
+        {
+            var data = particle.Data;
+            _vfxRouter.RegisterDespawn();
+            
+            if (_particlePoolDictionary.TryGetValue(data, out var pool))
+                pool.Release(particle.gameObject);
+            else
+                Destroy(particle.gameObject);
+        }
+
         #endregion
         
         #region Unity Methods
@@ -178,6 +259,7 @@ namespace Pooling
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
                 PrewarmPools();
+                _vfxRouter = GetComponentInChildren<VFXPriorityRouter>();
             }
             else
             {
