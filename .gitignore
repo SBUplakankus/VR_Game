@@ -74,17 +74,32 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-# Paid / licensed asset packs (excluded from source control)
-# Ignore all Synty 3D assets
-/[Aa]ssets/_ThirdParty/Synty/
-/[Aa]ssets/_ThirdParty/Synty/**/*.meta
+# --- THIRD PARTY & PLUGINS SECTION ---
 
-# Ignore audio files in third-party folder
-/[Aa]ssets/_ThirdParty/Audio/*
-/[Aa]ssets/_ThirdParty/Audio/**/*.meta
+# Pattern to ignore ALL third-party folders (case-insensitive)
+/[Aa]ssets/*[Tt]hird[Pp]arty*/
+/[Aa]ssets/*[Ee]xternal*/
+/[Aa]ssets/*[Vv]endor*/
 
-# Keep folder structure and README files
-!/[Aa]ssets/_ThirdParty/Synty/.keep
-!/[Aa]ssets/_ThirdParty/Synty/README.md
-!/[Aa]ssets/_ThirdParty/Audio/.keep
-!/[Aa]ssets/_ThirdParty/Audio/README.md
+# Specific common third-party folder names
+/[Aa]ssets/_ThirdParty/
+/[Aa]ssets/ThirdParty/
+/[Aa]ssets/3rdParty/
+/[Aa]ssets/External/
+/[Aa]ssets/Vendor/
+/[Aa]ssets/StoreAssets/
+/[Aa]ssets/AssetStore/
+/[Aa]ssets/AssetsStore/
+
+# Ignore Plugins folder completely (including DLLs, bundles, etc.)
+/[Aa]ssets/Plugins/
+/[Aa]ssets/Plugins.meta
+/[Aa]ssets/Plugins.x86/
+/[Aa]ssets/Plugins.x86_64/
+/[Aa]ssets/Plugins.x86.meta
+/[Aa]ssets/Plugins.x86_64.meta
+
+# Optional: Keep folder structure with README or .keep files
+# !/[Aa]ssets/_ThirdParty/README.md
+# !/[Aa]ssets/_ThirdParty/.gitkeep
+# !/[Aa]ssets/Plugins/README.md

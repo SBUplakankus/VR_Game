@@ -24,7 +24,7 @@ namespace Pooling
         private bool _isPrewarming;
         
         [Header("VR Performance Settings")]
-        [SerializeField] private bool enableCollectionCheck = false;
+        [SerializeField] private bool enableCollectionCheck;
         [SerializeField] private int poolSize = 50;
         [SerializeField] private int maxPoolSize = 100;
         
@@ -231,9 +231,9 @@ namespace Pooling
             obj.transform.SetPositionAndRotation(position, rotation);
 
             var controller = obj.GetComponent<ParticleController>();
-            controller.Play();
             
             obj.SetActive(true);
+            controller.Play();
             return obj;
         }
 

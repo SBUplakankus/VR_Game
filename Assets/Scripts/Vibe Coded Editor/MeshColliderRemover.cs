@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace Vibe_Coded_Editor
     {
         // Add a static method with MenuItem attribute
         [MenuItem("Tools/Replace All MeshColliders")]
+        [Obsolete("Obsolete")]
         public static void ReplaceAllMeshColliders()
         {
             // Use Undo to make it work in prefab mode

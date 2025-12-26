@@ -1,3 +1,4 @@
+using Databases;
 using UnityEngine;
 using Weapons;
 
@@ -18,6 +19,7 @@ namespace Characters.Enemies
         [Header("Presentation")]
         [SerializeField] private GameObject prefab;
         [SerializeField] private AudioClip deathSfx;
+        [SerializeField] private ParticleData deathVFX;
 
         [Header("Combat")] 
         [SerializeField] private WeaponData weapon;
@@ -32,6 +34,7 @@ namespace Characters.Enemies
         public float MoveSpeed => moveSpeed;
         public GameObject Prefab => prefab;
         public AudioClip DeathSfx => deathSfx;
+        public ParticleData DeathVFX => deathVFX;
         
         #endregion
 

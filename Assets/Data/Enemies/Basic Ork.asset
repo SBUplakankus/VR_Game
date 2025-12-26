@@ -17,4 +17,5 @@ MonoBehaviour:
   moveSpeed: 3.5
   prefab: {fileID: 8347129919413940679, guid: fa8ab08ec5adc5743a5f0ebc3fb94583, type: 3}
   deathSfx: {fileID: 0}
-  weapon: {fileID: 0}
+  deathVFX: {fileID: 11400000, guid: 1496f1a316ab40d45a8d238ca48a38a0, type: 2}
+  weapon: {fileID: 11400000, guid: 15c2ce1b91dba7e40b378527ca8de985, type: 2}
