@@ -26,7 +26,9 @@ MonoBehaviour:
   gripRotationOffset: {x: 0, y: 0, z: 0}
   hapticStrength: 0.5
   hapticDuration: 0.1
-  swingSoundKey: 
-  hitSoundKey: 
+  hitSfx:
+  - {fileID: 11400000, guid: 711cee570f494a04db098d0018adf28b, type: 2}
+  - {fileID: 11400000, guid: e5288a4066a4a144485bb7854564d65c, type: 2}
+  - {fileID: 11400000, guid: 68c01f8c67fdb9644876b49c5bdba03f, type: 2}
   hitVFX: {fileID: 11400000, guid: 51ba9b4f939ee454e9d2f16bfdcf1272, type: 2}
   activeModifiers: []

@@ -335,11 +335,18 @@ namespace Pooling
                 PrewarmPools();
                 _vfxRouter = GetComponent<VFXPriorityRouter>();
                 _audioRouter = GetComponent<AudioPriorityRouter>();
+                
             }
             else
             {
                 Destroy(gameObject);
             }
+            
+            if(!_vfxRouter)
+                _vfxRouter = gameObject.AddComponent<VFXPriorityRouter>();
+            
+            if (!_audioRouter)
+                _audioRouter = gameObject.AddComponent<AudioPriorityRouter>();
         }
 
         #endregion

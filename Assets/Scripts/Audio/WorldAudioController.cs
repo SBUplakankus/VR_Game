@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Audio
 {
+    [RequireComponent(typeof(AudioSource))]
     public class WorldAudioController : MonoBehaviour, IUpdateable
     {
         #region Components

@@ -16,6 +16,10 @@ MonoBehaviour:
   maxHealth: 100
   moveSpeed: 3.5
   prefab: {fileID: 8347129919413940679, guid: fa8ab08ec5adc5743a5f0ebc3fb94583, type: 3}
-  deathSfx: {fileID: 0}
+  ambientSfx: []
+  hitSfx: []
+  deathSfx:
+  - {fileID: 11400000, guid: e4edfbef92c262c48860903c2340014e, type: 2}
+  - {fileID: 11400000, guid: f50a098581d932f469995ad23b1704c7, type: 2}
   deathVFX: {fileID: 11400000, guid: 1496f1a316ab40d45a8d238ca48a38a0, type: 2}
   weapon: {fileID: 11400000, guid: 15c2ce1b91dba7e40b378527ca8de985, type: 2}

@@ -74,6 +74,7 @@ namespace Weapons
             RegisterAttack();
             target.TakeDamage(data.TotalDamage);
             GamePoolManager.Instance.GetParticlePrefab(data.HitVFX, hitPoint, hitRotation);
+            GamePoolManager.Instance.GetWorldAudioPrefab(data.HitSfx, hitPoint);
         }
 
         #endregion

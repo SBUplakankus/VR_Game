@@ -1,3 +1,4 @@
+using Audio;
 using Databases;
 using UnityEngine;
 using Weapons;
@@ -18,7 +19,10 @@ namespace Characters.Enemies
 
         [Header("Presentation")]
         [SerializeField] private GameObject prefab;
-        [SerializeField] private AudioClip deathSfx;
+
+        [SerializeField] private WorldAudioData[] ambientSfx;
+        [SerializeField] private WorldAudioData[] hitSfx;
+        [SerializeField] private WorldAudioData[] deathSfx;
         [SerializeField] private ParticleData deathVFX;
 
         [Header("Combat")] 
@@ -26,25 +30,44 @@ namespace Characters.Enemies
 
         #endregion
         
+        #region Methods
+        
+        private WorldAudioData GetAmbientSfx()
+        {
+            if(ambientSfx == null) return null;
+            var sfx = Random.Range(0, ambientSfx.Length);
+            return ambientSfx[sfx];
+        }
+
+        private WorldAudioData GetHitSfx()
+        {
+            if(hitSfx == null) return null;
+            var sfx = Random.Range(0, hitSfx.Length);
+            return hitSfx[sfx];
+        }
+        
+        private WorldAudioData GetDeathSfx()
+        {
+            if(deathSfx == null) return null;
+            var sfx = Random.Range(0, deathSfx.Length);
+            return deathSfx[sfx];
+        }
+        
+        #endregion
+        
         #region Properties
 
-        // Public, read-only accessors
         public string EnemyId => enemyId;
         public int MaxHealth => maxHealth;
         public float MoveSpeed => moveSpeed;
         public GameObject Prefab => prefab;
-        public AudioClip DeathSfx => deathSfx;
+        public WorldAudioData AmbientSfx => GetAmbientSfx();
+        public WorldAudioData HitSfx => GetHitSfx();
+        public WorldAudioData DeathSfx => GetDeathSfx();
         public ParticleData DeathVFX => deathVFX;
         
         #endregion
 
-#if UNITY_EDITOR
-
-        private void OnValidate()
-        {
-            enemyId = enemyId?.Trim().ToLowerInvariant();
-        }
         
-#endif
     }
 }

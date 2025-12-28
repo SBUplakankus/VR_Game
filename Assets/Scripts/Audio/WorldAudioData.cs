@@ -9,7 +9,6 @@ namespace Audio
         #region Audio Properties
         
         [Header("Audio")]
-        [SerializeField] private string audioId;
         [SerializeField] private AudioClip audioClip;
         [SerializeField] private GameObject audioPrefab;
         [SerializeField] private AudioPriority audioPriority;
@@ -39,7 +38,7 @@ namespace Audio
         
         #region Properties
         
-        public string ID =>  audioId;
+        public string ID =>  name;
         public AudioClip AudioClip => audioClip;
         public GameObject Prefab => audioPrefab;
         public AudioPriority Priority => audioPriority;

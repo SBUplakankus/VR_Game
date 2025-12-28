@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Audio;
 using Databases;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -30,13 +31,23 @@ namespace Weapons
         [SerializeField] private float hapticStrength = 0.5f;
         [SerializeField] private float hapticDuration = 0.1f;
 
-        [Header("Visual / Audio")]
-        [SerializeField] private string swingSoundKey;
-        [SerializeField] private string hitSoundKey;
+        [Header("Visual / Audio")] 
+        [SerializeField] private WorldAudioData[] hitSfx;
         [SerializeField] private ParticleData hitVFX;
 
         [Header("Modifiers")]
         [SerializeField] private List<WeaponModifier> activeModifiers = new();
+
+        #endregion
+
+        #region Methods
+
+        private WorldAudioData GetHitSfx()
+        {
+            if(hitSfx == null) return null;
+            var sfx = Random.Range(0, hitSfx.Length);
+            return hitSfx[sfx];
+        }
 
         #endregion
 
@@ -63,8 +74,7 @@ namespace Weapons
         public float HapticDuration => hapticDuration;
 
         // Visual / Audio
-        public string SwingSoundKey => swingSoundKey;
-        public string HitSoundKey => hitSoundKey;
+        public WorldAudioData HitSfx => GetHitSfx();
         public ParticleData HitVFX => hitVFX;
 
         // Modifiers

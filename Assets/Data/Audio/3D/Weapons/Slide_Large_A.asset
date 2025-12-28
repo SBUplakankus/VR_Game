@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d755fb6f7756d4a429e8a86b04074cb1, type: 3}
+  m_Name: Slide_Large_A
+  m_EditorClassIdentifier: Assembly-CSharp::Audio.WorldAudioData
+  audioClip: {fileID: 8300000, guid: 7fb9444e43cf5df4489d89daf23f1357, type: 3}
+  audioPrefab: {fileID: 5234829673148608346, guid: f58fb2ebe930b524f97e51a0aaa60e83, type: 3}
+  audioPriority: 2
+  volume: 0.872
+  randomVolumeRange: {x: 0.88, y: 0.98}
+  pitch: 1
+  randomPitchRange: {x: 0.78, y: 1.05}
+  spatialBlend: 1
+  dopplerLevel: 1
+  minDistance: 1
+  maxDistance: 50
+  rolloffMode: 0

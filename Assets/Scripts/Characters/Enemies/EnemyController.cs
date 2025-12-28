@@ -38,6 +38,7 @@ namespace Characters.Enemies
         private void HandleEnemyDeath()
         {
             GamePoolManager.Instance.ReturnEnemyPrefab(this);
+            GamePoolManager.Instance.GetWorldAudioPrefab(enemyData.DeathSfx, transform.position);
         }
 
         private void InitEnemy()
