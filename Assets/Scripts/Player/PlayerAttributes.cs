@@ -37,9 +37,9 @@ namespace Player
 
         private void SetDefaultValues()
         {
-            playerGold.SetValue(50);
-            playerExperience.SetValue(0);
-            playerLevel.SetValue(1);
+            playerGold.Value = 50;
+            playerExperience.Value = 0;
+            playerLevel.Value = 1;
         }
         
         private void SaveAttributes()
@@ -68,9 +68,9 @@ namespace Player
         #region Event Handlers
         
         private void HandleGameSave() => SaveAttributes();
-        private void HandleGoldChange(int amount) => playerGold.ModifyValue(amount);
-        private void HandleExperienceChange(int amount) => playerExperience.ModifyValue(amount);
-        private void HandleLevelChange(int amount) => playerLevel.ModifyValue(amount);
+        private void HandleGoldChange(int amount) => playerGold.Add(amount);
+        private void HandleExperienceChange(int amount) => playerExperience.Add(amount);
+        private void HandleLevelChange(int amount) => playerLevel.Add(amount);
         
         private void SubscribeToEvents()
         {

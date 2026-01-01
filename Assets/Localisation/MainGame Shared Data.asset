@@ -59,6 +59,26 @@ MonoBehaviour:
     m_Key: game
     m_Metadata:
       m_Items: []
+  - m_Id: 4784931399249920
+    m_Key: welcome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4785094159216640
+    m_Key: audio-settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4785147527540736
+    m_Key: video-settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4785218168008704
+    m_Key: exit-game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4785248534769664
+    m_Key: "start-game\t"
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

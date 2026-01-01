@@ -67,9 +67,9 @@ namespace Factories
         /// </returns>
         public static HealthBarElements CreateHealthBar()
         {
-            var container = CreateContainer(GameConstants.HealthBarContainerStyle);
-            var background = CreateContainer(GameConstants.HealthBarBackgroundStyle);
-            var fill = CreateContainer(GameConstants.HealthBarFillStyle);
+            var container = CreateContainer(UIToolkitStyles.HealthBarContainer);
+            var background = CreateContainer(UIToolkitStyles.HealthBarBackground);
+            var fill = CreateContainer(UIToolkitStyles.HealthBarFill);
 
             background.Add(fill);
             container.Add(background);
@@ -360,6 +360,8 @@ namespace Factories
             container.Add(fill);
             return (container, fill);
         }
+
+        
         
         #endregion
         

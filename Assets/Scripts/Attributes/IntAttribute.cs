@@ -38,14 +38,11 @@ namespace Attributes
         
         #region Methods
 
-        public void Notify([CallerMemberName] string property = "")
-        {
-            propertyChanged?.Invoke(this, new BindablePropertyChangedEventArgs(property));
-        }
+        private void Notify([CallerMemberName] string property = "") => propertyChanged?.Invoke(this, new BindablePropertyChangedEventArgs(property));
         
-        public void ModifyValue(int amount) => Value += amount;
-        public void SetValue(int amount) => Value = amount;
-        public void ResetValue() => Value = 0;
+        public void Add(int amount) => Value += amount;
+        public void Reset() => Value = 0;
+        public void Refresh() => Notify(nameof(Value));
         public float GetPercentage(int maxValue) => (float)Value / maxValue;
         public bool IsAtLeast(int amount) => Value >= amount;
         public bool IsAtMost(int amount) => Value <= amount;

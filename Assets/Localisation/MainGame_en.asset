@@ -62,6 +62,26 @@ MonoBehaviour:
     m_Localized: Game
     m_Metadata:
       m_Items: []
+  - m_Id: 4784931399249920
+    m_Localized: Welcome to Proppa Choppa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4785094159216640
+    m_Localized: Audio Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4785147527540736
+    m_Localized: Video Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4785218168008704
+    m_Localized: Exit Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4785248534769664
+    m_Localized: Start Game
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
