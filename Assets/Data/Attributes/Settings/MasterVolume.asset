@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92df0cbf5808493cb802c29e1491e025, type: 3}
   m_Name: MasterVolume
   m_EditorClassIdentifier: Assembly-CSharp::Attributes.FloatAttribute
-  value: 0.788
+  value: 0.152

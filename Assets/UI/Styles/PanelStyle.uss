@@ -12,7 +12,7 @@
     --button-bg-colour-hover: lightskyblue;
     --hub-colour-primary: rgba(207,255,238,255);
     --button-border-colour: whitesmoke;
-    --button-text-colour: whitesmoke;
+    --button-text-colour: grey;
     --button-text-colour-hover: whitesmoke;
 }
 
@@ -32,15 +32,16 @@ Label{
 /* ===================== */
 
 Button{
-    background-color: var(--button-bg-colour);
-    border-color: var(--button-border-colour);
+    background-color: transparent;
+    border-color: rgb(20,20,20);
     transition: var(--tween-duration);
     color: var(--button-text-colour);
     -unity-font-style: bold;
 }
 
 Button:hover{
-    background-color: var(--button-bg-colour-hover);
+    color: var(--hub-colour-primary);
+    border-color: var(--hub-colour-primary);
     border-radius: var(--button-hover-border-radius);
     transition: var(--tween-duration);
 }
@@ -130,13 +131,33 @@ Button:hover{
 .header-label{
     -unity-font-style: bold;
     color: var(--hub-colour-primary);
-    margin-top: 5px;
-    margin-bottom: 5px;
-    font-size: 30px;
+    margin-bottom: 35px;
+    font-size: 60px;
 }
 
 .stat-label{
     -unity-font-style: bold;
     color: whitesmoke;
     font-size: 100px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    width: 50%; 
+}
+
+.button-container Button {
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+    font-size: 40px;
+    border-width: 3px;
+}
+
+.button-container Button:hover{
+    color: var(--hub-colour-primary);
+    border-color: var(--hub-colour-primary);
 }

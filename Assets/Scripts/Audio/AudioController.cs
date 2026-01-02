@@ -118,23 +118,16 @@ namespace Audio
 
         private void SetInitialValues()
         {
-            if(masterVolume != null) SetMasterVolume(masterVolume.Value);
-            if(musicVolume != null) SetMusicVolume(musicVolume.Value);
-            if(ambienceVolume != null) SetAmbienceVolume(ambienceVolume.Value);
-            if(sfxVolume != null) SetSfxVolume(sfxVolume.Value);
-            if(uiVolume != null) SetUIVolume(uiVolume.Value);
+            SetMasterVolume(masterVolume.Value);
+            SetMusicVolume(musicVolume.Value);
+            SetAmbienceVolume(ambienceVolume.Value);
+            SetSfxVolume(sfxVolume.Value);
+            SetUIVolume(uiVolume.Value);
         }
         
         #endregion
         
         #region Unity Methods
-        
-        private void Awake()
-        {
-            if(musicSource != null) musicSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups(AudioKeys.MixerMusic)[0];
-            if(ambienceSource != null) ambienceSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups(AudioKeys.MixerAmbience)[0];
-            if(uiSfxSource != null) uiSfxSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups(AudioKeys.MixerUI)[0];
-        }
         
         private void OnEnable()
         {
@@ -144,7 +137,13 @@ namespace Audio
         }
 
         private void OnDisable() => UnsubscribeEvents();
-        
+
+        private void Start()
+        {
+            musicVolume.Value = 0.2f;
+            ambienceVolume.Value = 0.7f;
+        }
+
         #endregion
     }
 }

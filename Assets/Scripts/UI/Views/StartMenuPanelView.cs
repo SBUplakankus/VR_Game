@@ -16,8 +16,7 @@ namespace UI.Views
         
         public event Action OnPlayClicked;
         public event Action OnControlsClicked;
-        public event Action OnAudioSettingsClicked;
-        public event Action OnVideoSettingsClicked;
+        public event Action OnSettingsClicked;
         public event Action OnQuitClicked;
 
         #endregion
@@ -55,12 +54,17 @@ namespace UI.Views
         private void GenerateUI(VisualElement root)
         {
             _container = UIToolkitFactory.CreateContainer(UIToolkitStyles.Container, UIToolkitStyles.PanelBody);
+
+            var gameTitle = UIToolkitFactory.CreateLabel(
+                LocalizationFactory.CreateString(LocalizationKeys.GameTitle),
+                UIToolkitStyles.Header);
             
-            _buttonContainer = UIToolkitFactory.CreateContainer(UIToolkitStyles.Container, UIToolkitStyles.PanelBody);
+            _container.Add(gameTitle);
+            
+            _buttonContainer = UIToolkitFactory.CreateContainer(UIToolkitStyles.ButtonContainer);
             
             CreateButton(LocalizationKeys.Play, OnPlayClicked);
-            CreateButton(LocalizationKeys.AudioSettings, OnAudioSettingsClicked);
-            CreateButton(LocalizationKeys.VideoSettings, OnVideoSettingsClicked);
+            CreateButton(LocalizationKeys.Settings, OnSettingsClicked);
             CreateButton(LocalizationKeys.Controls, OnControlsClicked);
             CreateButton(LocalizationKeys.Quit, OnQuitClicked);
             

@@ -171,7 +171,7 @@ namespace Factories
         /// <param name="onValueChanged">Callback invoked when slider value changes.</param>
         /// <param name="classNames">CSS class names for styling.</param>
         /// <returns>Configured Slider element.</returns>
-        public static Slider CreateSlider(float min, float max, float value, 
+        public static Slider CreateSlider(float min = 0, float max = 1, float value = 1, 
             Action<float> onValueChanged = null, params string[] classNames)
         {
             var slider = CreateElement<Slider>(classNames);
