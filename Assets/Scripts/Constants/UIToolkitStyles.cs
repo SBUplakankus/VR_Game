@@ -15,7 +15,6 @@ namespace Constants
         public const string ViewBox = "view-box";
         public const string BorderedBox = "bordered-box";
         public const string ButtonContainer = "button-container";
-        public const string TabBar = "tab-bar";
 
         public const string MenuButton = "menu-button";
         public const string ContinueButton = "continue-button";
@@ -33,5 +32,9 @@ namespace Constants
         
         public const string SettingsSlider = "settings-slider";
         public const string SettingsSliderRow = "settings-slider-row";
+        
+        public const string TabBar = "tab-bar";
+        public const string TabContent = "tab-content";
+        public const string Tab = "tab";
     }
 }

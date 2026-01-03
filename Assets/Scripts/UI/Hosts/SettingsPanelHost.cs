@@ -8,20 +8,50 @@ namespace UI.Hosts
     {
         #region Fields
 
-        [Header("UI Toolkit")] [SerializeField]
-        private UIDocument uiDocument;
-
+        [Header("UI Toolkit")] 
+        [SerializeField] private UIDocument uiDocument;
         [SerializeField] private StyleSheet styleSheet;
 
-        #endregion
-
-        #region View
-
         private SettingsPanelView _settingsView;
+        private AudioSettingsPanelView _audioSettingsView;
+
+        private Button _audioTab;
+        private Button _videoTab;
+        private Button _languageTab;
+        private VisualElement _contentRoot;
 
         #endregion
 
-        #region Private Methods
+        #region Methods
+
+        private void DisposeView()
+        {
+            UnbindTabs();
+            _settingsView?.Dispose();
+            _settingsView = null;
+        }
+
+        private void DisposeTabViews()
+        {
+            _audioSettingsView?.Dispose();
+            _audioSettingsView = null;
+        }
+
+        private void ShowAudioTab()
+        {
+            DisposeTabViews();
+            _audioSettingsView = new AudioSettingsPanelView(_contentRoot, styleSheet);
+        }
+
+        private void ShowVideoTab()
+        {
+            DisposeTabViews();
+        }
+
+        private void ShowLanguageTab()
+        {
+            DisposeTabViews();
+        }
 
         private void Generate()
         {
@@ -31,14 +61,31 @@ namespace UI.Hosts
                 uiDocument.rootVisualElement,
                 styleSheet
             );
+            
+            _audioTab = _settingsView.AudioTab;
+            _videoTab = _settingsView.VideoTab;
+            _languageTab = _settingsView.LanguageTab;
+            _contentRoot = _settingsView.Content;
+            
+            BindTabs();
+            ShowAudioTab();
         }
 
-        private void DisposeView()
+        private void BindTabs()
         {
-            _settingsView?.Dispose();
-            _settingsView = null;
+            _audioTab.clicked += ShowAudioTab;
+            _videoTab.clicked += ShowVideoTab;
+            _languageTab.clicked += ShowLanguageTab;
         }
 
+        private void UnbindTabs()
+        {
+            if(_audioTab == null) return;
+            _audioTab.clicked -= ShowAudioTab;
+            _videoTab.clicked -= ShowVideoTab;
+            _languageTab.clicked -= ShowLanguageTab;
+        }
+        
         #endregion
 
         #region Unity Lifecycle

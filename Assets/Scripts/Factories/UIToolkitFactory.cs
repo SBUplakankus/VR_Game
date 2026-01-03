@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Constants;
+using UI.Extensions;
 using Unity.Properties;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -102,7 +103,8 @@ namespace Factories
             
             if (onClick != null)
                 button.clicked += onClick;
-                
+            
+            button.AddAudioEvents();
             return button;
         }
 

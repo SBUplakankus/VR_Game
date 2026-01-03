@@ -1,6 +1,7 @@
 using System;
 using Constants;
 using Factories;
+using UI.Extensions;
 using UnityEngine.UIElements;
 
 namespace UI.Views
@@ -41,31 +42,27 @@ namespace UI.Views
                 UIToolkitStyles.Container,
                 UIToolkitStyles.PanelBody
             );
-
-            // Header
-            var header = UIToolkitFactory.CreateContainer(UIToolkitStyles.PanelHeader);
-            header.Add(UIToolkitFactory.CreateLabel(
-                LocalizationFactory.CreateString(LocalizationKeys.Settings),
-                UIToolkitStyles.PanelTitle));
             
-            CloseButton = UIToolkitFactory.CreateButton(LocalizationFactory.CreateString(LocalizationKeys.Close));
-            header.Add(CloseButton);
-
-            // Tabs
             var tabs = UIToolkitFactory.CreateContainer(UIToolkitStyles.TabBar);
-            AudioTab = UIToolkitFactory.CreateButton(LocalizationFactory.CreateString(LocalizationKeys.Audio));
-            VideoTab = UIToolkitFactory.CreateButton(LocalizationFactory.CreateString(LocalizationKeys.Video));
-            LanguageTab = UIToolkitFactory.CreateButton(LocalizationFactory.CreateString(LocalizationKeys.Language));
+            
+            AudioTab = UIToolkitFactory.CreateButton(
+                LocalizationFactory.CreateString(LocalizationKeys.Audio), 
+                classNames: UIToolkitStyles.Tab);
+            
+            VideoTab = UIToolkitFactory.CreateButton(
+                LocalizationFactory.CreateString(LocalizationKeys.Video), 
+                classNames: UIToolkitStyles.Tab);
+            
+            LanguageTab = UIToolkitFactory.CreateButton(
+                LocalizationFactory.CreateString(LocalizationKeys.Language), 
+                classNames: UIToolkitStyles.Tab);
 
             tabs.Add(AudioTab);
             tabs.Add(VideoTab);
             tabs.Add(LanguageTab);
-
-            // Content
-            Content = UIToolkitFactory.CreateContainer(UIToolkitStyles.PanelContent);
-
-            _container.Add(header);
             _container.Add(tabs);
+
+            Content = UIToolkitFactory.CreateContainer(UIToolkitStyles.TabContent);
             _container.Add(Content);
             
             root.Add(_container);

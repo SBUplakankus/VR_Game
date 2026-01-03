@@ -49,8 +49,7 @@ namespace UI.Views
         private void GenerateUI(VisualElement root)
         {
             _container = UIToolkitFactory.CreateContainer(
-                UIToolkitStyles.Container,
-                UIToolkitStyles.PanelBody
+                UIToolkitStyles.Container
             );
             
             var header = UIToolkitFactory.CreateContainer(UIToolkitStyles.PanelHeader);

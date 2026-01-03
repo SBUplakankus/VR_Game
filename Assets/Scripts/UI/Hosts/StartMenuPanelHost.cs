@@ -56,9 +56,6 @@ namespace UI.Hosts
                 uiDocument.rootVisualElement,
                 styleSheet
             );
-
-            foreach (var viewButton in _view.Buttons)
-                viewButton.AddAudioEvents();
             
             SubscribeEvents();
         }
