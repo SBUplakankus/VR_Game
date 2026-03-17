@@ -13,8 +13,8 @@ language: C#
 architecture: ScriptableObject-driven with Event Channels
 ui_framework: UI Toolkit (not UGUI)
 original_platform: VR (Quest 2/3, XR Interaction Toolkit)
-target_platform: PC (First/Third Person) - Transition in progress
-status: Shelved January 2026, PC transition planned
+target_platform: PC (Top-Down Dungeon Crawler) - Transition in progress
+status: Shelved January 2026, top-down pivot in progress
 ```
 
 ---
@@ -62,7 +62,7 @@ status: Shelved January 2026, PC transition planned
 │   ├── architecture/            # overview.md, database-pattern.md, event-system.md
 │   ├── systems/                 # weapons.md, enemies.md, user-interface.md, save-data.md
 │   ├── vr/                      # performance.md, comfort.md, spacewarp.md
-│   └── future/                  # roadmap.md, project-status.md, vr-to-pc-transition-guide.md, pc-implementation-plan.md, pc-expansion-ideas.md
+│   └── future/                  # roadmap.md, project-status.md, room-structure.md, ai-context-reference.md
 └── Packages/                    # Unity package manifest
 ```
 
@@ -222,16 +222,15 @@ Namespaces: Match folder structure (Characters.Enemies, Systems.Arena)
 
 ---
 
-## VR-TO-PC TRANSITION STATUS
+## TOP-DOWN TRANSITION STATUS
 
-### Files to Create (PC)
+### Files to Create (Top-Down PC)
 - `Assets/Scripts/Player/PCInputHandler.cs`
-- `Assets/Scripts/Player/FPSPlayerController.cs`
+- `Assets/Scripts/Player/TopDownPlayerController.cs`
+- `Assets/Scripts/Player/TopDownCameraController.cs`
 - `Assets/Scripts/Player/TargetingSystem.cs`
-- `Assets/Scripts/Player/PCCombatManager.cs`
-- `Assets/Scripts/Weapons/PCWeaponBase.cs`
-- `Assets/Scripts/Weapons/PCMeleeWeapon.cs`
-- `Assets/Scripts/Weapons/PCRangedWeapon.cs`
+- `Assets/Scripts/Characters/Enemies/EnemySteeringMovement.cs`
+- `Assets/Scripts/Characters/Enemies/SteeringBehaviours.cs`
 
 ### Files to Delete (VR-specific)
 - `Assets/Scripts/Player/PlayerHapticFeedback.cs`
@@ -244,11 +243,11 @@ Namespaces: Match folder structure (Characters.Enemies, Systems.Arena)
 - `Assets/XRI/` (entire folder)
 
 ### Files to Modify
-- `GameConstants.cs` - Update limits for PC performance
-- `GameFlowManager.cs` - Remove VR-specific handling
-- `WaveSpawner.cs` - Increase enemy limits
+- `GameConstants.cs` - Update limits for top-down pacing
+- `GameFlowManager.cs` - Align flow to room/floor progression
+- `WaveSpawner.cs` - Spawn enemies per hand-authored room
 - `WeaponData.cs` - Remove VR grip offsets
-- `EnemyMovement.cs` - Update target finding
+- `EnemyMovement.cs` - Replace NavMesh usage with simple steering
 
 ### Systems Unchanged
 - All databases (DatabaseBase, GameDatabases, WeaponDatabase, EnemyDatabase)
@@ -272,10 +271,8 @@ Namespaces: Match folder structure (Characters.Enemies, Systems.Arena)
 | UI System | `Docs/systems/user-interface.md` |
 | VR Performance | `Docs/vr/performance.md` |
 | Project Status | `Docs/future/project-status.md` |
-| Original Roadmap | `Docs/future/roadmap.md` |
-| PC Transition Guide | `Docs/future/vr-to-pc-transition-guide.md` |
-| PC Implementation Plan | `Docs/future/pc-implementation-plan.md` |
-| PC Expansion Ideas | `Docs/future/pc-expansion-ideas.md` |
+| Top-Down Roadmap | `Docs/future/roadmap.md` |
+| Room Structure | `Docs/future/room-structure.md` |
 
 ---
 
@@ -283,7 +280,7 @@ Namespaces: Match folder structure (Characters.Enemies, Systems.Arena)
 
 ### Add New Weapon Type
 1. Create `WeaponData` ScriptableObject
-2. Create weapon prefab with `PCWeaponBase` subclass (or `XRWeaponBase` for VR)
+2. Create weapon prefab with top-down-compatible weapon behaviour
 3. Add to `WeaponDatabase`
 4. Configure in `WeaponData` asset
 
@@ -349,14 +346,14 @@ grep -r "interface I" /home/runner/work/monsta-choppa-vr/monsta-choppa-vr/Assets
 When starting a new session, paste this context:
 
 ```
-I'm working on Monsta Choppa, a Unity C# project transitioning from VR to PC.
+I'm working on Monsta Choppa, a Unity C# project pivoting from VR to a top-down PC dungeon crawler.
 
 Key info:
 - ScriptableObject-driven architecture with generic databases
 - Event channel system for decoupled communication
 - UI Toolkit with Factory-View-Host pattern
 - Object pooling via GamePoolManager
-- Currently transitioning from XR Interaction Toolkit to PC FPS/TPS
+- Currently transitioning from XR Interaction Toolkit to top-down PC gameplay
 
 Reference file: Docs/future/ai-context-reference.md
 
@@ -365,5 +362,5 @@ Reference file: Docs/future/ai-context-reference.md
 
 ---
 
-*Last updated: January 2026*
+*Last updated: March 2026*
 *Generated for AI assistant context*
