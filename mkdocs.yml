@@ -1,104 +1,66 @@
-site_name: Monsta Choppa VR
-site_description: A VR roguelike arena combat game built with Unity's XR Interaction Toolkit
-site_author: Seán Burke
-site_url: https://sbuplakankus.github.io/monsta-choppa-vr/
-repo_name: Monsta Choppa
-repo_url: https://github.com/SBUplakankus/monsta-choppa-vr
+site_name: Monsta Choppa Dev Docs
 docs_dir: Docs
-
-extra_css:
-  - stylesheets/extra.css
 
 theme:
   name: material
-  palette:
-    - scheme: slate
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-    - scheme: default
-      primary: teal
-      accent: teal
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
   features:
     - navigation.tabs
-    - navigation.sections
     - navigation.expand
-    - navigation.top
-    - navigation.instant
-    - content.code.copy
-    - content.code.annotate
-    - content.tabs.link
-    - search.highlight
     - search.suggest
+    - search.highlight
+    - content.code.annotate
     - toc.integrate
-  icon:
-    repo: fontawesome/brands/github
-  font:
-    text: Roboto
-    code: Roboto Mono
 
 markdown_extensions:
+  - tables
   - admonition
-  - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.mark
-  - pymdownx.critic
-  - pymdownx.caret
-  - pymdownx.keys
-  - pymdownx.tilde
+  - pymdownx.highlight
   - attr_list
   - md_in_html
-  - def_list
-  - tables
-  - footnotes
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+repo_url: https://github.com/SBUplakankus/monsta-choppa-vr
 
 nav:
-  - Home: index.md
-  - Architecture:
-    - Overview: architecture/overview.md
-    - Event System: architecture/event-system.md
-    - Database Pattern: architecture/database-pattern.md
-    - Constants: architecture/constants.md
-  - Game Systems:
-    - User Interface: systems/user-interface.md
-    - Weapons: systems/weapons.md
-    - Enemies: systems/enemies.md
-    - Save Data: systems/save-data.md
-  - VR Development:
-    - Performance Guide: vr/performance.md
-    - Comfort Settings: vr/comfort.md
-    - Application SpaceWarp: vr/spacewarp.md
-    - Bootstrap & Loading: vr/bootstrap-loading.md
-  - Development:
-    - Game Design: development/game-design.md
-    - UI Toolkit Practices: development/ui-toolkit.md
-  - Future Plans:
-    - Roadmap: future/roadmap.md
-    - Project Status: future/project-status.md
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/SBUplakankus
-
-copyright: Copyright &copy; 2026 Seán Burke
+  - PC Version:
+    - Overview: pc/index.md
+    - Sprint:
+      - Week 1: pc/sprint/week-1.md
+      - Week 2: pc/sprint/week-2.md
+      - Week 3: pc/sprint/week-3.md
+      - Week 4: pc/sprint/week-4.md
+    - Architecture:
+      - Overview: pc/architecture/overview.md
+      - Shared Systems: pc/architecture/shared-systems.md
+    - Systems:
+      - Player: pc/systems/player.md
+      - Enemies: pc/systems/enemies.md
+      - Weapons: pc/systems/weapons.md
+      - Rooms: pc/systems/rooms.md
+      - Shop: pc/systems/shop.md
+      - UI: pc/systems/ui.md
+    - Rebuild Reference:
+      - VR to PC Map: pc/rebuild/vr-to-pc-map.md
+      - New Scripts: pc/rebuild/new-scripts.md
+  - VR Archive:
+    - Architecture:
+      - Overview: archive/vr/architecture/overview.md
+      - Database Pattern: archive/vr/architecture/database-pattern.md
+      - Event System: archive/vr/architecture/event-system.md
+    - Systems:
+      - Weapons: archive/vr/systems/weapons.md
+      - Enemies: archive/vr/systems/enemies.md
+      - UI: archive/vr/systems/user-interface.md
+      - Save Data: archive/vr/systems/save-data.md
+    - VR Specific:
+      - Performance: archive/vr/vr/performance.md
+      - Comfort: archive/vr/vr/comfort.md
+      - Spacewarp: archive/vr/vr/spacewarp.md
+    - Future (Archived):
+      - Project Status: archive/vr/future/project-status.md
+      - Original Roadmap: archive/vr/future/roadmap.md
+      - AI Context Reference: archive/vr/future/ai-context-reference.md
