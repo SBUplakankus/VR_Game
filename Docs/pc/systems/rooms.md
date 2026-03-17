@@ -1,5 +1,3 @@
-# Rooms System
-
 # Room Structure
 
 Hand-authored room flow for the top-down dungeon crawler pivot.

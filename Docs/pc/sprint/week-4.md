@@ -12,8 +12,6 @@
 - [ ] Capture trailer footage and publish itch.io page (0.5d)
 
 ## Done
-- [ ] Author 2–3 floors with 3–5 hand-authored rooms each (2d)
-- [ ] Hook up audio using existing `AudioEvents` flow (1d)
-- [ ] Save score + settings through existing save system (0.5d)
-- [ ] Build and test on Windows + Linux (1d)
-- [ ] Capture trailer footage and publish itch.io page (0.5d)
+- [ ] Content complete
+- [ ] Integration complete
+- [ ] Release complete
