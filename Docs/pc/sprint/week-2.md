@@ -13,6 +13,4 @@
 - [ ] Implement player death and respawn flow (1d)
 
 ## Done
-- [ ] Weapons complete
-- [ ] Enemies complete
-- [ ] Player Survivability complete
+- [ ] Week 2 complete

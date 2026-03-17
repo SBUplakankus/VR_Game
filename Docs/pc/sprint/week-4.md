@@ -12,6 +12,4 @@
 - [ ] Capture trailer footage and publish itch.io page (0.5d)
 
 ## Done
-- [ ] Content complete
-- [ ] Integration complete
-- [ ] Release complete
+- [ ] Week 4 complete

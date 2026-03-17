@@ -13,6 +13,4 @@
 - [ ] Build victory/defeat screen with score output (1d)
 
 ## Done
-- [ ] Progression complete
-- [ ] Shop & Upgrades complete
-- [ ] Boss & End States complete
+- [ ] Week 3 complete

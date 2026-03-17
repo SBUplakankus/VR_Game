@@ -52,7 +52,7 @@ Hand-authored room flow for the top-down dungeon crawler pivot.
 - Hand-authored rooms only.
 - Linear flow or simple branching only.
 
-## Door Lock/Unlock Event Flow (Mermaid)
+## Door Lock/Unlock Flow Diagram
 
 ```mermaid
 flowchart TD

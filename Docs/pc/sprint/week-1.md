@@ -13,6 +13,4 @@
 - [ ] Detect room clear and unlock doors on enemy-clear event (0.5d)
 
 ## Done
-- [ ] Player & Camera complete
-- [ ] Rooms & Scene Flow complete
-- [ ] Room Combat Flow complete
+- [ ] Week 1 complete
