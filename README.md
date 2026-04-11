@@ -2,9 +2,15 @@
 
 A VR roguelike arena combat game built with Unity's XR Interaction Toolkit. Fight waves of enemies in arenas, earn gold and experience, upgrade equipment, and progress through increasingly difficult challenges.
 
+## YouTube Playlist
+
+The development of this game was documented on YouTube through a mini-series that I uploaded a video for once a wekk until I shelved the project you can watch
+[here](https://www.youtube.com/watch?v=kB48cedTjUw&list=PLAcWixmo_apu7DfyybS1LCxLorlU4yAi2&pp=sAgC).
+
 ## Project Status
 
-This portfolio project was shelved in January 2026. See the [full documentation](https://sbuplakankus.github.io/monsta-choppa-vr/) for details.
+I started this project to prepare for my Internship as an Immersive Developer and had hopes to publish a finished release,
+but it was shelved in January 2026 due to just not having the time or energy. See the [full documentation](https://sbuplakankus.github.io/monsta-choppa-vr/) for details.
 
 ## Documentation
 
