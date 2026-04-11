@@ -4,8 +4,8 @@ A VR roguelike arena combat game built with Unity's XR Interaction Toolkit. Figh
 
 ## YouTube Playlist
 
-The development of this game was documented on YouTube through a mini-series that I uploaded a video for once a wekk until I shelved the project you can watch
-[here](https://www.youtube.com/watch?v=kB48cedTjUw&list=PLAcWixmo_apu7DfyybS1LCxLorlU4yAi2&pp=sAgC).
+The development of this game was documented on YouTube through a [mini-series](https://www.youtube.com/watch?v=kB48cedTjUw&list=PLAcWixmo_apu7DfyybS1LCxLorlU4yAi2&pp=sAgC) 
+that I uploaded a video for once a wekk until I shelved the project you can watch.
 
 ## Project Status
 
