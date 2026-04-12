@@ -1,0 +1,76 @@
+[project]
+site_name = "Monsta Choppa Dev Docs"
+site_description = "Development documentation for the Monsta Choppa project."
+site_author = "Monsta Choppa Team"
+repo_url = "https://github.com/SBUplakankus/monsta-choppa-vr"
+docs_dir = "docs"
+site_dir = "site"
+copyright = "Copyright &copy; 2026 Monsta Choppa"
+
+nav = [
+  { "Overview" = "index.md" },
+  { "Architecture" = [
+      { "Overview" = "architecture/overview.md" },
+      { "Database Pattern" = "architecture/database-pattern.md" },
+      { "Event System" = "architecture/event-system.md" },
+      { "Constants" = "architecture/constants.md" },
+  ]},
+  { "Systems" = [
+      { "Weapons" = "systems/weapons.md" },
+      { "Enemies" = "systems/enemies.md" },
+      { "User Interface" = "systems/user-interface.md" },
+      { "Save Data" = "systems/save-data.md" },
+  ]},
+  { "VR Development" = [
+      { "Performance" = "vr/performance.md" },
+      { "Comfort" = "vr/comfort.md" },
+      { "Spacewarp" = "vr/spacewarp.md" },
+      { "Bootstrap and Loading" = "vr/bootstrap-loading.md" },
+  ]},
+  { "Development" = [
+      { "Game Design" = "development/game-design.md" },
+      { "UI Toolkit" = "development/ui-toolkit.md" },
+  ]},
+  { "Future" = [
+      { "Roadmap" = "future/roadmap.md" },
+      { "Project Status" = "future/project-status.md" },
+      { "VR to PC Transition Guide" = "future/vr-to-pc-transition-guide.md" },
+      { "PC Implementation Plan" = "future/pc-implementation-plan.md" },
+      { "PC Expansion Ideas" = "future/pc-expansion-ideas.md" },
+      { "AI Context Reference" = "future/ai-context-reference.md" },
+  ]},
+]
+
+[project.theme]
+variant = "modern"
+language = "en"
+features = [
+  "navigation.tabs",
+  "navigation.sections",
+  "navigation.expand",
+  "navigation.top",
+  "navigation.path",
+  "search.highlight",
+  "content.code.annotate",
+  "content.tabs.link",
+  "content.action.edit",
+  "content.action.view",
+  "content.code.copy"
+]
+
+[[project.theme.palette]]
+scheme = "slate"
+primary = "indigo"
+accent = "light-blue"
+
+[project.theme.font]
+text = "Inter"
+code = "JetBrains Mono"
+
+[project.theme.icon]
+logo = "lucide/gamepad-2"
+menu = "lucide/panel-left-open"
+search = "lucide/search"
+top = "lucide/arrow-up"
+previous = "lucide/chevron-left"
+next = "lucide/chevron-right"

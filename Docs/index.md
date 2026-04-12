@@ -20,41 +20,21 @@ A VR roguelike arena combat game built with Unity's XR Interaction Toolkit. Figh
 
 ## Technical Highlights
 
-<div class="grid cards" markdown>
+- **Combat System**  
+  Physics-based VR melee combat with velocity-based damage calculation, haptic feedback, and multiple weapon archetypes.  
+  [Weapons](systems/weapons.md)
 
--   :material-sword:{ .lg .middle } **Combat System**
+- **Enemy System**  
+  Component-based enemy architecture with NavMesh navigation, object pooling, and data-driven wave spawning.  
+  [Enemies](systems/enemies.md)
 
-    ---
+- **VR Performance**  
+  Optimized for Quest 2/3 with 72+ FPS targets, priority-based update management, and Application SpaceWarp support.  
+  [Performance](vr/performance.md)
 
-    Physics-based VR melee combat with velocity-based damage calculation, haptic feedback, and multiple weapon archetypes.
-
-    [:octicons-arrow-right-24: Weapons](systems/weapons.md)
-
--   :material-robot:{ .lg .middle } **Enemy System**
-
-    ---
-
-    Component-based enemy architecture with NavMesh navigation, object pooling, and data-driven wave spawning.
-
-    [:octicons-arrow-right-24: Enemies](systems/enemies.md)
-
--   :material-glasses:{ .lg .middle } **VR Performance**
-
-    ---
-
-    Optimized for Quest 2/3 with 72+ FPS targets, priority-based update management, and Application SpaceWarp support.
-
-    [:octicons-arrow-right-24: Performance](vr/performance.md)
-
--   :material-puzzle:{ .lg .middle } **Architecture**
-
-    ---
-
-    ScriptableObject-driven design with decoupled event channels, generic database patterns, and factory systems.
-
-    [:octicons-arrow-right-24: Architecture](architecture/overview.md)
-
-</div>
+- **Architecture**  
+  ScriptableObject-driven design with decoupled event channels, generic database patterns, and factory systems.  
+  [Architecture](architecture/overview.md)
 
 ---
 
