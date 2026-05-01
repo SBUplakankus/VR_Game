@@ -3,7 +3,7 @@ site_name = "Monsta Choppa Dev Docs"
 site_description = "Development documentation for the Monsta Choppa project."
 site_author = "Monsta Choppa Team"
 repo_url = "https://github.com/SBUplakankus/monsta-choppa-vr"
-docs_dir = "docs"
+docs_dir = "Docs"
 site_dir = "site"
 copyright = "Copyright &copy; 2026 Monsta Choppa"
 
