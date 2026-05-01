@@ -1,0 +1,2814 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Development documentation for the Monsta Choppa project.">
+      
+      
+        <meta name="author" content="Monsta Choppa Team">
+      
+      
+      
+        <link rel="prev" href="../pc-expansion-ideas/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.39">
+    
+    
+      
+        <title>Monsta Choppa - AI Context Reference - Monsta Choppa Dev Docs</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/modern/main.1e981d71.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/modern/palette.dfe2e883.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#monsta-choppa-ai-context-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Monsta Choppa Dev Docs" class="md-header__button md-logo" aria-label="Monsta Choppa Dev Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-gamepad-2" viewBox="0 0 24 24"><path d="M6 11h4M8 9v4M15 12h.01M18 10h.01M17.32 5H6.68a4 4 0 0 0-3.978 3.59q-.008.077-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258q-.01-.075-.017-.151A4 4 0 0 0 17.32 5"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-panel-left-open" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18M14 9l3 3-3 3"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Monsta Choppa Dev Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Monsta Choppa - AI Context Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="light-blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/SBUplakankus/monsta-choppa-vr" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  Overview
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../architecture/overview/" class="md-tabs__link">
+          
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../systems/weapons/" class="md-tabs__link">
+          
+  
+  Systems
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../vr/performance/" class="md-tabs__link">
+          
+  
+  VR Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/game-design/" class="md-tabs__link">
+          
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../roadmap/" class="md-tabs__link">
+          
+  
+  Future
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Monsta Choppa Dev Docs" class="md-nav__button md-logo" aria-label="Monsta Choppa Dev Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-gamepad-2" viewBox="0 0 24 24"><path d="M6 11h4M8 9v4M15 12h.01M18 10h.01M17.32 5H6.68a4 4 0 0 0-3.978 3.59q-.008.077-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258q-.01-.075-.017-.151A4 4 0 0 0 17.32 5"/></svg>
+
+    </a>
+    Monsta Choppa Dev Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/SBUplakankus/monsta-choppa-vr" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/database-pattern/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Database Pattern
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/event-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Event System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/constants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Constants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Systems
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Systems
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/weapons/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weapons
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/enemies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enemies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/user-interface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../systems/save-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Save Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VR Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    VR Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vr/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vr/comfort/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comfort
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vr/spacewarp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spacewarp
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vr/bootstrap-loading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bootstrap and Loading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/game-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Game Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/ui-toolkit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI Toolkit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Future
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Future
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Status
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vr-to-pc-transition-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VR to PC Transition Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pc-implementation-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PC Implementation Plan
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pc-expansion-ideas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PC Expansion Ideas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Context Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Context Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PROJECT IDENTITY
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DIRECTORY STRUCTURE
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CORE PATTERNS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CORE PATTERNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-scriptableobject-database-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. ScriptableObject Database Pattern
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-event-channel-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Event Channel Pattern
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ui-factory-view-host-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. UI Factory-View-Host Pattern
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-object-pooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Object Pooling
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-priority-update-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Priority Update System
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        KEY FILES QUICK REFERENCE
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KEY FILES QUICK REFERENCE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#game-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Game Flow
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Data
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Events
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Characters
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        UI
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constants
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GAME STATES
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GAME STATES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gamestate-gameflowmanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GameState (GameFlowManager)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arenastate-arenastatemanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ArenaState (ArenaStateManager)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-channels-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        EVENT CHANNELS AVAILABLE
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        NAMING CONVENTIONS
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vr-to-pc-transition-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        VR-TO-PC TRANSITION STATUS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VR-TO-PC TRANSITION STATUS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#files-to-create-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Files to Create (PC)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-to-delete-vr-specific" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Files to Delete (VR-specific)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-to-modify" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Files to Modify
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systems-unchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Systems Unchanged
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DOCUMENTATION LOCATIONS
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-tasks-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        COMMON TASKS QUICK REFERENCE
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="COMMON TASKS QUICK REFERENCE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-new-weapon-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Add New Weapon Type
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-new-enemy-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Add New Enemy Type
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-new-ui-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Add New UI Panel
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-new-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Add New Event
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-new-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Add New Database
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#third-party-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        THIRD-PARTY DEPENDENCIES
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        USEFUL COMMANDS
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-starter-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SESSION STARTER PROMPT
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        PROJECT IDENTITY
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#directory-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DIRECTORY STRUCTURE
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        CORE PATTERNS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CORE PATTERNS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-scriptableobject-database-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. ScriptableObject Database Pattern
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-event-channel-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Event Channel Pattern
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ui-factory-view-host-pattern" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. UI Factory-View-Host Pattern
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-object-pooling" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Object Pooling
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-priority-update-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Priority Update System
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-files-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        KEY FILES QUICK REFERENCE
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="KEY FILES QUICK REFERENCE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#game-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Game Flow
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Data
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#events" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Events
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#characters" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Characters
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        UI
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constants" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Constants
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#game-states" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GAME STATES
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GAME STATES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gamestate-gameflowmanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        GameState (GameFlowManager)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arenastate-arenastatemanager" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        ArenaState (ArenaStateManager)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#event-channels-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        EVENT CHANNELS AVAILABLE
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        NAMING CONVENTIONS
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vr-to-pc-transition-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        VR-TO-PC TRANSITION STATUS
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VR-TO-PC TRANSITION STATUS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#files-to-create-pc" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Files to Create (PC)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-to-delete-vr-specific" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Files to Delete (VR-specific)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#files-to-modify" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Files to Modify
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systems-unchanged" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Systems Unchanged
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation-locations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        DOCUMENTATION LOCATIONS
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-tasks-quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        COMMON TASKS QUICK REFERENCE
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="COMMON TASKS QUICK REFERENCE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-new-weapon-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Add New Weapon Type
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-new-enemy-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Add New Enemy Type
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-new-ui-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Add New UI Panel
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-new-event" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Add New Event
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-new-database" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Add New Database
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#third-party-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        THIRD-PARTY DEPENDENCIES
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        USEFUL COMMANDS
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#session-starter-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        SESSION STARTER PROMPT
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Overview
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../roadmap/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Future
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+    <a href="https://github.com/SBUplakankus/monsta-choppa-vr/edit/master/Docs/future/ai-context-reference.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-pen" viewBox="0 0 24 24"><path d="M12.659 22H18a2 2 0 0 0 2-2V8a2.4 2.4 0 0 0-.706-1.706l-3.588-3.588A2.4 2.4 0 0 0 14 2H6a2 2 0 0 0-2 2v9.34"/><path d="M14 2v5a1 1 0 0 0 1 1h5M10.378 12.622a1 1 0 0 1 3 3.003L8.36 20.637a2 2 0 0 1-.854.506l-2.867.837a.5.5 0 0 1-.62-.62l.836-2.869a2 2 0 0 1 .506-.853z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/SBUplakankus/monsta-choppa-vr/raw/master/Docs/future/ai-context-reference.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-file-code-2" viewBox="0 0 24 24"><path d="M4 12.15V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.706.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2h-3.35"/><path d="M14 2v5a1 1 0 0 0 1 1h5M5 16l-3 3 3 3M9 22l3-3-3-3"/></svg>
+    </a>
+  
+
+
+<h1 id="monsta-choppa-ai-context-reference">Monsta Choppa - AI Context Reference<a class="headerlink" href="#monsta-choppa-ai-context-reference" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><strong>Purpose:</strong> Quick-reference document for AI assistants. Point to this file at the start of any session to provide codebase context.</p>
+</blockquote>
+<hr />
+<h2 id="project-identity">PROJECT IDENTITY<a class="headerlink" href="#project-identity" title="Permanent link">&para;</a></h2>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Monsta Choppa</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">engine</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Unity</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C#</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">architecture</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ScriptableObject-driven with Event Channels</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nt">ui_framework</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UI Toolkit (not UGUI)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">original_platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VR (Quest 2/3, XR Interaction Toolkit)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="nt">target_platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PC (First/Third Person) - Transition in progress</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nt">status</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Shelved January 2026, PC transition planned</span>
+</span></code></pre></div>
+<hr />
+<h2 id="directory-structure">DIRECTORY STRUCTURE<a class="headerlink" href="#directory-structure" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>/home/runner/work/monsta-choppa-vr/monsta-choppa-vr/
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── Assets/
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>│   ├── Scripts/
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│   │   ├── Attributes/          # FloatAttribute, IntAttribute (reactive values)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│   │   ├── Audio/               # Audio controllers
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│   │   ├── Characters/
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│   │   │   ├── Base/            # HealthComponent, AnimatorComponent
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│   │   │   └── Enemies/         # EnemyController, EnemyHealth, EnemyMovement, EnemyAnimator, EnemyAttack
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│   │   ├── Constants/           # GameConstants, AudioKeys, LocalizationKeys, UIToolkitStyles
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│   │   ├── Data/                # ScriptableObject data classes
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│   │   │   ├── Arena/           # ArenaData, WaveData
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│   │   │   ├── Core/            # EnemyData, ParticleData, WorldAudioData
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│   │   │   ├── Progression/     # MetaProgressionData, UpgradeData
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│   │   │   └── Weapons/         # WeaponData, WeaponModifierData
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│   │   ├── Databases/           # DatabaseBase&lt;T&gt;, GameDatabases, WeaponDatabase, EnemyDatabase
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│   │   ├── Events/
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│   │   │   ├── Channels/        # EventChannel&lt;T&gt; generic implementation
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>│   │   │   └── Registries/      # GameplayEvents, AudioEvents, SystemEvents, UIEvents
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│   │   ├── Factories/           # UIToolkitFactory
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│   │   ├── Interfaces/          # IDamageable, IUpdateable
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>│   │   ├── Player/              # PlayerAttributes, PlayerArenaController, XR components
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>│   │   ├── Pooling/             # GamePoolManager
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│   │   ├── Saves/               # SaveFileManagerBase, PlayerSaveFileManager, SettingsSaveFileManager
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>│   │   ├── Systems/
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>│   │   │   ├── Arena/           # WaveManager, WaveSpawner, EnemyManager, ArenaStateManager
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>│   │   │   ├── Core/            # GameFlowManager, GameUpdateManager, BoostrapManager
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>│   │   │   └── Hub/             # Hub-specific systems
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>│   │   ├── UI/
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>│   │   │   ├── Controllers/     # StartMenuController, PauseMenuController, LoadingScreenController
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>│   │   │   ├── Hosts/           # BasePanelHost, StartMenuPanelHost, SettingsPanelHost
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>│   │   │   └── Views/           # BasePanelView, StartMenuPanelView, SettingsPanelView
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>│   │   └── Weapons/             # XRWeaponBase, MeleeXRWeapon, BowXRWeapon, ShieldXRWeapon, WeaponHitbox
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>│   ├── UI/                      # UXML and USS files
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>│   ├── Prefabs/                 # Game prefabs
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>│   ├── Scenes/                  # Bootstrapper, Hub, Arena scenes
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>│   └── Data/                    # ScriptableObject asset instances
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a>├── Docs/
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a>│   ├── architecture/            # overview.md, database-pattern.md, event-system.md
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>│   ├── systems/                 # weapons.md, enemies.md, user-interface.md, save-data.md
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>│   ├── vr/                      # performance.md, comfort.md, spacewarp.md
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>│   └── future/                  # roadmap.md, project-status.md, vr-to-pc-transition-guide.md, pc-implementation-plan.md, pc-expansion-ideas.md
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>└── Packages/                    # Unity package manifest
+</span></code></pre></div>
+<hr />
+<h2 id="core-patterns">CORE PATTERNS<a class="headerlink" href="#core-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="1-scriptableobject-database-pattern">1. ScriptableObject Database Pattern<a class="headerlink" href="#1-scriptableobject-database-pattern" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Location: Assets/Scripts/Databases/DatabaseBase.cs
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Usage: All game data (weapons, enemies, etc.) stored in SO databases with O(1) lookup
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Access: GameDatabases.WeaponDatabase.Get(&quot;sword_fire&quot;)
+</span></code></pre></div>
+<h3 id="2-event-channel-pattern">2. Event Channel Pattern<a class="headerlink" href="#2-event-channel-pattern" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Location: Assets/Scripts/Events/Channels/EventChannel.cs
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Registries: Assets/Scripts/Events/Registries/
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>Usage: Decoupled communication between systems
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>Example: GameplayEvents.EnemySpawned.Raise(enemyController)
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>         GameplayEvents.EnemySpawned.Subscribe(HandleEnemySpawn)
+</span></code></pre></div>
+<h3 id="3-ui-factory-view-host-pattern">3. UI Factory-View-Host Pattern<a class="headerlink" href="#3-ui-factory-view-host-pattern" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Factory: Assets/Scripts/Factories/UIToolkitFactory.cs
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Views: Assets/Scripts/UI/Views/BasePanelView.cs (define UI structure)
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>Hosts: Assets/Scripts/UI/Hosts/BasePanelHost.cs (manage lifecycle, animations)
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>Controllers: Assets/Scripts/UI/Controllers/ (game logic)
+</span></code></pre></div>
+<h3 id="4-object-pooling">4. Object Pooling<a class="headerlink" href="#4-object-pooling" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Location: Assets/Scripts/Pooling/GamePoolManager.cs
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Usage: GamePoolManager.Instance.GetEnemyPrefab(data, position, rotation)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>       GamePoolManager.Instance.ReturnEnemyPrefab(enemy)
+</span></code></pre></div>
+<h3 id="5-priority-update-system">5. Priority Update System<a class="headerlink" href="#5-priority-update-system" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>Location: Assets/Scripts/Systems/Core/GameUpdateManager.cs
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Usage: Throttled updates for performance (High=every frame, Medium=0.2s, Low=0.4s)
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>       GameUpdateManager.Instance.Register(this, UpdatePriority.High)
+</span></code></pre></div>
+<hr />
+<h2 id="key-files-quick-reference">KEY FILES QUICK REFERENCE<a class="headerlink" href="#key-files-quick-reference" title="Permanent link">&para;</a></h2>
+<h3 id="game-flow">Game Flow<a class="headerlink" href="#game-flow" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Game State Machine</td>
+<td><code>Assets/Scripts/Systems/Core/GameFlowManager.cs</code></td>
+</tr>
+<tr>
+<td>Arena State Machine</td>
+<td><code>Assets/Scripts/Systems/Arena/ArenaStateManager.cs</code></td>
+</tr>
+<tr>
+<td>Wave Management</td>
+<td><code>Assets/Scripts/Systems/Arena/WaveManager.cs</code></td>
+</tr>
+<tr>
+<td>Enemy Spawning</td>
+<td><code>Assets/Scripts/Systems/Arena/WaveSpawner.cs</code></td>
+</tr>
+<tr>
+<td>Bootstrap/Init</td>
+<td><code>Assets/Scripts/Systems/Core/BoostrapManager.cs</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="data">Data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weapon Definition</td>
+<td><code>Assets/Scripts/Data/Weapons/WeaponData.cs</code></td>
+</tr>
+<tr>
+<td>Enemy Definition</td>
+<td><code>Assets/Scripts/Data/Core/EnemyData.cs</code></td>
+</tr>
+<tr>
+<td>Player Progression</td>
+<td><code>Assets/Scripts/Data/Progression/MetaProgressionData.cs</code></td>
+</tr>
+<tr>
+<td>Upgrades</td>
+<td><code>Assets/Scripts/Data/Progression/UpgradeData.cs</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="events">Events<a class="headerlink" href="#events" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gameplay Events</td>
+<td><code>Assets/Scripts/Events/Registries/GameplayEvents.cs</code></td>
+</tr>
+<tr>
+<td>Audio Events</td>
+<td><code>Assets/Scripts/Events/Registries/AudioEvents.cs</code></td>
+</tr>
+<tr>
+<td>System Events</td>
+<td><code>Assets/Scripts/Events/Registries/SystemEvents.cs</code></td>
+</tr>
+<tr>
+<td>UI Events</td>
+<td><code>Assets/Scripts/Events/Registries/UIEvents.cs</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="characters">Characters<a class="headerlink" href="#characters" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enemy Main Controller</td>
+<td><code>Assets/Scripts/Characters/Enemies/EnemyController.cs</code></td>
+</tr>
+<tr>
+<td>Enemy Health</td>
+<td><code>Assets/Scripts/Characters/Enemies/EnemyHealth.cs</code></td>
+</tr>
+<tr>
+<td>Enemy Movement/AI</td>
+<td><code>Assets/Scripts/Characters/Enemies/EnemyMovement.cs</code></td>
+</tr>
+<tr>
+<td>Enemy Animation</td>
+<td><code>Assets/Scripts/Characters/Enemies/EnemyAnimator.cs</code></td>
+</tr>
+<tr>
+<td>Enemy Combat</td>
+<td><code>Assets/Scripts/Characters/Enemies/EnemyAttack.cs</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="ui">UI<a class="headerlink" href="#ui" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UI Element Factory</td>
+<td><code>Assets/Scripts/Factories/UIToolkitFactory.cs</code></td>
+</tr>
+<tr>
+<td>Base View Class</td>
+<td><code>Assets/Scripts/UI/Views/BasePanelView.cs</code></td>
+</tr>
+<tr>
+<td>Base Host Class</td>
+<td><code>Assets/Scripts/UI/Hosts/BasePanelHost.cs</code></td>
+</tr>
+<tr>
+<td>Style Constants</td>
+<td><code>Assets/Scripts/Constants/UIToolkitStyles.cs</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Game Constants</td>
+<td><code>Assets/Scripts/Constants/GameConstants.cs</code></td>
+</tr>
+<tr>
+<td>Audio Keys</td>
+<td><code>Assets/Scripts/Constants/AudioKeys.cs</code></td>
+</tr>
+<tr>
+<td>Localization Keys</td>
+<td><code>Assets/Scripts/Constants/LocalizationKeys.cs</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="game-states">GAME STATES<a class="headerlink" href="#game-states" title="Permanent link">&para;</a></h2>
+<h3 id="gamestate-gameflowmanager">GameState (GameFlowManager)<a class="headerlink" href="#gamestate-gameflowmanager" title="Permanent link">&para;</a></h3>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">enum</span><span class="w"> </span><span class="n">GameState</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">StartMenu</span><span class="p">,</span><span class="w"> </span><span class="n">Loading</span><span class="p">,</span><span class="w"> </span><span class="n">Hub</span><span class="p">,</span><span class="w"> </span><span class="n">Arena</span><span class="p">,</span><span class="w"> </span><span class="n">ArenaVictory</span><span class="p">,</span><span class="w"> </span><span class="n">ArenaDefeat</span><span class="p">,</span><span class="w"> </span><span class="n">ArenaPaused</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="arenastate-arenastatemanager">ArenaState (ArenaStateManager)<a class="headerlink" href="#arenastate-arenastatemanager" title="Permanent link">&para;</a></h3>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">enum</span><span class="w"> </span><span class="n">ArenaState</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ArenaPrelude</span><span class="p">,</span><span class="w"> </span><span class="n">WaveIntermission</span><span class="p">,</span><span class="w"> </span><span class="n">WaveActive</span><span class="p">,</span><span class="w"> </span><span class="n">WaveComplete</span><span class="p">,</span><span class="w"> </span><span class="n">BossIntermission</span><span class="p">,</span><span class="w"> </span><span class="n">BossActive</span><span class="p">,</span><span class="w"> </span><span class="n">BossComplete</span><span class="p">,</span><span class="w"> </span><span class="n">ArenaVictory</span><span class="p">,</span><span class="w"> </span><span class="n">ArenaDefeat</span><span class="p">,</span><span class="w"> </span><span class="n">ArenaPaused</span><span class="w"> </span><span class="p">}</span>
+</span></code></pre></div>
+<hr />
+<h2 id="event-channels-available">EVENT CHANNELS AVAILABLE<a class="headerlink" href="#event-channels-available" title="Permanent link">&para;</a></h2>
+<div class="language-csharp highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1">// GameplayEvents</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">PlayerDamaged</span><span class="w">          </span><span class="c1">// EventChannel&lt;int&gt;</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">PlayerHealed</span><span class="w">           </span><span class="c1">// EventChannel&lt;int&gt;</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">EnemySpawned</span><span class="w">           </span><span class="c1">// EventChannel&lt;EnemyController&gt;</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">EnemyDespawned</span><span class="w">         </span><span class="c1">// EventChannel&lt;EnemyController&gt;</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">GoldChanged</span><span class="w">            </span><span class="c1">// EventChannel&lt;int&gt;</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">ExperienceChanged</span><span class="w">      </span><span class="c1">// EventChannel&lt;int&gt;</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">LevelChanged</span><span class="w">           </span><span class="c1">// EventChannel&lt;int&gt;</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">GamePaused</span><span class="w">             </span><span class="c1">// EventChannel (void)</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">GameResumed</span><span class="w">            </span><span class="c1">// EventChannel (void)</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">GameStateChanged</span><span class="w">       </span><span class="c1">// EventChannel&lt;GameState&gt;</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">GameStateChangeRequested</span><span class="w">  </span><span class="c1">// EventChannel&lt;GameState&gt;</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">ArenaStateChanged</span><span class="w">      </span><span class="c1">// EventChannel&lt;ArenaState&gt;</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="n">GameplayEvents</span><span class="p">.</span><span class="n">ArenaStateChangeRequested</span><span class="w"> </span><span class="c1">// EventChannel&lt;ArenaState&gt;</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="c1">// SystemEvents</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="n">SystemEvents</span><span class="p">.</span><span class="n">SettingsLoadRequested</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="n">SystemEvents</span><span class="p">.</span><span class="n">SettingsSaveRequested</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="n">SystemEvents</span><span class="p">.</span><span class="n">PlayerLoadRequested</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="n">SystemEvents</span><span class="p">.</span><span class="n">PlayerSaveRequested</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="c1">// AudioEvents</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="n">AudioEvents</span><span class="p">.</span><span class="n">SfxRequested</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="n">AudioEvents</span><span class="p">.</span><span class="n">MusicRequested</span>
+</span></code></pre></div>
+<hr />
+<h2 id="naming-conventions">NAMING CONVENTIONS<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h2>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">ScriptableObjects</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PascalCase with Data suffix (WeaponData, EnemyData)</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nt">MonoBehaviours</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PascalCase descriptive (EnemyController, WaveSpawner)</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nt">Events</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Past tense for occurred, Requested for requests (EnemySpawned, GameStateChangeRequested)</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nt">Interfaces</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">I prefix (IDamageable, IUpdateable)</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nt">Constants</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SCREAMING_SNAKE or PascalCase (MaxActiveEnemies)</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nt">Private fields</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_camelCase with underscore prefix</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nt">Namespaces</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Match folder structure (Characters.Enemies, Systems.Arena)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="vr-to-pc-transition-status">VR-TO-PC TRANSITION STATUS<a class="headerlink" href="#vr-to-pc-transition-status" title="Permanent link">&para;</a></h2>
+<h3 id="files-to-create-pc">Files to Create (PC)<a class="headerlink" href="#files-to-create-pc" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Assets/Scripts/Player/PCInputHandler.cs</code></li>
+<li><code>Assets/Scripts/Player/FPSPlayerController.cs</code></li>
+<li><code>Assets/Scripts/Player/TargetingSystem.cs</code></li>
+<li><code>Assets/Scripts/Player/PCCombatManager.cs</code></li>
+<li><code>Assets/Scripts/Weapons/PCWeaponBase.cs</code></li>
+<li><code>Assets/Scripts/Weapons/PCMeleeWeapon.cs</code></li>
+<li><code>Assets/Scripts/Weapons/PCRangedWeapon.cs</code></li>
+</ul>
+<h3 id="files-to-delete-vr-specific">Files to Delete (VR-specific)<a class="headerlink" href="#files-to-delete-vr-specific" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Assets/Scripts/Player/PlayerHapticFeedback.cs</code></li>
+<li><code>Assets/Scripts/Player/WristProximityDetector.cs</code></li>
+<li><code>Assets/Scripts/Systems/Core/SpaceWarpCameraExtension.cs</code></li>
+<li><code>Assets/Scripts/Systems/Core/RefreshRateController.cs</code></li>
+<li><code>Assets/Scripts/UI/Views/VignetteView.cs</code></li>
+<li><code>Assets/Scripts/UI/Hosts/VignetteHost.cs</code></li>
+<li><code>Assets/XR/</code> (entire folder)</li>
+<li><code>Assets/XRI/</code> (entire folder)</li>
+</ul>
+<h3 id="files-to-modify">Files to Modify<a class="headerlink" href="#files-to-modify" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>GameConstants.cs</code> - Update limits for PC performance</li>
+<li><code>GameFlowManager.cs</code> - Remove VR-specific handling</li>
+<li><code>WaveSpawner.cs</code> - Increase enemy limits</li>
+<li><code>WeaponData.cs</code> - Remove VR grip offsets</li>
+<li><code>EnemyMovement.cs</code> - Update target finding</li>
+</ul>
+<h3 id="systems-unchanged">Systems Unchanged<a class="headerlink" href="#systems-unchanged" title="Permanent link">&para;</a></h3>
+<ul>
+<li>All databases (DatabaseBase, GameDatabases, WeaponDatabase, EnemyDatabase)</li>
+<li>All event channels (EventChannel, GameplayEvents, etc.)</li>
+<li>All enemy systems (EnemyController, EnemyHealth, etc.)</li>
+<li>Object pooling (GamePoolManager)</li>
+<li>Save system (SaveFileManagerBase, PlayerSaveFileManager)</li>
+<li>UI Factory-View-Host pattern (unchanged architecture, sizing updates only)</li>
+</ul>
+<hr />
+<h2 id="documentation-locations">DOCUMENTATION LOCATIONS<a class="headerlink" href="#documentation-locations" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Architecture Overview</td>
+<td><code>Docs/architecture/overview.md</code></td>
+</tr>
+<tr>
+<td>Database Pattern</td>
+<td><code>Docs/architecture/database-pattern.md</code></td>
+</tr>
+<tr>
+<td>Event System</td>
+<td><code>Docs/architecture/event-system.md</code></td>
+</tr>
+<tr>
+<td>Weapon System</td>
+<td><code>Docs/systems/weapons.md</code></td>
+</tr>
+<tr>
+<td>Enemy System</td>
+<td><code>Docs/systems/enemies.md</code></td>
+</tr>
+<tr>
+<td>UI System</td>
+<td><code>Docs/systems/user-interface.md</code></td>
+</tr>
+<tr>
+<td>VR Performance</td>
+<td><code>Docs/vr/performance.md</code></td>
+</tr>
+<tr>
+<td>Project Status</td>
+<td><code>Docs/future/project-status.md</code></td>
+</tr>
+<tr>
+<td>Original Roadmap</td>
+<td><code>Docs/future/roadmap.md</code></td>
+</tr>
+<tr>
+<td>PC Transition Guide</td>
+<td><code>Docs/future/vr-to-pc-transition-guide.md</code></td>
+</tr>
+<tr>
+<td>PC Implementation Plan</td>
+<td><code>Docs/future/pc-implementation-plan.md</code></td>
+</tr>
+<tr>
+<td>PC Expansion Ideas</td>
+<td><code>Docs/future/pc-expansion-ideas.md</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="common-tasks-quick-reference">COMMON TASKS QUICK REFERENCE<a class="headerlink" href="#common-tasks-quick-reference" title="Permanent link">&para;</a></h2>
+<h3 id="add-new-weapon-type">Add New Weapon Type<a class="headerlink" href="#add-new-weapon-type" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create <code>WeaponData</code> ScriptableObject</li>
+<li>Create weapon prefab with <code>PCWeaponBase</code> subclass (or <code>XRWeaponBase</code> for VR)</li>
+<li>Add to <code>WeaponDatabase</code></li>
+<li>Configure in <code>WeaponData</code> asset</li>
+</ol>
+<h3 id="add-new-enemy-type">Add New Enemy Type<a class="headerlink" href="#add-new-enemy-type" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create <code>EnemyData</code> ScriptableObject</li>
+<li>Create prefab with <code>EnemyController</code> + components</li>
+<li>Add to <code>EnemyDatabase</code></li>
+<li>Add to wave configurations</li>
+</ol>
+<h3 id="add-new-ui-panel">Add New UI Panel<a class="headerlink" href="#add-new-ui-panel" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create <code>[Name]View.cs</code> extending <code>BasePanelView</code></li>
+<li>Create <code>[Name]Host.cs</code> extending <code>BasePanelHost</code></li>
+<li>Create <code>[Name]Controller.cs</code> for logic</li>
+<li>Use <code>UIToolkitFactory</code> for elements</li>
+</ol>
+<h3 id="add-new-event">Add New Event<a class="headerlink" href="#add-new-event" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Add to appropriate registry (<code>GameplayEvents.cs</code>, etc.)</li>
+<li>Pattern: <code>public static readonly EventChannel&lt;T&gt; EventName = new();</code></li>
+<li>Subscribe in <code>OnEnable</code>, Unsubscribe in <code>OnDisable</code></li>
+</ol>
+<h3 id="add-new-database">Add New Database<a class="headerlink" href="#add-new-database" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Create data class extending <code>ScriptableObject</code></li>
+<li>Create database class extending <code>DatabaseBase&lt;T&gt;</code></li>
+<li>Add static reference in <code>GameDatabases.cs</code></li>
+<li>Initialize in <code>BoostrapManager</code></li>
+</ol>
+<hr />
+<h2 id="third-party-dependencies">THIRD-PARTY DEPENDENCIES<a class="headerlink" href="#third-party-dependencies" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Package</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PrimeTween</td>
+<td>Allocation-free animation</td>
+</tr>
+<tr>
+<td>ESave</td>
+<td>Save file serialization</td>
+</tr>
+<tr>
+<td>XR Interaction Toolkit</td>
+<td>VR input (removing for PC)</td>
+</tr>
+<tr>
+<td>Synty Dungeon Realms</td>
+<td>Environment art</td>
+</tr>
+<tr>
+<td>UI Toolkit</td>
+<td>Built-in UI framework</td>
+</tr>
+<tr>
+<td>Cinemachine</td>
+<td>Camera (adding for PC)</td>
+</tr>
+<tr>
+<td>Input System</td>
+<td>Input handling</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="useful-commands">USEFUL COMMANDS<a class="headerlink" href="#useful-commands" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># View project structure</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>ls<span class="w"> </span>-la<span class="w"> </span>/home/runner/work/monsta-choppa-vr/monsta-choppa-vr/Assets/Scripts/
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Search for specific pattern</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;pattern&quot;</span><span class="w"> </span>/home/runner/work/monsta-choppa-vr/monsta-choppa-vr/Assets/Scripts/
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="c1"># Find all ScriptableObjects</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>find<span class="w"> </span>/home/runner/work/monsta-choppa-vr/monsta-choppa-vr/Assets/Scripts/Data<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.cs&quot;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="c1"># Find all interfaces</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>grep<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;interface I&quot;</span><span class="w"> </span>/home/runner/work/monsta-choppa-vr/monsta-choppa-vr/Assets/Scripts/
+</span></code></pre></div>
+<hr />
+<h2 id="session-starter-prompt">SESSION STARTER PROMPT<a class="headerlink" href="#session-starter-prompt" title="Permanent link">&para;</a></h2>
+<p>When starting a new session, paste this context:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>I&#39;m working on Monsta Choppa, a Unity C# project transitioning from VR to PC.
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>Key info:
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>- ScriptableObject-driven architecture with generic databases
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>- Event channel system for decoupled communication
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>- UI Toolkit with Factory-View-Host pattern
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>- Object pooling via GamePoolManager
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>- Currently transitioning from XR Interaction Toolkit to PC FPS/TPS
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>Reference file: Docs/future/ai-context-reference.md
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>[Your specific question/task here]
+</span></code></pre></div>
+<hr />
+<p><em>Last updated: January 2026</em>
+<em>Generated for AI assistant context</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7M12 19V5"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Monsta Choppa
+    </div>
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.tabs","navigation.sections","navigation.expand","navigation.top","navigation.path","search.highlight","content.code.annotate","content.tabs.link","content.action.edit","content.action.view","content.code.copy"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.dbc0afdc.min.js"></script>
+      
+    
+  </body>
+</html>

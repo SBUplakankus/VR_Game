@@ -1,8 +1,0 @@
-:root  > * {
-    .md-typeset h1{
-        font-style: bold;
-    }
-    .md-typeset h2 {
-        color: var(--md-primary-fg-color);
-    }
-}
