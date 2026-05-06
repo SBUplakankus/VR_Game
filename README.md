@@ -10,11 +10,11 @@ that I uploaded a video for once a wekk until I shelved the project you can watc
 ## Project Status
 
 I started this project to prepare for my Internship as an Immersive Developer and had hopes to publish a finished release,
-but it was shelved in January 2026 due to just not having the time or energy. See the [full documentation](https://sbuplakankus.github.io/monsta-choppa-vr/) for details.
+but it was shelved in January 2026 due to just not having the time or energy. See the [full documentation](https://sbuplakankus.github.io/monsta-choppa-vr/) for details. 
 
 ## Documentation
 
-Full documentation is available in the `Docs/` folder, structured for MkDocs Material.
+The current docs were generated using Opus 4.5 based on the code I wrote myself and my existing documentation.
 
 | Section | Description |
 |:--------|:------------|
