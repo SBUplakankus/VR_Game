@@ -14,18 +14,15 @@ namespace Attributes
     [CreateAssetMenu(fileName = "FloatAttribute", menuName = "Scriptable Objects/Attributes/Float")]
     public class FloatAttribute : ScriptableObject, INotifyBindablePropertyChanged
     {
-        #region Fields
-
+        
         [SerializeField] private float value;
 
         /// <inheritdoc cref="INotifyBindablePropertyChanged.propertyChanged"/>
         public event EventHandler<BindablePropertyChangedEventArgs> propertyChanged;
         public event Action<float> OnValueChanged;
 
-        #endregion
-
-        #region Properties
-
+        
+        
         /// <summary>
         /// Gets or sets the normalized float value of this attribute (0..1).
         /// Triggers <see cref="propertyChanged"/> when modified.
@@ -47,10 +44,8 @@ namespace Attributes
         /// </summary>
         public string AttributeName => name;
 
-        #endregion
-
-        #region Methods
-
+        
+        
         private void Notify([CallerMemberName] string property = "")
         {
             propertyChanged?.Invoke(this, new BindablePropertyChangedEventArgs(property));
@@ -64,14 +59,13 @@ namespace Attributes
         /// <summary>
         /// Converts the current value to a percentage (0.0 to 1.0, clamped).
         /// </summary>
-        public float GetPercentage() => Mathf.Clamp01(Value);
+        private float GetPercentage() => Mathf.Clamp01(Value);
 
         /// <summary>
         /// Sets the value directly via percentage (0..1).
         /// </summary>
         /// <param name="percentage"></param>
-        public void SetPercentage(float percentage) => Value = Mathf.Clamp01(percentage);
+        private void SetPercentage(float percentage) => Value = Mathf.Clamp01(percentage);
 
-        #endregion
-    }
+            }
 }

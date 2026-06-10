@@ -11,28 +11,23 @@ namespace Systems.Arena
 {
     public class ArenaInterfaceManager : MonoBehaviour, IUpdateable
     {
-        #region Fields
-        
         [Header("Hosts")]
         [SerializeField] private ArenaIntroHost arenaIntroHost;
         [SerializeField] private BossIntroHost bossIntroHost;
-        
+
         private readonly CountdownTimer _countdownTimer = new();
 
         private const int IntroDisplayDuration = 8;
         private const int FadeInAlpha = 1;
-        
-        #endregion
-        
-        #region Methods
 
         private void ShowArenaIntro()
-        { 
+        {
             arenaIntroHost.DisplayArenaIntro();
             _countdownTimer.Start(IntroDisplayDuration, arenaIntroHost.HideArenaIntro);
         }
+
         private void ShowBossIntro()
-        { 
+        {
             bossIntroHost.DisplayBossIntro();
             _countdownTimer.Start(IntroDisplayDuration, bossIntroHost.HideBossIntro);
         }
@@ -69,10 +64,8 @@ namespace Systems.Arena
                     throw new ArgumentOutOfRangeException(nameof(arenaState), arenaState, null);
             }
         }
-        
-        #endregion
-        
-        #region Unity Methods
+
+        public void OnUpdate(float deltaTime) => _countdownTimer.Update(deltaTime);
 
         private void OnEnable()
         {
@@ -85,13 +78,6 @@ namespace Systems.Arena
             GameplayEvents.ArenaStateChanged.Unsubscribe(HandleGameStateChange);
             GameUpdateManager.Instance.Unregister(this);
             _countdownTimer.Stop();
-        }
-
-        #endregion
-
-        public void OnUpdate(float deltaTime)
-        {
-            _countdownTimer.Update(deltaTime);
         }
     }
 }

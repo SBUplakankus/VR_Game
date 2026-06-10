@@ -15,8 +15,7 @@ namespace Data.Weapons
     [CreateAssetMenu(fileName = "WeaponData", menuName = "Scriptable Objects/Data/Weapons/Weapon")]
     public class WeaponData : ScriptableObject
     {
-        #region Fields
-
+        
         [Header("Identity")]
         [SerializeField] private string weaponID;
         [SerializeField] private string displayName;
@@ -52,10 +51,8 @@ namespace Data.Weapons
         [SerializeField] private int sellPrice = 50;
         [SerializeField] private bool isPurchasable = true;
 
-        #endregion
-
-        #region Methods
-
+        
+        
         private WorldAudioData GetHitSfx()
         {
             if (hitSfx == null || hitSfx.Length == 0) return null;
@@ -99,10 +96,8 @@ namespace Data.Weapons
             return types;
         }
 
-        #endregion
-
-        #region Properties
-
+        
+        
         // Identity
         public string WeaponID => weaponID;
         public string DisplayName => displayName;
@@ -184,8 +179,7 @@ namespace Data.Weapons
             }
         }
 
-        #endregion
-        
+                
 #if UNITY_EDITOR
         private void OnValidate()
         {

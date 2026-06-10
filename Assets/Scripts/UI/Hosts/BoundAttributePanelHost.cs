@@ -7,17 +7,14 @@ namespace UI.Hosts
 {
     public class BoundAttributePanelHost : BasePanelHost
     {
-        #region Fields
-        
+                
         [Header("Attribute")]
         [SerializeField] private IntAttribute attribute;
         
         private BoundAttributePanelView _boundAttributePanelView;
         
-        #endregion
+                
         
-        #region Class Functions
-
         public override void Generate()
         {
             Dispose();
@@ -31,12 +28,9 @@ namespace UI.Hosts
             _boundAttributePanelView = null;
         }
 
-        #endregion
-        
-        #region Unity Functions
-        
+                
+                
         private void OnEnable() => Generate();
         
-        #endregion
-    }
+            }
 }

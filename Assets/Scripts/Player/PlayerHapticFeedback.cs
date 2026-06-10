@@ -6,7 +6,7 @@ namespace Player
 {
     public class PlayerHapticFeedback : MonoBehaviour
     {
-        public void TriggerHapticFeedback(float intensity, float duration, XRNode controllerNode)
+        private void TriggerHapticFeedback(float intensity, float duration, XRNode controllerNode)
         {
             var devices = new List<InputDevice>();
             InputDevices.GetDevicesAtXRNode(controllerNode, devices);

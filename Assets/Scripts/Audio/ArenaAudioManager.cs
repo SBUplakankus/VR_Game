@@ -10,15 +10,12 @@ namespace Audio
 {
     public class ArenaAudioManager : MonoBehaviour
     {
-        #region Fields
-        
+                
         [Header("Arena Data")]
         [SerializeField] private ArenaData arenaData;
         
-        #endregion
+                
         
-        #region Class Methods
-
         private void HandleGameStateChange(ArenaState newState)
         {
             var key = newState switch
@@ -35,10 +32,8 @@ namespace Audio
                 AudioEvents.MusicFadeRequested.Raise(key);
         }
         
-        #endregion
-        
-        #region Unity Methods
-        private void Start()
+                
+                private void Start()
         {
             AudioEvents.MusicRequested.Raise(AudioKeys.GameIntroKey);
             AudioEvents.AmbienceRequested.Raise(arenaData.Ambience);
@@ -47,6 +42,5 @@ namespace Audio
         private void OnEnable() => GameplayEvents.ArenaStateChanged.Subscribe(HandleGameStateChange);
         private void OnDisable() => GameplayEvents.ArenaStateChanged.Unsubscribe(HandleGameStateChange);
 
-        #endregion
-    }
+            }
 }

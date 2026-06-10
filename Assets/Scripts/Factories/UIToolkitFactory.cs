@@ -28,8 +28,7 @@ namespace Factories
     /// </summary>
     public static class UIToolkitFactory
     {
-        #region Core Factory Methods
-        
+                
         /// <summary>
         /// Creates a VisualElement of specified type with optional CSS classes.
         /// </summary>
@@ -53,10 +52,8 @@ namespace Factories
             return CreateElement<VisualElement>(classNames);
         }
         
-        #endregion
-        
-        #region Struct Factories
-        
+                
+                
         /// <summary>
         /// Creates a complete health bar UI hierarchy.
         /// Structure:
@@ -100,10 +97,8 @@ namespace Factories
             };
         }
         
-        #endregion
-        
-        #region Control Factories
-        
+                
+                
         /// <summary>
         /// Creates a Button with text and optional click handler.
         /// </summary>
@@ -414,10 +409,8 @@ namespace Factories
             return background;
         }
         
-        #endregion
-        
-        #region Utility Methods
-        
+                
+                
         /// <summary>
         /// Creates a horizontal or vertical group for element arrangement.
         /// </summary>
@@ -499,10 +492,8 @@ namespace Factories
             return (container, fill);
         }
 
-        #endregion
-        
-        #region Extension Methods (Fluent API)
-        
+                
+                
         /// <summary>
         /// Adds CSS classes to a VisualElement and returns it for method chaining.
         /// </summary>
@@ -603,10 +594,8 @@ namespace Factories
             return element;
         }
         
-        #endregion
-        
-        #region Private Helper Methods
-        
+                
+                
         /// <summary>
         /// Internal method to add CSS classes to a VisualElement.
         /// </summary>
@@ -621,6 +610,5 @@ namespace Factories
             }
         }
         
-        #endregion
-    }
+            }
 }

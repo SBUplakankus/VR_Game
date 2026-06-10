@@ -11,17 +11,6 @@ namespace Systems.Hub
     {
         private float _timer;
         private const int AutoSaveInterval = 30;
-        
-        private void OnEnable()
-        {
-            _timer = 0;
-            GameUpdateManager.Instance.Register(this, UpdatePriority.High);
-        }
-
-        private void OnDisable()
-        {
-            GameUpdateManager.Instance.Unregister(this);
-        }
 
         private void AutoSave()
         {
@@ -35,5 +24,13 @@ namespace Systems.Hub
             if(_timer < AutoSaveInterval) return;
             AutoSave();
         }
+
+        private void OnEnable()
+        {
+            _timer = 0;
+            GameUpdateManager.Instance.Register(this, UpdatePriority.High);
+        }
+
+        private void OnDisable() => GameUpdateManager.Instance.Unregister(this);
     }
 }

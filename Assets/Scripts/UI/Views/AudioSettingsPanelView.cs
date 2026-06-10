@@ -8,18 +8,15 @@ namespace UI.Views
 {
     public class AudioSettingsPanelView : BasePanelView
     {
-        #region Fields
-
+        
         public Slider MasterVolume {get; private set;}
         public Slider MusicVolume {get; private set;}
         public Slider AmbienceVolume {get; private set;}
         public Slider UIVolume {get; private set;}
         public Slider SfxVolume {get; private set;}
 
-        #endregion
-
-        #region Constructors
-
+        
+        
         public AudioSettingsPanelView(VisualElement root, StyleSheet styleSheet)
         {
             if (!root.styleSheets.Contains(styleSheet))
@@ -28,10 +25,8 @@ namespace UI.Views
             GenerateUI(root);
         }
 
-        #endregion
-
-        #region Methods
-
+        
+        
         private static VisualElement CreateSlider(string key, out Slider slider)
         {
             var container = UIToolkitFactory.CreateContainer(UIToolkitStyles.SettingsSliderRow);
@@ -80,6 +75,5 @@ namespace UI.Views
             root.Add(Container);
         }
 
-        #endregion
-    }
+            }
 }

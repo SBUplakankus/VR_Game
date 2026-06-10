@@ -6,8 +6,7 @@ namespace Data.Progression
     [CreateAssetMenu(menuName = "Scriptable Objects/Data/Progression/Upgrade")]
     public class UpgradeData : ScriptableObject
     {
-        #region Fields
-
+        
         [Header("Upgrade Attributes")]
         [SerializeField] private FloatAttribute upgradeAttribute;
         
@@ -21,10 +20,8 @@ namespace Data.Progression
         [SerializeField] private string upgradeNameKey;
         [SerializeField] private string upgradeDescriptionKey;
 
-        #endregion
+                
         
-        #region Properties
-
         public string ID => name;
         public FloatAttribute Attribute => upgradeAttribute;
         
@@ -36,6 +33,5 @@ namespace Data.Progression
         public string NameKey => upgradeNameKey;
         public string DescriptionKey => upgradeDescriptionKey;
         
-        #endregion
-    }
+            }
 }

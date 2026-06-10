@@ -9,9 +9,21 @@ namespace UI.Controllers
         [Header("UI Hosts")]
         [SerializeField] private PlayerArenaAttributeHost health;
         [SerializeField] private PlayerArenaAttributeHost shield;
-        
-        [Header("Detection")] 
+
+        [Header("Detection")]
         [SerializeField] private WristProximityDetector wristProximityDetector;
+
+        private void Show()
+        {
+            health.Show();
+            shield.Show();
+        }
+
+        private void Hide()
+        {
+            health.Hide();
+            shield.Hide();
+        }
 
         private void OnEnable()
         {
@@ -31,18 +43,6 @@ namespace UI.Controllers
             if (wristProximityDetector == null) return;
             wristProximityDetector.OnWristEnterProximity -= Show;
             wristProximityDetector.OnWristExitProximity -= Hide;
-        }
-
-        private void Show()
-        {
-            health.Show();
-            shield.Show();
-        }
-
-        private void Hide()
-        {
-            health.Hide();
-            shield.Hide();
         }
     }
 }

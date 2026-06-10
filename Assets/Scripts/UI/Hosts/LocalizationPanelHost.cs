@@ -10,15 +10,12 @@ namespace UI.Hosts
 {
     public class LocalizationPanelHost : MonoBehaviour
     {
-        #region Fields
-        
+                
         private Locale[] _availableLocales;
         private Action _unbindAll;
 
-        #endregion
-
-        #region Methods
         
+                
         public void BindPanel(LocalizationPanelView view)
         {
             DisposeView();
@@ -59,22 +56,15 @@ namespace UI.Hosts
             SystemEvents.LocaleChangeRequested.Raise(locale);
         }
         
-        #endregion
+                
         
-        #region Unity Lifecycle
-
-        private void OnDisable() => DisposeView();
-
-        #endregion
-
-        #region Dispose
-
         public void DisposeView()
         {
             _unbindAll?.Invoke();
             _unbindAll = null;
         }
 
-        #endregion
-    }
+        private void OnDisable() => DisposeView();
+
+            }
 }

@@ -8,17 +8,14 @@ namespace Saves
 {
     public class SettingsSaveFileManager : SaveFileManagerBase
     {
-        #region Fields
-        
+                
         [Header("Settings Configs")]
         [SerializeField] private AudioSettingsConfig audioSettings;
         [SerializeField] private VideoSettingsConfig videoSettings;
         [SerializeField] private LanguageSettingsConfig languageSettings;
         
-        #endregion
+                
         
-        #region Methods
-
         private void TryLoadSettings()
         {
             if(SaveFile.HasData(GameConstants.AudioSettingsKey))
@@ -76,6 +73,5 @@ namespace Saves
             SystemEvents.SettingsLoadRequested.Unsubscribe(HandleLoadRequested);
         }
         
-        #endregion
-    }
+            }
 }

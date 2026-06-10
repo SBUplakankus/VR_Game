@@ -1,5 +1,4 @@
 using Attributes;
-
 using Events;
 using Events.Registries;
 using Interfaces;
@@ -52,9 +51,6 @@ namespace Player
                 HandleDeath();
         }
 
-        private void HandleDeath()
-        {
-            GameplayEvents.ArenaStateChangeRequested.Raise(ArenaState.ArenaDefeat);
-        }
+        private void HandleDeath() => GameplayEvents.ArenaStateChangeRequested.Raise(ArenaState.ArenaDefeat);
     }
 }

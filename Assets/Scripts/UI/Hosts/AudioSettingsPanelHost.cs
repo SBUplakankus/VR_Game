@@ -8,8 +8,7 @@ namespace UI.Hosts
 {
     public class AudioSettingsPanelHost : MonoBehaviour
     {
-        #region Fields
-        
+                
         [Header("Audio Settings")]
         [SerializeField] private FloatAttribute masterVolume;
         [SerializeField] private FloatAttribute musicVolume;
@@ -19,10 +18,8 @@ namespace UI.Hosts
 
         private Action _unbindAll;
 
-        #endregion
-
-        #region Methods
-
+        
+        
         private static Action BindSlider(Slider slider, FloatAttribute attribute)
         {
             if (slider == null || attribute == null) return null;
@@ -61,6 +58,5 @@ namespace UI.Hosts
 
         private void OnDisable() => Dispose();
 
-        #endregion
-    }
+            }
 }

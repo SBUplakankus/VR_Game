@@ -8,15 +8,12 @@ namespace Saves
 {
     public class PlayerSaveFileManager : SaveFileManagerBase
     {
-        #region Fields
-
+        
         [Header("Player Data Objects")]
         [SerializeField] private MetaProgressionData metaProgressionData;
 
-        #endregion
+                
         
-        #region Methods
-
         protected override void HandleSaveRequested()
         {
             SaveFile.AddOrUpdateData(GameConstants.MetaProgressionKey, metaProgressionData);
@@ -42,10 +39,8 @@ namespace Saves
             Debug.Log("Player Data Load Completed");
         }
 
-        #endregion
-        
-        #region Unity Methods
-        
+                
+                
         private void OnEnable()
         {
             SystemEvents.PlayerSaveRequested.Subscribe(HandleSaveRequested);
@@ -58,6 +53,5 @@ namespace Saves
             SystemEvents.PlayerLoadRequested.Unsubscribe(HandleLoadRequested);
         }
         
-        #endregion
-    }
+            }
 }

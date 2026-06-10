@@ -21,8 +21,7 @@ namespace Systems.Arena
     [RequireComponent(typeof(EnemyManager))]
     public class WaveSpawner : MonoBehaviour
     {
-        #region Fields
-
+        
         [Header("Spawn Points")]
         [SerializeField] private Transform[] spawnPoints;
         [SerializeField] private Transform bossSpawnPoint;
@@ -46,10 +45,8 @@ namespace Systems.Arena
         /// </summary>
         public event Action OnBossDefeated;
 
-        #endregion
+                
         
-        #region Spawner Logic
-
         /// <summary>
         /// Spawns a new wave of enemies.
         /// </summary>
@@ -106,10 +103,8 @@ namespace Systems.Arena
             _enemiesRemaining = 0;
         }
 
-        #endregion
-
-        #region Coroutines
-
+        
+        
         /// <summary>
         /// Coroutine to spawn enemies at random spawn points based on the provided <see cref="WaveData"/>.
         /// </summary>
@@ -144,10 +139,8 @@ namespace Systems.Arena
             _gamePoolManager.GetEnemyPrefab(bossEnemy.enemy, bossSpawnPoint.position, bossSpawnPoint.rotation);
         }
 
-        #endregion
-
-        #region Helpers
-
+        
+        
         /// <summary>
         /// Gets a random spawn point from the provided spawn points array.
         /// </summary>
@@ -157,10 +150,8 @@ namespace Systems.Arena
             return spawnPoints[Random.Range(0, spawnPoints.Length)];
         }
 
-        #endregion
-
-        #region Unity Lifecycle
-
+        
+        
         /// <summary>
         /// Initializes references for enemy management and game pooling.
         /// </summary>
@@ -189,6 +180,5 @@ namespace Systems.Arena
             CleanUp();
         }
 
-        #endregion
-    }
+            }
 }

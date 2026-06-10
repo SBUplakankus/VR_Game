@@ -22,8 +22,7 @@ namespace Characters.Enemies
     [RequireComponent(typeof(NavMeshAgent), typeof(Rigidbody))]
     public class EnemyMovement : MonoBehaviour
     {
-        #region Fields
-
+        
         [Header("AI Settings")]
         [SerializeField] private float attackRange = GameConstants.DefaultMeleeAttackRange;
         [SerializeField] private float stoppingDistance = 1.5f;
@@ -43,10 +42,8 @@ namespace Characters.Enemies
         private static Transform _cachedPlayerTransform;
         private static bool _playerSearched;
 
-        #endregion
-
-        #region Properties
-
+        
+        
         /// <summary>
         /// Gets the current AI state of the enemy.
         /// </summary>
@@ -67,10 +64,8 @@ namespace Characters.Enemies
         /// </summary>
         public float AttackRange => attackRange;
 
-        #endregion
-
-        #region Lifecycle Methods
-
+        
+        
         /// <summary>
         /// Initializes the enemy movement component when spawned from the pool.
         /// </summary>
@@ -121,10 +116,8 @@ namespace Characters.Enemies
             }
         }
 
-        #endregion
-
-        #region AI Update
-
+        
+        
         /// <summary>
         /// Updates the AI state machine and movement. Called from EnemyController.
         /// </summary>
@@ -184,10 +177,8 @@ namespace Characters.Enemies
             StopMovement();
         }
 
-        #endregion
-
-        #region Movement
-
+        
+        
         /// <summary>
         /// Finds the player target in the scene.
         /// VR Optimization: Caches player reference statically to avoid repeated FindGameObjectWithTag.
@@ -217,7 +208,7 @@ namespace Characters.Enemies
         /// <summary>
         /// Clears the cached player reference. Call when loading a new scene.
         /// </summary>
-        public static void ClearPlayerCache()
+        private static void ClearPlayerCache()
         {
             _cachedPlayerTransform = null;
             _playerSearched = false;
@@ -302,16 +293,13 @@ namespace Characters.Enemies
             }
         }
 
-        #endregion
-
-        #region Unity Methods
-
+        
+        
         private void Awake()
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        #endregion
-    }
+            }
 }

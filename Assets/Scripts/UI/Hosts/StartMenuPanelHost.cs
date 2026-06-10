@@ -8,8 +8,7 @@ namespace UI.Hosts
 {
     public class StartMenuPanelHost : BasePanelHost
     {
-        #region Fields
-        
+                
         public event Action OnPlayClicked;
         public event Action OnControlsClicked;
         public event Action OnSettingsClicked;
@@ -17,10 +16,8 @@ namespace UI.Hosts
         
         private StartMenuPanelView _view;
 
-        #endregion
-
-        #region Class Methods
         
+                
         private void OnPlay() => OnPlayClicked?.Invoke();
         private void OnControls() => OnControlsClicked?.Invoke();
         private void OnSettings() => OnSettingsClicked?.Invoke();
@@ -58,16 +55,8 @@ namespace UI.Hosts
             Show();
         }
         
-        #endregion
+                
         
-        #region Unity Methods
-
-        private void OnEnable() => Generate();
-
-        #endregion
-        
-        #region IDisposable
-
         protected override void Dispose()
         {
             UnsubscribeEvents();
@@ -75,6 +64,7 @@ namespace UI.Hosts
             _view = null;
         }
 
-        #endregion
-    }
+        private void OnEnable() => Generate();
+
+            }
 }

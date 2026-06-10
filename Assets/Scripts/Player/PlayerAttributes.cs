@@ -13,17 +13,14 @@ namespace Player
     /// </summary>
     public class PlayerAttributes  : MonoBehaviour
     {
-        #region Fields
-        
+                
         [Header("Attributes")]
         [SerializeField] private IntAttribute playerGold;
         [SerializeField] private IntAttribute playerExperience;
         [SerializeField] private IntAttribute playerLevel;
         
-        #endregion
-        
-        #region Properties
-        
+                
+                
         /// <summary>
         /// Gets the current amount of player gold.
         /// </summary>
@@ -42,16 +39,12 @@ namespace Player
         /// <value>The level from <see cref="playerLevel"/>.</value>
         public int Level => playerLevel.Value;
         
-        #endregion
-        
-        #region Class Functions
-
+                
         
         
-        #endregion
-
-        #region Event Handlers
-
+        
+        
+        
         private void HandleGoldIncrease(int amount) => playerGold.Value += amount;
         private void HandleExperienceIncrease(int amount) => playerExperience.Value += amount;
         private void HandleLevelIncrease(int amount) => playerLevel.Value += amount;
@@ -70,15 +63,12 @@ namespace Player
             GameplayEvents.LevelChanged.Unsubscribe(HandleLevelIncrease);
         }
 
-        #endregion
+                
         
-        #region Unity Functions
-
         private void OnEnable() => SubscribeToEvents();
 
         private void OnDisable() => UnsubscribeToEvents();
         
-        #endregion
-        
+                
     }
 }

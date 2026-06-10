@@ -4,8 +4,7 @@ namespace Events.Registries
 {
     public static class SystemEvents
     {
-        #region Events
-        
+                
         // Save Data
         public static readonly EventChannel SettingsSaveRequested = new();
         public static readonly EventChannel SettingsLoadRequested = new();
@@ -15,10 +14,8 @@ namespace Events.Registries
         // Locale
         public static readonly EventChannel<Locale> LocaleChangeRequested = new();
 
-        #endregion
-
-        #region Methods
-
+        
+        
         public static void Clear()
         {
             SettingsSaveRequested.Clear();
@@ -28,6 +25,5 @@ namespace Events.Registries
             LocaleChangeRequested.Clear();
         }
 
-        #endregion
-    }
+            }
 }

@@ -9,8 +9,7 @@ namespace UI.Views
 {
     public class StartMenuPanelView : BasePanelView
     {
-        #region Fields
-
+        
         private VisualElement _buttonContainer;
         
         public event Action OnPlayClicked;
@@ -18,16 +17,12 @@ namespace UI.Views
         public event Action OnSettingsClicked;
         public event Action OnQuitClicked;
 
-        #endregion
-        
-        #region Properties
-        
+                
+                
         public IReadOnlyList<Button> Buttons => _buttonContainer.Query<Button>().ToList();
         
-        #endregion
-
-        #region Constructors
-
+        
+        
         public StartMenuPanelView(VisualElement root, StyleSheet styleSheet)
         {
             if (!root.styleSheets.Contains(styleSheet))
@@ -36,10 +31,8 @@ namespace UI.Views
             GenerateUI(root);
         }
 
-        #endregion
-
-        #region Methods
-
+        
+        
         private Button CreateButton(string key)
         {
             var button = UIToolkitFactory.CreateButton(key, null);
@@ -77,10 +70,8 @@ namespace UI.Views
             root.Add(Container);
         }
 
-        #endregion
+                
         
-        #region IDisposable
-
         public override void Dispose()
         {
             base.Dispose();
@@ -90,6 +81,5 @@ namespace UI.Views
             _buttonContainer = null;
         }
 
-        #endregion
-    }
+            }
 }

@@ -6,14 +6,8 @@ using UnityEngine;
 
 namespace Characters.Enemies
 {
-    /// <summary>
-    /// Main controller for enemy entities, responsible for managing health, movement, attack, and behavior.
-    /// Coordinates with the object pool manager, enemy events, and associated components.
-    /// </summary>
     public class EnemyController : MonoBehaviour
     {
-        #region Fields
-
         [Header("Components")]
         [SerializeField] private EnemyData enemyData;
 
@@ -25,68 +19,32 @@ namespace Characters.Enemies
 
         private GamePoolManager _gamePoolManager;
 
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        /// Gets or sets this enemy's configuration data.
-        /// </summary>
         public EnemyData Data
         {
             get => enemyData;
             set => enemyData = value;
         }
 
-        /// <summary>
-        /// Event triggered when this enemy dies.
-        /// </summary>
         public Action OnDeath { get; set; }
-
-        /// <summary>
-        /// Gets the enemy's animator component.
-        /// </summary>
         public EnemyAnimator Animator => _enemyAnimator;
-
-        /// <summary>
-        /// Gets the enemy's movement component.
-        /// </summary>
         public EnemyMovement Movement => _enemyMovement;
 
-        #endregion
+        public void DebugKillEnemy() => HandleEnemyDeath();
 
-        #region Methods
-
-        /// <summary>
-        /// Simulates immediate death for debugging purposes.
-        /// </summary>
-        public void DebugKillEnemy()
-        {
-            HandleEnemyDeath();
-        }
-
-        /// <summary>
-        /// Executes logic triggered when the enemy dies.
-        /// This includes despawning the enemy and invoking assigned death effects.
-        /// </summary>
         private void HandleEnemyDeath()
         {
-            // Stop all AI behavior
             _enemyMovement.SetDead();
             _enemyAttack.ResetAttack();
-            
+
             if(!_gamePoolManager)
                 _gamePoolManager = GamePoolManager.Instance;
-            
+
             _gamePoolManager.ReturnEnemyPrefab(this);
             _gamePoolManager.GetWorldAudioPrefab(enemyData?.DeathSfx, transform.position);
 
             OnDeath?.Invoke();
         }
 
-        /// <summary>
-        /// Initializes the enemy with its components and assigns event listeners.
-        /// </summary>
         private void InitEnemy()
         {
             _enemyId.ID = enemyData.EnemyId;
@@ -98,19 +56,12 @@ namespace Characters.Enemies
             GameplayEvents.EnemySpawned.Raise(this);
         }
 
-        /// <summary>
-        /// Prepares this enemy for combat when spawned from the object pool.
-        /// </summary>
-        /// <param name="data">The <see cref="EnemyData"/> defining enemy stats.</param>
         public void OnSpawn(EnemyData data)
         {
             enemyData = data;
             InitEnemy();
         }
 
-        /// <summary>
-        /// Resets the enemy and removes associations before returning to the object pool.
-        /// </summary>
         public void OnDespawn()
         {
             _enemyAnimator.OnDespawn();
@@ -120,23 +71,14 @@ namespace Characters.Enemies
             GameplayEvents.EnemyDespawned.Raise(this);
         }
 
-        /// <summary>
-        /// High priority update for critical AI logic (movement, combat decisions).
-        /// Called by EnemyManager each frame.
-        /// </summary>
         public void HighPriorityUpdate()
         {
             _enemyMovement?.UpdateAI();
-            
+
             if (_enemyMovement && _enemyMovement.IsInAttackRange)
-            {
                 TryAttack();
-            }
         }
 
-        /// <summary>
-        /// Attempts to perform an attack if conditions are met.
-        /// </summary>
         private void TryAttack()
         {
             if (!_enemyAttack) return;
@@ -144,25 +86,6 @@ namespace Characters.Enemies
                 _enemyAttack.TryAttack();
         }
 
-        #endregion
-
-        #region Unity Methods
-
-        /// <summary>
-        /// Validates required components and assigns events on startup.
-        /// </summary>
-        private void Awake()
-        {
-            CacheComponents();
-        }
-
-        #endregion
-
-        #region Helpers
-
-        /// <summary>
-        /// Caches this enemy's components for runtime efficiency.
-        /// </summary>
         private void CacheComponents()
         {
             _enemyHealth = GetComponent<EnemyHealth>();
@@ -173,6 +96,6 @@ namespace Characters.Enemies
             _gamePoolManager = GamePoolManager.Instance;
         }
 
-        #endregion
+        private void Awake() => CacheComponents();
     }
 }

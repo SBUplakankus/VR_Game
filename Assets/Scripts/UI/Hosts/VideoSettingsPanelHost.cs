@@ -8,8 +8,7 @@ namespace UI.Hosts
 {
     public class VideoSettingsPanelHost : MonoBehaviour
     {
-        #region Fields
-
+        
         [Header("Settings")] 
         [SerializeField] private IntAttribute qualitySetting;
         [SerializeField] private IntAttribute aliasingSetting;
@@ -17,10 +16,8 @@ namespace UI.Hosts
         
         private Action _unbindAll;
 
-        #endregion
-
-        #region Methods
-
+        
+        
         private static Action BindDropdown(DropdownField field, IntAttribute setting)
         {
             if (field == null || setting == null) return null;
@@ -61,18 +58,13 @@ namespace UI.Hosts
             _unbindAll += BindDropdown(view.RenderScale, renderScaleSetting);
         }
         
-        private void OnDisable() => DisposeView();
-        
-        #endregion
-
-        #region Dispose
-
         public void DisposeView()
         {
             _unbindAll?.Invoke();
             _unbindAll = null;
         }
 
-        #endregion
-    }
+        private void OnDisable() => DisposeView();
+
+            }
 }

@@ -9,17 +9,14 @@ namespace UI.Controllers
 {
     public class StartMenuController : MonoBehaviour
     {
-        #region Fields
-
+        
         [SerializeField] private StartMenuPanelHost startMenuPanelHost;
         [SerializeField] private SettingsPanelHost settingsPanelHost;
 
         private bool _settingsActive;
         
-        #endregion
+                
         
-        #region Methods
-
         private void ToggleSettings()
         {
             _settingsActive = !_settingsActive;
@@ -47,10 +44,8 @@ namespace UI.Controllers
             startMenuPanelHost.OnQuitClicked -= HandleQuit;
         }
         
-        #endregion
-        
-        #region Event Handlers
-        
+                
+                
         private void HandlePlay()
         {
             BootstrapManager.Instance.LoadScene(GameConstants.Hub);
@@ -71,10 +66,8 @@ namespace UI.Controllers
             Application.Quit();
         }
         
-        #endregion
+                
         
-        #region Unity Methods
-
         private void OnEnable()
         {
             startMenuPanelHost.Generate();
@@ -86,7 +79,6 @@ namespace UI.Controllers
             UnbindButtons();
         }
         
-        #endregion
-        
+                
     }
 }

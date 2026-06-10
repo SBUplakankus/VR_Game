@@ -6,8 +6,7 @@ namespace Events.Registries
 {
     public static class GameplayEvents
     {
-        #region Events
-
+        
         // Arena
         public static readonly EventChannel<int> PlayerDamaged = new();
         public static readonly EventChannel<int> PlayerHealed = new();
@@ -29,10 +28,8 @@ namespace Events.Registries
         public static readonly EventChannel<ArenaState> ArenaStateChanged = new();
         public static readonly EventChannel<ArenaState> ArenaStateChangeRequested = new();
 
-        #endregion
-
-        #region Methods
-
+        
+        
         public static void Clear()
         {
             PlayerDamaged.Clear();
@@ -54,6 +51,5 @@ namespace Events.Registries
             ArenaStateChangeRequested.Clear();
         }
 
-        #endregion
-    }
+            }
 }

@@ -7,8 +7,7 @@ namespace UI.Extensions
 {
     public class TweenTransform : MonoBehaviour, ITweenable
     {
-        #region Fields
-        
+                
         [Header("Display Settings")]
         [SerializeField] private float displayScale = 1f;
         [SerializeField] private float displayStartScale = 0.75f;
@@ -23,16 +22,12 @@ namespace UI.Extensions
         private static readonly Vector3 HiddenScale = Vector3.zero;
         private Tween _currentTween;
 
-        #endregion
-        
-        #region Properties
-        
+                
+                
         public bool IsTweening => _currentTween.isAlive;
         
-        #endregion
-        
-        #region Methods
-        
+                
+                
         public void Show()
         {
             StopTween();
@@ -57,6 +52,5 @@ namespace UI.Extensions
             transform.localScale = startHidden ? HiddenScale : StartScale;   
         }
         
-        #endregion
-    }
+            }
 }

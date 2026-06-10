@@ -11,8 +11,7 @@ namespace UI.Game
     /// </summary>
     public class EnemyHealthBar : MonoBehaviour
     {
-        #region Fields
-
+        
         [Header("UI Elements")] 
         [SerializeField] private UIDocument uiDocument;
         [SerializeField] private StyleSheet styleSheet;
@@ -24,10 +23,8 @@ namespace UI.Game
         private IStyle _healthBarFillStyle;
         private Tween _shakeTween;
         
-        #endregion
-
-        #region Class Functions
-
+        
+        
         private void ShakeHealthBar()
         {
             if(_shakeTween.isAlive)
@@ -64,10 +61,8 @@ namespace UI.Game
             root.Add(_healthBarContainer);
         }
 
-        #endregion
-
-        #region Unity Functions
-
+        
+        
         private void OnEnable()
         {
             Generate();
@@ -88,6 +83,5 @@ namespace UI.Game
                 _shakeTween.Stop();
         }
 
-        #endregion
-    }
+            }
 }

@@ -14,8 +14,6 @@ namespace Systems.Core
 {
     public class BootstrapManager : MonoBehaviour
     {
-        #region Fields
-
         [Header("Core Dependencies")]
         [SerializeField] private GameDatabaseRegistry gameDatabaseRegistry;
         [SerializeField] private LoadingScreenController loadingScreen;
@@ -32,27 +30,16 @@ namespace Systems.Core
         private WaitForSeconds _fadeWait;
         private bool _isInitialized;
 
-        #endregion
-
-        #region Properties
-
         public static BootstrapManager Instance { get; private set; }
-
-        #endregion
-
-        #region Bootstrap Sequence
 
         private IEnumerator BootstrapSequence()
         {
             Debug.Log("BootstrapManager: Starting bootstrap sequence");
-
             StartBootstrapSequence();
-
             yield return InitializeCoreRegistriesAsync();
             yield return InitializeSaveSystemsAsync();
             yield return InitializePoolingSystemsAsync();
             yield return LoadStartMenuAsync();
-
             CompleteBootstrapSequence();
         }
 
@@ -60,13 +47,9 @@ namespace Systems.Core
         {
             UpdateLoadingProgress(LocalizationKeys.InitializingCore);
             yield return _stepWait;
-
-            if (!ValidateCoreRegistries())
-                yield break;
-
+            if (!ValidateCoreRegistries()) yield break;
             gameDatabaseRegistry.Validate();
             gameDatabaseRegistry.Install();
-
             UpdateLoadingProgress(LocalizationKeys.CoreReady);
             yield return _stepWait;
         }
@@ -75,13 +58,11 @@ namespace Systems.Core
         {
             UpdateLoadingProgress(LocalizationKeys.LoadingSettings);
             yield return _stepWait;
-
             if (settingsSaveFileManager)
             {
                 settingsSaveFileManager.enabled = true;
                 settingsSaveFileManager.InitSettings();
             }
-
             UpdateLoadingProgress(LocalizationKeys.UserDataLoaded);
             yield return _stepWait;
         }
@@ -90,9 +71,7 @@ namespace Systems.Core
         {
             UpdateLoadingProgress(LocalizationKeys.PreloadingAssets);
             yield return _stepWait;
-
             gamePoolManager?.Initialise();
-
             UpdateLoadingProgress(LocalizationKeys.AssetsLoaded);
             yield return _stepWait;
         }
@@ -107,37 +86,23 @@ namespace Systems.Core
             SceneManager.LoadScene(GameConstants.StartMenu);
         }
 
-        #endregion
-
-        #region Scene Management
-
-        public void LoadScene(string sceneName)
-        {
-            StartCoroutine(LoadSceneRoutine(sceneName));
-        }
+        public void LoadScene(string sceneName) => StartCoroutine(LoadSceneRoutine(sceneName));
 
         private IEnumerator LoadSceneRoutine(string sceneName)
         {
             UIEvents.FadeIn.Raise();
             yield return _fadeWait;
-            
             GameplayEvents.GameStateChangeRequested.Raise(GameState.Loading);
             UpdateLoadingProgress(LocalizationKeys.LoadingSceneComplete);
             yield return _fadeWait;
-            
             SceneManager.LoadScene(sceneName);
         }
-
-        #endregion
-
-        #region Utility
 
         private bool ValidateCoreRegistries()
         {
             if (gameDatabaseRegistry) return true;
             Debug.LogError("GameDatabaseRegistry not assigned!");
             return false;
-
         }
 
         private void StartBootstrapSequence()
@@ -159,46 +124,12 @@ namespace Systems.Core
             loadingScreen?.Show(message);
         }
 
-        private void UpdateLoadingProgress(string message)
-        {
-            loadingScreen?.UpdateProgress(message);
-        }
-
+        private void UpdateLoadingProgress(string message) => loadingScreen?.UpdateProgress(message);
         private void HideLoadingScreen()
         {
             UIEvents.FadeIn.Raise();
             loadingScreen?.Hide();
         }
-
-        #endregion
-
-        #region Unity Lifecycle
-
-        private void Awake()
-        {
-            InitializeSingleton();
-
-            // Cache WaitForSeconds to reduce GC allocations
-            _stepWait = new WaitForSeconds(stepDelay);
-            _minimumLoadWait = new WaitForSeconds(minimumLoadTime);
-            _fadeWait = new WaitForSeconds(fadeWaitTime);
-
-            settingsSaveFileManager.enabled = false;
-        }
-
-        private void Start()
-        {
-            StartCoroutine(BootstrapSequence());
-        }
-
-        private void OnDestroy()
-        {
-            Cleanup();
-        }
-
-        #endregion
-
-        #region Singleton
 
         private void InitializeSingleton()
         {
@@ -207,7 +138,6 @@ namespace Systems.Core
                 Destroy(gameObject);
                 return;
             }
-
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
@@ -215,16 +145,25 @@ namespace Systems.Core
         private void Cleanup()
         {
             if (Instance != this) return;
-
             GameDatabases.Clear();
             AudioEvents.Clear();
             GameplayEvents.Clear();
             SystemEvents.Clear();
             UIEvents.Clear();
-
             Instance = null;
         }
 
-        #endregion
+        private void Awake()
+        {
+            InitializeSingleton();
+            _stepWait = new WaitForSeconds(stepDelay);
+            _minimumLoadWait = new WaitForSeconds(minimumLoadTime);
+            _fadeWait = new WaitForSeconds(fadeWaitTime);
+            settingsSaveFileManager.enabled = false;
+        }
+
+        private void Start() => StartCoroutine(BootstrapSequence());
+
+        private void OnDestroy() => Cleanup();
     }
 }

@@ -13,8 +13,7 @@ namespace Data.Weapons
     [CreateAssetMenu(fileName = "WeaponModifier", menuName = "Scriptable Objects/Data/Weapons/Weapon Modifier")]
     public class WeaponModifierData : ScriptableObject
     {
-        #region Fields
-
+        
         [Header("Identity")]
         [SerializeField] private string modifierId;
         public string modifierName;
@@ -45,17 +44,14 @@ namespace Data.Weapons
         [TextArea]
         public string description;
 
-        #endregion
-
-        #region Properties
-
+        
+        
         /// <summary>
         /// Gets the unique identifier for this modifier.
         /// </summary>
         public string ModifierId => modifierId;
 
-        #endregion
-
+        
 #if UNITY_EDITOR
         private void OnValidate()
         {

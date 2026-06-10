@@ -15,16 +15,13 @@ namespace Systems.Arena
     /// </summary>
     public class EnemyManager : MonoBehaviour, IUpdateable
     {
-        #region Fields
-
+        
         private readonly List<EnemyController> _activeEnemies = new();
         private readonly List<EnemyController> _enemyCleanupBuffer = new();
         private GamePoolManager _gamePoolManager;
 
-        #endregion
+                
         
-        #region Properties
-
         /// <summary>
         /// Gets the current count of active enemies being tracked.
         /// </summary>
@@ -35,10 +32,8 @@ namespace Systems.Arena
         /// </summary>
         public Action OnEnemyDeath;
 
-        #endregion
+                
         
-        #region Methods
-
         /// <summary>
         /// Cleans up all active enemies by killing each one and removing them from the tracked set.
         /// </summary>
@@ -65,10 +60,8 @@ namespace Systems.Arena
             _enemyCleanupBuffer.Clear();
         }
 
-        #endregion
+                
         
-        #region Event Handlers
-
         /// <summary>
         /// Adds an enemy to the manager's active enemy collection when it spawns.
         /// </summary>
@@ -99,10 +92,8 @@ namespace Systems.Arena
             }
         }
 
-        #endregion
+                
         
-        #region Unity Methods
-
         /// <summary>
         /// Updates high-priority logic for all tracked enemies.
         /// </summary>
@@ -149,6 +140,5 @@ namespace Systems.Arena
             GameplayEvents.EnemyDespawned.Unsubscribe(HandleEnemyDisable);
         }
 
-        #endregion
-    }
+            }
 }

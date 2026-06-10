@@ -8,10 +8,6 @@ using UnityEngine;
 
 namespace Systems.Core
 {
-    /// <summary>
-    /// Lightweight bootstrap for testing scenes directly in-editor.
-    /// Instantly initializes core systems without loading screens or scene transitions.
-    /// </summary>
     [DefaultExecutionOrder(-100)]
     public class InstantBootstrapManager : MonoBehaviour
     {
@@ -20,6 +16,21 @@ namespace Systems.Core
         [SerializeField] private GamePoolManager gamePoolManager;
 
         private static bool _initialized;
+
+        private void Initialize()
+        {
+            Debug.Log("InstantBootstrapManager: Initializing test bootstrap");
+
+            if (gameDatabaseRegistry)
+            {
+                gameDatabaseRegistry.Validate();
+                gameDatabaseRegistry.Install();
+            }
+            else
+                Debug.LogError("InstantBootstrapManager: GameDatabaseRegistry missing!");
+
+            gamePoolManager?.Initialise();
+        }
 
         private void Awake()
         {
@@ -32,33 +43,10 @@ namespace Systems.Core
 
             _initialized = true;
             DontDestroyOnLoad(gameObject);
-
             Initialize();
 #else
             Destroy(gameObject);
 #endif
-        }
-
-        private void Initialize()
-        {
-            Debug.Log("InstantBootstrapManager: Initializing test bootstrap");
-
-            // Databases
-            if (gameDatabaseRegistry)
-            {
-                gameDatabaseRegistry.Validate();
-                gameDatabaseRegistry.Install();
-            }
-            else
-            {
-                Debug.LogError("InstantBootstrapManager: GameDatabaseRegistry missing!");
-            }
-
-            // Pooling
-            if (gamePoolManager)
-            {
-                gamePoolManager.Initialise();
-            }
         }
 
         private void OnDestroy()

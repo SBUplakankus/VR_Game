@@ -8,16 +8,13 @@ namespace Systems.Arena
 {
     public class ArenaPauseController : MonoBehaviour
     {
-        #region Fields
-        
+                
         [Header("Input Actions")]
         [SerializeField] private InputActionReference pauseAction;
         private bool _isPaused;
 
-        #endregion
-        
-        #region Methods
-        
+                
+                
         private void OnPauseButtonPressed(InputAction.CallbackContext context) => TogglePause();
 
         private void Unpause()
@@ -63,6 +60,5 @@ namespace Systems.Arena
             }
         }
         
-        #endregion
-    }
+            }
 }

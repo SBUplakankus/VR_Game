@@ -11,8 +11,7 @@ namespace Data.Core
     [CreateAssetMenu(menuName = "Scriptable Objects/Data/Core/World Audio")]
     public class WorldAudioData : ScriptableObject
     {
-        #region Audio Properties
-        
+                
         [Header("Audio")]
         [SerializeField] private AudioClip audioClip;
         [SerializeField] private GameObject audioPrefab;
@@ -26,10 +25,8 @@ namespace Data.Core
         [SerializeField, Range(-3f, 3f)] private float pitch = 1f;
         [SerializeField] private Vector2 randomPitchRange = new (0.95f, 1.05f);
         
-        #endregion
-        
-        #region 3D Spatial Settings
-        
+                
+                
         [Header("3D Spatial Settings")]
         [SerializeField, Range(0f, 1f)] private float spatialBlend = 1f;
         [SerializeField, Range(0f, 5f)] private float dopplerLevel = 1f;
@@ -39,10 +36,8 @@ namespace Data.Core
         [Header("Rolloff Mode")]
         [SerializeField] private AudioRolloffMode rolloffMode = AudioRolloffMode.Logarithmic;
         
-        #endregion
-        
-        #region Properties
-        
+                
+                
         /// <summary>
         /// Gets the unique identifier for this audio data.
         /// </summary>
@@ -121,10 +116,8 @@ namespace Data.Core
         /// <value>The <see cref="AudioRolloffMode"/> enumeration value.</value>
         public AudioRolloffMode RolloffMode => rolloffMode;
         
-        #endregion
-        
-        #region Methods
-        
+                
+                
         /// <summary>
         /// Calculates a randomized volume using the base volume and random range.
         /// </summary>
@@ -143,6 +136,5 @@ namespace Data.Core
             return pitch * UnityEngine.Random.Range(randomPitchRange.x, randomPitchRange.y);
         }
         
-        #endregion
-    }
+            }
 }

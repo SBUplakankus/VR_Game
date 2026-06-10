@@ -8,8 +8,7 @@ namespace UI.Views
 {
     public class VideoSettingsPanelView : BasePanelView
     {
-        #region Fields
-        
+                
         public DropdownField Quality {get; private set;}
         public DropdownField AntiAliasing {get; private set;}
         public DropdownField RenderScale {get; private set;}
@@ -40,10 +39,8 @@ namespace UI.Views
             "1.2",
         };
 
-        #endregion
-
-        #region Constructors
-
+        
+        
         public VideoSettingsPanelView(VisualElement root, StyleSheet styleSheet)
         {
             if (!root.styleSheets.Contains(styleSheet))
@@ -52,10 +49,8 @@ namespace UI.Views
             GenerateUI(root);
         }
 
-        #endregion
-
-        #region Methods
-
+        
+        
         private static DropdownField CreateDropdown(string key, List<string> options, int index)
         {
             return UIToolkitFactory.CreateDropdown(key, options, index, classNames: UIToolkitStyles.SettingsDropdown);
@@ -92,6 +87,5 @@ namespace UI.Views
             root.Add(Container);
         }
 
-        #endregion
-    }
+            }
 }

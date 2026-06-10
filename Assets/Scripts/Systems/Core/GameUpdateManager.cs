@@ -18,8 +18,7 @@ namespace Systems.Core
     [DefaultExecutionOrder(-99)]
     public class GameUpdateManager : MonoBehaviour
     {
-        #region Fields
-        
+                
         public static GameUpdateManager Instance { get; private set; }
         
         private readonly List<IUpdateable> _highPriorityUpdates = new();
@@ -32,10 +31,8 @@ namespace Systems.Core
         private float _mediumPriorityTimer;
         private float _lowPriorityTimer;
         
-        #endregion
+                
         
-        #region Class Functions
-
         private void UpdateHighPriority()
         {
             for (var i = 0; i < _highPriorityUpdates.Count; i++)
@@ -103,10 +100,8 @@ namespace Systems.Core
             _lowPriorityUpdates.Remove(updateable);
         }
 
-        #endregion
-        
-        #region Unity Functions
-        
+                
+                
         private void Awake()
         {
             if (Instance != null && Instance != this)
@@ -125,6 +120,5 @@ namespace Systems.Core
             UpdateLowPriority();
         }
         
-        #endregion
-    }
+            }
 }

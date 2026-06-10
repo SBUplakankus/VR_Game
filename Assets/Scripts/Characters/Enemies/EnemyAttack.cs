@@ -14,8 +14,7 @@ namespace Characters.Enemies
     /// </summary>
     public class EnemyAttack : MonoBehaviour
     {
-        #region Fields
-
+        
         [Header("Attack Settings")]
         [SerializeField] private Transform weaponSocket;
         [SerializeField] private float attackCooldown = GameConstants.DefaultAttackCooldown;
@@ -37,10 +36,8 @@ namespace Characters.Enemies
         private const int MaxHitTargets = 4;
         private readonly Collider[] _hitBuffer = new Collider[MaxHitTargets];
 
-        #endregion
-
-        #region Properties
-
+        
+        
         /// <summary>
         /// Returns true if the enemy can perform an attack (cooldown has elapsed).
         /// </summary>
@@ -56,10 +53,8 @@ namespace Characters.Enemies
         /// </summary>
         public int AttackDamage => _weapon != null ? _weapon.TotalDamage : 10;
 
-        #endregion
-
-        #region Initialization
-
+        
+        
         /// <summary>
         /// Initializes the attack component with weapon data and references.
         /// </summary>
@@ -88,10 +83,10 @@ namespace Characters.Enemies
             _lastAttackTime = 0f;
         }
 
-        #endregion
 
-        #region Attack Logic
 
+        
+        
         /// <summary>
         /// Attempts to perform an attack. Returns true if attack was initiated.
         /// </summary>
@@ -163,10 +158,10 @@ namespace Characters.Enemies
             _animator?.OnAttackEnd();
         }
 
-        #endregion
 
-        #region Debug
 
+        
+        
         private void OnDrawGizmosSelected()
         {
             var hitPoint = attackPoint ? attackPoint.position : transform.position + transform.forward;
@@ -174,6 +169,5 @@ namespace Characters.Enemies
             Gizmos.DrawWireSphere(hitPoint, attackRadius);
         }
 
-        #endregion
-    }
+            }
 }

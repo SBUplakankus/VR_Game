@@ -11,8 +11,7 @@ namespace Characters.Enemies
     /// </summary>
     public class EnemyAnimator : AnimatorComponent
     {
-        #region Animator Hashes
-        
+                
         // Attack Hashes (Upper Body Layer - Mixamo)
         private static readonly int LightAttackHash = Animator.StringToHash(GameConstants.LightAttackTrigger);
         private static readonly int LightAttackIndexHash = Animator.StringToHash(GameConstants.LightAttackIndex);
@@ -28,27 +27,21 @@ namespace Characters.Enemies
         private static readonly int IsAttackingHash = Animator.StringToHash(GameConstants.IsAttackingParam);
         private static readonly int WeaponTypeHash = Animator.StringToHash(GameConstants.WeaponTypeParam);
         
-        #endregion
-
-        #region Layer Settings
-
+        
+        
         [Header("Animation Layers")]
         [SerializeField] private int upperBodyLayerIndex = 1;
         [SerializeField] private float upperBodyLayerWeight = 1f;
 
-        #endregion
-
-        #region Properties
-
+        
+        
         /// <summary>
         /// Returns true if the enemy is currently playing an attack animation.
         /// </summary>
         public bool IsAttacking => Animator && Animator.GetBool(IsAttackingHash);
 
-        #endregion
-        
-        #region Methods
-        
+                
+                
         public void OnSpawn()
         {
             if(!Animator)
@@ -83,7 +76,7 @@ namespace Characters.Enemies
         /// Used by Synty locomotion pack for weapon-specific movement animations.
         /// </summary>
         /// <param name="weaponType">The weapon type key from GameConstants.</param>
-        public void SetWeaponType(int weaponType)
+        private void SetWeaponType(int weaponType)
         {
             if (Animator)
                 Animator.SetInteger(WeaponTypeHash, weaponType);
@@ -106,7 +99,7 @@ namespace Characters.Enemies
         /// Sets the upper body layer weight for blending combat animations.
         /// </summary>
         /// <param name="weight">Weight between 0 and 1.</param>
-        public void SetUpperBodyLayerWeight(float weight)
+        private void SetUpperBodyLayerWeight(float weight)
         {
             if (Animator && Animator.layerCount > upperBodyLayerIndex)
             {
@@ -114,10 +107,8 @@ namespace Characters.Enemies
             }
         }
         
-        #endregion
+                
         
-        #region Attacks (Upper Body Layer - Mixamo)
-
         /// <summary>
         /// Plays a random light attack animation on the upper body layer.
         /// Lower body continues with Synty locomotion.
@@ -153,10 +144,8 @@ namespace Characters.Enemies
                 Animator.SetBool(IsAttackingHash, false);
         }
 
-        #endregion
-
-        #region Hit Reactions (Upper Body Layer - Mixamo)
-
+        
+        
         /// <summary>
         /// Plays a hit reaction animation on the upper body layer based on hit direction.
         /// Lower body continues with Synty locomotion for smooth movement.
@@ -183,6 +172,5 @@ namespace Characters.Enemies
             }
         }
 
-        #endregion
-    }
+            }
 }

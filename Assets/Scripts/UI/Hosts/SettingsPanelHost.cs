@@ -9,8 +9,7 @@ namespace UI.Hosts
 {
     public class SettingsPanelHost : BasePanelHost
     {
-        #region Fields
-
+        
         [Header("Panel Hosts")]
         [SerializeField] private AudioSettingsPanelHost audioSettingsPanelHost;
         [SerializeField] private VideoSettingsPanelHost videoSettingsPanelHost;
@@ -25,10 +24,8 @@ namespace UI.Hosts
         private Button _videoTab;
         private Button _languageTab;
         
-        #endregion
-
-        #region Methods
-
+        
+        
         protected override void Dispose()
         {
             UnbindTabs();
@@ -106,8 +103,7 @@ namespace UI.Hosts
             _languageTab.clicked -= ShowLanguageTab;
         }
         
-        #endregion
-
+        
         
     }
 }

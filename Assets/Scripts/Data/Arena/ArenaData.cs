@@ -31,8 +31,7 @@ namespace Data.Arena
     [CreateAssetMenu(fileName = "ArenaData", menuName = "Scriptable Objects/Arena/Arena")]
     public class ArenaData : ScriptableObject
     {
-        #region Fields
-
+        
         [Header("Arena Settings")]
         [SerializeField] private ArenaLocation location = ArenaLocation.GoblinCamp;
         [SerializeField] private ArenaDifficulty difficulty = ArenaDifficulty.Daytime;
@@ -48,10 +47,8 @@ namespace Data.Arena
         [Header("Scene Settings")]
         [SerializeField] private string sceneName;
 
-        #endregion
-
-        #region Properties
-
+        
+        
         public string ID => name;
         public ArenaLocation Location => location;
         public ArenaDifficulty Difficulty => difficulty;
@@ -70,10 +67,8 @@ namespace Data.Arena
         public string BossMusicKey => bossMusic.ID;
         public string Scene => sceneName; 
 
-        #endregion
-        
-        #region Methods
-        
+                
+                
         private string GetLocationKey()
         {
             return location switch
@@ -107,6 +102,5 @@ namespace Data.Arena
             };
         }
         
-        #endregion
-    }
+            }
 }

@@ -11,7 +11,7 @@ namespace Player
         /// <summary>
         /// Enables all the specified components in the XR Rig.
         /// </summary>
-        public void EnableComponents()
+        private void EnableComponents()
         {
             foreach (var component in componentsToToggle)
             {
@@ -23,7 +23,7 @@ namespace Player
         /// <summary>
         /// Disables all the specified components in the XR Rig.
         /// </summary>
-        public void DisableComponents()
+        private void DisableComponents()
         {
             foreach (var component in componentsToToggle)
             {

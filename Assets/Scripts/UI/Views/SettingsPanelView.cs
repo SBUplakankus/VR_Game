@@ -8,18 +8,15 @@ namespace UI.Views
 {
     public class SettingsPanelView : BasePanelView
     {
-        #region Fields
-        
+                
         public Button AudioTab { get; private set; }
         public Button VideoTab { get; private set; }
         public Button LanguageTab { get; private set; }
 
         public VisualElement Content { get; private set; }
 
-        #endregion
-
-        #region Constructors
-
+        
+        
         public SettingsPanelView(VisualElement root, StyleSheet styleSheet)
         {
             if (!root.styleSheets.Contains(styleSheet))
@@ -28,10 +25,8 @@ namespace UI.Views
             GenerateUI(root);
         }
 
-        #endregion
-
-        #region Methods
-
+        
+        
         protected sealed override void GenerateUI(VisualElement root)
         {
             Container = UIToolkitFactory.CreateContainer(
@@ -55,6 +50,5 @@ namespace UI.Views
             root.Add(Container);
         }
 
-        #endregion
-    }
+            }
 }

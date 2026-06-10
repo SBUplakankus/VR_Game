@@ -35,7 +35,7 @@ namespace Audio
             PlayInternal();
         }
 
-        public void PlayAttached(Transform target, Vector3 localOffset)
+        private void PlayAttached(Transform target, Vector3 localOffset)
         {
             if (!_initialized) return;
 
@@ -53,7 +53,7 @@ namespace Audio
             _endTime = Time.time + _audioSource.clip.length + 0.1f;
         }
 
-        public void Stop()
+        private void Stop()
         {
             if (!_initialized) return;
 
@@ -75,10 +75,26 @@ namespace Audio
             _audioSource.loop = false;
         }
 
-        private void Awake()
+        public void OnUpdate(float deltaTime)
         {
-            _audioSource = GetComponent<AudioSource>();
+            if (!_initialized) return;
+
+            if (_followTarget)
+                transform.position = _followTarget.TransformPoint(_followOffset);
+
+            if (Time.time >= _endTime && !_audioSource.isPlaying)
+                ReturnToPool();
         }
+
+        private void ReturnToPool()
+        {
+            if (GamePoolManager.Instance)
+                GamePoolManager.Instance.ReturnWorldAudioPrefab(this);
+            else
+                gameObject.SetActive(false);
+        }
+
+        private void Awake() => _audioSource = GetComponent<AudioSource>();
 
         private void OnEnable()
         {
@@ -102,27 +118,6 @@ namespace Audio
             if (!GameUpdateManager.Instance) return;
 
             GameUpdateManager.Instance.Unregister(this);
-        }
-
-        public void OnUpdate(float deltaTime)
-        {
-            if (!_initialized) return;
-
-            if (_followTarget)
-                transform.position = _followTarget.TransformPoint(_followOffset);
-
-            if (Time.time >= _endTime && !_audioSource.isPlaying)
-                ReturnToPool();
-        }
-
-        private void ReturnToPool()
-        {
-            if (GamePoolManager.Instance)
-            {
-                GamePoolManager.Instance.ReturnWorldAudioPrefab(this);
-            }
-            else
-                gameObject.SetActive(false);
         }
     }
 }

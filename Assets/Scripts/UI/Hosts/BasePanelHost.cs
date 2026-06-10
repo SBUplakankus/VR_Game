@@ -6,18 +6,12 @@ namespace UI.Hosts
 {
     public abstract class BasePanelHost : MonoBehaviour
     {
-        #region Fields
-        
-        [Header("UI Toolkit")] 
+        [Header("UI Toolkit")]
         [SerializeField] protected UIDocument uiDocument;
         [SerializeField] protected StyleSheet styleSheet;
-        
+
         protected VisualElement ContentRoot;
         private ITweenable[] _tweenables;
-        
-        #endregion
-        
-        #region Class Methods
 
         public void Show()
         {
@@ -35,14 +29,10 @@ namespace UI.Hosts
 
         public abstract void Generate();
         protected abstract void Dispose();
-        
-        #endregion
-
-        #region Unity Methods
 
         private void Awake() => _tweenables = GetComponents<ITweenable>();
         private void OnDisable() => Dispose();
-        
+
 #if UNITY_EDITOR
         private void OnValidate()
         {
@@ -53,9 +43,5 @@ namespace UI.Hosts
             Generate();
         }
 #endif
-
-        #endregion
-        
-        
     }
 }

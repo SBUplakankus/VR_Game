@@ -15,13 +15,7 @@ namespace Pooling
     [RequireComponent(typeof(VFXPriorityRouter), typeof(AudioPriorityRouter))]
     public class GamePoolManager : MonoBehaviour
     {
-        #region Singleton
-
         public static GamePoolManager Instance { get; private set; }
-
-        #endregion
-
-        #region Performance Settings
 
         [Header("Pool Load Settings")]
         [SerializeField] private int prewarmCount = 5;
@@ -35,47 +29,16 @@ namespace Pooling
         private VFXPriorityRouter _vfxRouter;
         private AudioPriorityRouter _audioRouter;
 
-        #endregion
-
-        #region Pool Roots (Persistent)
-
         private Transform _poolRoot;
         private Transform _enemyRoot;
         private Transform _weaponRoot;
         private Transform _particleRoot;
         private Transform _audioRoot;
 
-        #endregion
-
-        #region Pools
-
         private readonly Dictionary<EnemyData, ObjectPool<GameObject>> _enemyPoolDictionary = new();
         private readonly Dictionary<WeaponData, ObjectPool<GameObject>> _weaponPoolDictionary = new();
         private readonly Dictionary<ParticleData, ObjectPool<GameObject>> _particlePoolDictionary = new();
         private readonly Dictionary<WorldAudioData, ObjectPool<GameObject>> _worldAudioPoolDictionary = new();
-
-        #endregion
-
-        #region Unity Methods
-
-        private void Awake()
-        {
-            if (Instance != null)
-            {
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
-            _vfxRouter = GetComponent<VFXPriorityRouter>() ?? gameObject.AddComponent<VFXPriorityRouter>();
-            _audioRouter = GetComponent<AudioPriorityRouter>() ?? gameObject.AddComponent<AudioPriorityRouter>();
-            
-            DontDestroyOnLoad(gameObject);
-        }
-
-        #endregion
-
-        #region Pool Root Creation
 
         private void CreatePoolRoots()
         {
@@ -94,10 +57,6 @@ namespace Pooling
             go.transform.SetParent(_poolRoot);
             return go.transform;
         }
-
-        #endregion
-
-        #region Pool Creation
 
         private ObjectPool<GameObject> CreateEnemyPrefabPool(EnemyData data)
         {
@@ -185,10 +144,6 @@ namespace Pooling
             _isPrewarming = false;
         }
 
-        #endregion
-
-        #region Pool Initialisation
-
         private void CreateEnemyPools()
         {
             foreach (var data in GameDatabases.EnemyDatabase.Entries)
@@ -232,16 +187,9 @@ namespace Pooling
                 pool.Release(obj);
         }
 
-        #endregion
-
-        #region Pool Access
-
         private static void OnGet(GameObject obj) { }
 
-        private static void OnRelease(GameObject obj)
-        {
-            obj.SetActive(false);
-        }
+        private static void OnRelease(GameObject obj) => obj.SetActive(false);
 
         private void OnEnemyRelease(GameObject obj)
         {
@@ -263,10 +211,6 @@ namespace Pooling
             obj.transform.SetParent(_particleRoot);
             obj.SetActive(false);
         }
-
-        #endregion
-
-        #region Public API
 
         public void Initialise()
         {
@@ -349,6 +293,19 @@ namespace Pooling
                 Destroy(worldAudio.gameObject);
         }
 
-        #endregion
+        private void Awake()
+        {
+            if (Instance != null)
+            {
+                Destroy(gameObject);
+                return;
+            }
+
+            Instance = this;
+            _vfxRouter = GetComponent<VFXPriorityRouter>() ?? gameObject.AddComponent<VFXPriorityRouter>();
+            _audioRouter = GetComponent<AudioPriorityRouter>() ?? gameObject.AddComponent<AudioPriorityRouter>();
+
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

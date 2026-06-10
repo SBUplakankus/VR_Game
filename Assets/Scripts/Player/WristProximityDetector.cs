@@ -7,8 +7,7 @@ namespace Player
 {
     public class WristProximityDetector : MonoBehaviour, IUpdateable
     {
-        #region Fields
-
+        
         [Header("References")]
         [SerializeField] private Transform wristTransform;
         [SerializeField] private Transform headTransform;
@@ -20,10 +19,8 @@ namespace Player
         public event Action OnWristExitProximity;
 
 
-        #endregion
-        
-        #region Class Methods
-        
+                
+                
         private bool _isInProximity;
 
         private void DetectProximity()
@@ -50,10 +47,8 @@ namespace Player
             }
         }
         
-        #endregion
-
-        #region Unity Methods
-
+        
+        
         public void OnUpdate(float deltaTime)
         {
             DetectProximity();
@@ -71,6 +66,5 @@ namespace Player
             OnWristExitProximity = null;
         }
 
-        #endregion
-    }
+            }
 }

@@ -11,8 +11,7 @@ namespace Systems.Settings
 {
     public class AudioController : MonoBehaviour
     {
-        #region Fields
-
+        
         [Header("Audio Sources")] 
         [SerializeField] private AudioSource musicASource;
         [SerializeField] private AudioSource musicBSource;
@@ -31,10 +30,8 @@ namespace Systems.Settings
         private const float MusicFadeDuration = 2.5f;
         private Coroutine _musicFadeRoutine;
 
-        #endregion
-
-        #region Routines
-
+        
+        
         private IEnumerator CrossFadeMusic(
             AudioSource fromSource,
             AudioSource toSource,
@@ -71,10 +68,8 @@ namespace Systems.Settings
             fromSource.Stop();
         }
 
-        #endregion
-        
-        #region Methods
-        
+                
+                
         private void SetMixerVolume(string mixerKey, float normalized)
         {
             audioMixer.SetFloat(mixerKey, ToDecibels(normalized));
@@ -200,10 +195,8 @@ namespace Systems.Settings
             SetUIVolume(audioSettings.UIVolume.Value);
         }
         
-        #endregion
+                
         
-        #region Unity Methods
-
         private void OnEnable()
         {
             SubscribeEvents();
@@ -214,6 +207,5 @@ namespace Systems.Settings
         private void Start() => SetInitialValues();  
         private void OnDisable() => UnsubscribeEvents();
 
-        #endregion
-    }
+            }
 }

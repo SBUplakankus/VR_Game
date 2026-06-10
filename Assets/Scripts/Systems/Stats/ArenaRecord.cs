@@ -4,8 +4,7 @@ namespace Systems.Stats
 {
     public class ArenaRecord
     {
-        #region Fields
-        
+                
         public string ArenaId;
         public int TimesAttempted;
         public int TimesCompleted;
@@ -17,12 +16,9 @@ namespace Systems.Stats
         public DateTime FirstCompletion;
         public DateTime LastPlayed;
 
-        #endregion
-        
-        #region Properties
-        
+                
+                
         public float CompletionRate => (float)TimesCompleted / TimesAttempted;
 
-        #endregion
-    }
+            }
 }

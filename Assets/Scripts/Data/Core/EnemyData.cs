@@ -9,8 +9,7 @@ namespace Data.Core
     [CreateAssetMenu(fileName = "EnemyData", menuName = "Scriptable Objects/Data/Core/Enemy")]
     public class EnemyData : ScriptableObject
     {
-        #region Fields
-        
+                
         [Header("Identity")]
         [SerializeField] private string enemyId;
 
@@ -29,10 +28,8 @@ namespace Data.Core
         [Header("Combat")] 
         [SerializeField] private WeaponData weapon;
 
-        #endregion
-        
-        #region Methods
-        
+                
+                
         private WorldAudioData GetAmbientSfx()
         {
             if(ambientSfx == null) return null;
@@ -54,10 +51,8 @@ namespace Data.Core
             return deathSfx[sfx];
         }
         
-        #endregion
+                
         
-        #region Properties
-
         /// <summary>
         /// Gets the unique identifier for this enemy type.
         /// </summary>
@@ -112,6 +107,5 @@ namespace Data.Core
         /// <value>The <see cref="WeaponData"/> for combat.</value>
         public WeaponData Weapon => weapon;
         
-        #endregion
-    }
+            }
 }

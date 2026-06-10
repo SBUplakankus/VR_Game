@@ -7,21 +7,9 @@ namespace Tools
 {
     public class WaveDebugTool : MonoBehaviour
     {
-        [Header("Debug References")] 
+        [Header("Debug References")]
         [SerializeField] private EnemyManager enemyManager;
 
-        private void Update()
-        {
-            // Kill all enemies: 'K' key
-            if (Keyboard.current.kKey.wasPressedThisFrame)
-            {
-                KillAllEnemies();
-            }
-        }
-
-        /// <summary>
-        /// Kills all active enemies managed by the WaveSpawner's EnemyManager.
-        /// </summary>
         private void KillAllEnemies()
         {
             if (!enemyManager)
@@ -29,9 +17,15 @@ namespace Tools
                 Debug.LogError("DebugWaveTool: WaveSpawner not assigned.");
                 return;
             }
-            
+
             Debug.Log("DebugWaveTool: KillAllEnemies");
             enemyManager.CleanupEnemies();
+        }
+
+        private void Update()
+        {
+            if (Keyboard.current.kKey.wasPressedThisFrame)
+                KillAllEnemies();
         }
     }
 }

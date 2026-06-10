@@ -9,14 +9,11 @@ namespace UI.Views
 {
     public class BoundAttributePanelView : IDisposable
     {
-        #region Fields
-
+        
         private VisualElement _container;
         
-        #endregion
+                
         
-        #region Constructors
-
         public BoundAttributePanelView(VisualElement root, StyleSheet styleSheet, IntAttribute attribute)
         {
             if(!root.styleSheets.Contains(styleSheet))
@@ -25,10 +22,8 @@ namespace UI.Views
             GenerateUI(root, attribute);
         }
         
-        #endregion
-        
-        #region Methods
-        
+                
+                
         private void GenerateUI(VisualElement root, IntAttribute attribute)
         {
             if (_container != null)
@@ -53,6 +48,5 @@ namespace UI.Views
             _container = null;
         }
         
-        #endregion
-    }
+            }
 }

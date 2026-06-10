@@ -11,8 +11,7 @@ namespace Characters.Base
     /// </summary>
     public abstract class HealthComponent : MonoBehaviour, IDamageable
     {
-        #region Fields
-
+        
         protected event Action OnDeath;
         protected event Action OnDamageTaken;
         
@@ -32,10 +31,8 @@ namespace Characters.Base
         // Cache last hit info for directional reactions
         private Vector3 _lastHitDirection;
 
-        #endregion
-
-        #region Properties
-
+        
+        
         /// <summary>
         /// Gets the normalized health value (0 to 1) for UI display.
         /// </summary>
@@ -66,10 +63,8 @@ namespace Characters.Base
         /// </summary>
         public Vector3 LastHitDirection => _lastHitDirection;
 
-        #endregion
-
-        #region Initialization
-
+        
+        
         /// <summary>
         /// Initializes the Health Component when spawned.
         /// </summary>
@@ -95,10 +90,8 @@ namespace Characters.Base
             OnDeath -= onDeathHandler;
         }
 
-        #endregion
-
-        #region Damage
-
+        
+        
         /// <summary>
         /// Applies damage to this entity. Respects invincibility frames.
         /// </summary>
@@ -157,7 +150,7 @@ namespace Characters.Base
         /// Sets health to a specific value. Use for initialization or special effects.
         /// </summary>
         /// <param name="health">New health value.</param>
-        public void SetHealth(int health)
+        private void SetHealth(int health)
         {
             _currentHealth = Mathf.Clamp(health, 0, _maxHealth);
             
@@ -167,8 +160,7 @@ namespace Characters.Base
             }
         }
 
-        #endregion
-    }
+            }
 
     
 }
